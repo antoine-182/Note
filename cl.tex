@@ -4,8 +4,45 @@
 \section{Amplification de l'effet photoelectrique par le chlore}
 
 \subsection{Neufeld and Wolfire}
+\subsubsection{Profil des espèces dérivés du chlore}
 
-Les réseaux d'astrochimie de PDR ont tendance à négliger le chlore qui a une abondance mineure dans les nuages (voir \autoref{tab:gaz}). Or des espèces dérivées du chlore ont été observées en absorption dans des nuages diffus ($n \sim 10^2\ cm^{-3}$). Des raies de $\mathrm{H}_2\mathrm{Cl}^+$,HCl et $\mathrm{HCl}^+$ excitées ont également été observées par Herschel dans plusieurs sources de la Galaxie et notamment dans le nuage moléculaire de la barre d'Orion \cite{Neufeld2012,Neufire2009}. J'ai ajouté le réseau chimique du chlore dans le modèle PDR afin d'interpréter ces résultats. \newline
+Les réseaux d'astrochimie de PDR ont tendance à négliger le chlore qui a une abondance mineure dans les nuages. Or des espèces dérivées du chlore ont été observées en absorption dans des nuages diffus ($n \sim 10^2\ cm^{-3}$). Des raies de $\mathrm{H}_2\mathrm{Cl}^+$,HCl et $\mathrm{HCl}^+$ excitées ont également été observées par Herschel dans plusieurs sources de la Galaxie et notamment dans le nuage moléculaire de la barre d'Orion \cite{Neufeld2012,Neufire2009}. On a tout d'abord cherché à reproduire les résultats de \cite{Neufeld2009} en calculant les profils de densités à travers le nuage.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0cm},clip,width=1\textwidth]{figure/Cl/neufire/dens.pdf}
+        \caption{}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 2cm 0 1.8cm},clip,width=1\textwidth]{figure/Cl/neufire/HCl_profil.pdf}
+        \caption{}
+    \end{subfigure}
+    \caption{Profil de densité pour un modèle isochore $n_\mathrm{H} = 10^4 \mathrm{cm}^{-3}$ et $\chi_\mathrm{UV} = 10^4$. La figure de gauche (a) est extraite de \cite{Neufire2009} où les profils sont obtenus à partir d'une version modifié du code de \cite{Kaufman2006}. Le trait plein est un calcul avec un taux de ionisation par les rayons cosmiques de $1.8 \times 10^{−17 } \mathrm{s}^{-1}$ par atome d'hydrogène, tandis qu'en pointillé $1.8 \times 10^{−16} \mathrm{s}^{-1}$ . A droite (b) le code PDR de Meudon résout la PDR en utilisant le même réseau chimique proposé dans \cite{Neufire2009}.}
+\end{figure}
+
+Pour valider le réseau chimique implanté dans le code on a imposé au code de Meudon de suivre le profil de température donné dans l'article. On a également supprimé la formation du $\mathrm{H}_2$ sur les grains en utilisant une réaction équivalente permettant sa formation dans le nuage moléculaire qui ne serait pas possible dans un modèle isochore. On voit que l'on retrouve les allures des profils de densités. Les profils du $\mathrm{Cl}$,$\mathrm{Cl}^+$, $\mathrm{HCl}$, $\mathrm{HF}$ sont proches en ordre de grandeurs. Ceux du $\mathrm{H}_2\mathrm{HF}^+$, $\mathrm{HCl}^+$, $\mathrm{CF}^+$ n'ont pas exactement les mêmes allures ni les mêmes valeurs. 
+
+\subsubsection{Existence d'une branche haute température}
+
+Si l'on laisse le code résoudre la température, on voit qu'en fin de zone atomique le nuage chauffe brusquement suggérant qu'il y a deux solutions possibles en cette région du nuage et que le code a sauté sur une des deux solutions...
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} 
+        \centering \includegraphics[trim = {0 0 0 1cm},clip,width=1\textwidth]{figure/Cl/neufire/profil_H_noCl.png}
+        \caption{Sans chlore}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0cm 0 1cm},clip,width=1\textwidth]{figure/Cl/neufire/profil_H.png}
+        \caption{Avec chlore}
+    \end{subfigure}
+    \caption{}
+\end{figure}
+
+
 
 \subsection{Analyse du rôle du chlore}
 
