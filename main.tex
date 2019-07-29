@@ -1,0 +1,147 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{siunitx}
+\usepackage[top=2.5cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage[bottom]{footmisc} % footnote below figures
+\usepackage{verbatim}
+\usepackage{enumitem} % pimp les itemizes
+%Pour mettre deux figures côtes à côtes
+\usepackage{caption} 
+\usepackage{subcaption}
+% reference figure
+\usepackage{hyperref}
+%cropping figures
+\usepackage{adjustbox}
+\usepackage{setspace} %spacing
+\usepackage{ulem} % \ul
+% \usepackage{algorithm2e} % pseudo code
+% \usepackage{siunitx}
+\usepackage{multirow} % pour des tableaux multicolumns
+
+
+% \setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\usepackage{xcolor}
+\definecolor{Mgray}{RGB}{240,240,240}
+\usepackage{listings} % for code
+\usepackage{courier} % change the font
+\lstset{
+    basicstyle=\footnotesize\ttfamily, % Default font
+    numbers=left,              % Location of line numbers
+    numberstyle=\tiny,          % Style of line numbers
+    % stepnumber=2,              % Margin between line numbers
+    numbersep=5pt,              % Margin between line numbers and text
+    tabsize=2,                  % Size of tabs
+    extendedchars=true,
+    breaklines=true,            % Lines will be wrapped
+    keywordstyle=\color{red},
+    frame=lrtb,
+    stringstyle=\color{white}\ttfamily, % Color of strings
+    showspaces=false,
+    showtabs=false,
+    xleftmargin=17pt,
+    framextopmargin = 3pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    %backgroundcolor=\color{lightgray},
+    showstringspaces=false
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        HEADER/FOOTER        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% redefine a style, here it is plain
+\fancypagestyle{fancy}{ 
+\fancyhf{}
+\fancyfoot[RO, LE] {\thepage}
+\fancyhead[RO] {\leftmark}
+\fancyhead[LE] {\rightmark}
+}
+%\pagestyle{fancy}
+%\newcommand{\question}[2]{\vspace{2em} \textbf{Question #1)} #2 \vspace{1em}}
+
+% thanks https://tex.stackexchange.com/questions/114321/extensible-vec-instead-of-overrightarrow 
+
+\newcommand{\xvec}[1]{\overrightarrow{#1}}
+\newcommand{\zer}{\vspace{1em}}
+\newcommand{\uncinq}{\texttt{1.5.2\_rev\_1900}}
+\newcommand{\unsept}{\texttt{1.7.0\_stab\_1926}}
+
+\title{Note de Stage\\Observatoire de Meudon} 
+\author{Antoine Nasser}
+\date{Printemps Été 2019}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        Chapitre        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\thesection}{\Roman{section})}
+\renewcommand{\thesubsection}{\arabic{subsection})}
+\renewcommand{\thesubsubsection}{     \alph{subsubsection})}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%        GO        %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{spacing}{0.98}
+
+
+\maketitle
+\begin{center}{\Large Etude des processus de chauffage et de refroidissement \\ dans les régions de photodissociation (PDR)}\end{center}
+
+
+\setcounter{secnumdepth}{4}
+\vfill
+\tableofcontents
+\vfill
+\begin{figure*}[b!]
+        \centering 
+        \includegraphics[trim = {0 0 0 0cm},clip,width=0.8\textwidth]{figure/LERMA2.jpg}
+\end{figure*}
+\vfill
+
+\setcounter{figure}{0}    
+
+\newpage
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{cl}
+\input{H2}
+\input{exotherm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newpage 
+\section*{Conclusion}
+
+Les observations ne cessent de faire des découvertes surprenantes qui remettent en question notre conception des PDR. Herschel a par exemple observé du $\mathrm{CO}$ excité dans des régions plus chaudes que celles calculées dans nos modèles ce qui nous pousse à revoir les processus thermiques qui interviennent au sein des PDR. La découverte de la bistabilité induite par le chlore en bord de région atomique est un phénomène nouveau qui peut avoir un impact concret sur les raies d'émissions des traceurs. Elle fera probablement l'objet d'une publication. Ces travaux me serviront pour l'étude du chauffage par pompage UV de la molécule $\mathrm{H}_2$ qui peut provoquer une instabilité similaire à celle du chlore. Grâce à de récents résultats de chimie semi-classique sur $\mathrm{H}_2$, nous sommes en mesure de calculer précisément ses niveaux excités et de mieux estimer le chauffage induit par le pompage UV de la molécule. J'étudierai séparément l'instabilité que provoque $\mathrm{H}_2$ ainsi que son impact sur les raies d'émissions puis je la combinerai au modèle de chlore. \newline 
+
+Par ailleurs, le rôle du $\mathrm{H}_2$ excité sur la chimie sera également modifié par les calculs fins des niveaux de la molécule. Il faudra probablement revoir l'impact du $\mathrm{H}_2$ sur les voies de formations des traceurs. Enfin il est prévu de revisiter le taux de chauffage par les rayons cosmiques que l'on estime trop simplement. Ces particules parcourent à de très hautes énergies ($\sim$ GeV) la Galaxie et arrachent des électrons suprathermiques ($\sim$eV) aux molécules à un taux fixe dans le code. Il serait judicieux de chercher à remplacer cette prescription par un spectre de ionisation en énergie qui serait plus réaliste. 
+
+
+
+\newpage
+\bibliographystyle{apalike}
+\bibliography{bib}
+\end{spacing}
+
+\end{document}
