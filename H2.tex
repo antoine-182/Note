@@ -175,8 +175,78 @@ On se rend compte que l'impact est minime alors que le travail pour calculer ces
         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/GloverBossion/nT_comp_H2.png}
         \caption{Profil de densité et température de $\mathrm{CO}$}
     \end{subfigure}
-    \caption{Impact des nouveaux calculs classiques (Bossion) avec la prescription de Glover sur les raies d'émissions des traceurs $\mathrm{H}_2$ et $\mathrm{CO}$}
+    \caption{Impact des calculs semi-classiques (Bossion) avec la prescription de Glover sur les raies d'émissions des traceurs $\mathrm{H}_2$ et $\mathrm{CO}$}
     \label{fig:H2:GloverBossion:emiss}
 \end{figure}
 
+
+\subsection{Quand le chauffage par $\mathrm{H}_2$ prédomine ?}
+
+On trace sur la figure ... le type de chauffage prédominant en bord de nuage. En comparant à la version \uncinq sans le chlore (Janev) on se rend compte que la zone concerné par le chauffage par $\mathrm{H}_2$ est plus large et joue pour des région à plus fort champs de rayonnement. \newline
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.6\textwidth]{figure/H2/mapGloverBossion/mapGmax.png}
+    \caption{}
+    \label{fig:H2:mapGloverBossion:Gmax}
+\end{figure}
+
+On trace le profil de température de quelques modèles (\autoref{fig:H2:mapGloverBossion:profilTx}). 
+\begin{itemize}
+    \item On voit (d) que la température au bord du nuage augmente pour les fort champs de rayonnement et que cette tendance est moins vraie (c) si le chauffage par $\mathrm{H}_2$ cesse de prédominer en bord de nuage. Il vient un $\chi$ où la température augmente de manière raide à l'entrée du nuage moléculaire (a). Je présume que c'est la recombinaison sur les grains qui est accéléré par le début de formation de $\mathrm{H}_2$ mais A VERIFIER. Comparer les $\Gamma$ et $\Lambda$ en fonction de la profondeur du nuage pour quelques modèles qui nous intéresse.
+    \item Si l'on s'enfonce en $\chi$ (b) le chauffage par $\mathrm{H}_2$ commence à prédominer en bord de nuage et on voit qu'il efface l'augmentation de température en bord de nuage moléculaire. Cela se voit aussi en comarant (a) et (c).
+    \item A forte densité (d) il apparaît un plateau après la transition $\mathrm{H}/\mathrm{H}_2$ : est ce que cela est du à l'effet photoélectrique ? pourrait il exciter d'avantage les raies du H2 ? On a vu avant qu'elle pouvait être du au chauffage par réactions chimiques qui devenait important car Glover tue la dissociation du H2. Et si l'on tracait ce T à cet endroit du nuage dans l'espace des paramètres. Peut etre que l'on verrait aussi un bistabilité ? (première fois ou le gradient de T est minimale après la transition)
+    \item La température de la transition ne change pas d'un poil avec $\chi$ mais bouge avec la densité. Un fort champ de rayonnement ne fera que déplacer l'AV mais pas la température. Se comprend un peu car $\Gamma \propto n^2$ et $\Lambda \propto n $ mais pas toujours $\propto \chi$.
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d3p5r2p5_d3p5r3p5_d3p5r4p5.png} 
+        \caption{}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d3p5r4p5_d4p5r4p5_d5p5r4p5.png}
+        \caption{}
+    \end{subfigure}
+
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d4p5r2p5_d4p5r3p5_d4p5r4p5.png} 
+        \caption{}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d5p5r2p5_d5p5r3p5_d5p5r4p5.png} 
+        \caption{}
+    \end{subfigure}
+    \caption{Profil de températures pour différent modèles de la grille (Glover + Bossion). La croix indique la température de la transition $\mathrm{H}/\mathrm{H}_2$ : $n(\mathrm{H})=2n(\mathrm{H}_2)$.}
+    \label{fig:H2:mapGloverBossion:profilTx}
+\end{figure}
+
+On observe également la température de la transition $\mathrm{H}/\mathrm{H}_2$ dans l'espace des paramètres (\autoref{fig:H2:mapGloverBossion:mapTHH2}). La température ne dépend toujours pas de l'intensité du champs de rayonnements. On voit que l'on arrive à dépasser le plateau des (600K) que Franck avait avec Janev. La dissociation étant moins importante on peut avoir du gaz plus chaud. Il sera plus facile de comprendre si c'est uniquement grâce à Bossion ou Glover. \newline 
+
+\begin{figure}[th!]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGlovernoBossion/HH2_T_Franck.png}
+        \caption{}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/HH2_T_Franck.png}
+        \caption{}
+    \end{subfigure}
+    \caption{Carte de températures de la transition $\mathrm{H}/\mathrm{H}_2$ : $n(\mathrm{H})=2n(\mathrm{H}_2)$ avec ou sans les niveaux de Bossion (toujours Glover)}
+    \label{fig:H2:mapGloverBossion:mapTHH2}
+\end{figure}
+
+\underline{Conclusion partielle :} il reste à s'assurer si la zone concernée est du à la nouvelle prescription de Glover ou aux calculs semi classique des niveaux de $\mathrm{H}_2$. Sinon, on voit que le chauffage par $\mathrm{H}_2$ concerne les régions denses et impactent principalement les bords atomiques. Or c'est si l'on chauffait l'entrée du nuage que l'on pourrait espérer observer les changements. Il faudrait regarder les diagrammes d'excitations de quelques espèces comme $\mathrm{H}_2$ ou $\mathrm{CO}$. On se pose également une question sur l'impact de la raideur de la transition sur la température (\autoref{fig:H2:mapGloverBossion:smooth}) : dans certains cas, la transition se fait pour des gaz encore chaud ce qui signifie que l'on pourrait voir des raies plus excitées. Dans quelles conditions ces phénomènes ont ils lieux ? Est ce que cela a un impact sur les raies ? (Sternberg 2014) Enfin on n'a pas observé les instabilités que pouvait provoquer le $\mathrm{H}_2$. Tracer quelques courbes de chauffages et refroidissements pour différent modèles (là le gradient de Tmax) est maximale par exemple. On observait également mieux l'instabilité sur des modèles isobares : faire une petite grille. Pour avancer sur cette histoire de chauffage par réaction chimiqie : tracer $\max_{AV} \Gamma_{ch}/\Gamma_{tot}$ dans l'espace des paramètres et le $argmax_AV  \Gamma_{ch}/\Gamma_{tot}/AV_{HH2}$  qui nous permettra au moins de voir ou le chauffag epar réactions chimiques peut jouer beaucoup. 
+
+\begin{figure}[th!]
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=0.5\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d3p5r2p5_d4p5r2p5_d5p5r2p5.png}
+        \caption{Profils de températures de différents modèles de la grille (Glover + Bossion)}
+        \label{fig:H2:mapGloverBossion:smooth}
+\end{figure}
 
