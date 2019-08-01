@@ -403,76 +403,153 @@ Cette réaction peut produire des électrons en quantité si elle devient domina
 
 \subsection{Traceurs modifiés par le chlore}
 
-On a pu extraire à partir des grilles calculé par le code (\uncinq) les raies d'émissions de chaques modèles et tracer des cartes d'intensités dans l'espace des paramètres et visualiser les spectres des traceurs impactés par l'ajout du chlore dans la chimie. On a étudié de 5 calculs de PDR, avec ou sans chlore, ayant des conditions physiques différentes afin de comparer localement le modèle au code de Meudon. 
+On a pu extraire à partir des grilles calculé par le code (\uncinq) les raies d'émissions de chaques modèles et tracer des cartes d'intensités dans l'espace des paramètres et visualiser les spectres des traceurs impactés par l'ajout du chlore dans la chimie. On a étudié de 5 calculs de PDR, avec ou sans chlore, ayant des conditions physiques différentes afin de comparer localement le modèle au code de Meudon. Les 5 cas correspondent aux noms des modèles : 1. d5p0r4p5, 2. d4p0r4p5, 3. d3p0r4p5, 4. d3p0r3p0,  5. d5p0r3p0. \textbf{Cl155\_n} et \textbf{noCl155\_n} correspondent à des modèles à densité constante avec ou sans chlore de la version \uncinq.
 
 \begin{figure}[!htbp]
     \centering
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=0.6\textwidth]{figure/Cl/grid/mapT_cross.png}
-        \caption{...}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=0.6\textwidth]{figure/Cl/grid/mapT_cross.pdf}
+        \caption{Modèles utilisées pour les traceurs. Les modèles 1 et 2 sont directement concernés par l'ajout du chlore dans le code PDR. Seulement, le code parvient à trouver la solution haute que pour le calcul haute densité (1). Les cas 3, 4 et 5 explore les recoins de l'espace des paramètres. }
 \end{figure}
 
-On a compris que l'ajout du chlore : pas de signature, modifiaction des raies, facteur 3..
+\subsubsection{Diagramme d'excitation}
 
-\subsubsection{Traceurs impactés}
-
-Les traceurs impactés par l'ajout du chlore sont $\mathrm{N}$, $\mathrm{N}^+$, $\mathrm{S}$ et $\mathrm{Si}$. \autoref{fig:Cl:gridModelEmiss:yes}
-
+L'ajout du chlore augmente certaines du $\mathrm{N}$, $\mathrm{N}^+$, $\mathrm{S}$, $\mathrm{Si}$ comme on le voit sur la figure (\autoref{fig:Cl:gridModelEmiss:yes}). La solution chaude avec chlore peut avoir des raies d'un facteur 10 fois plus importante. Le changement le plus remarquable est l'azote atomique. Les traceurs pas impactés sont $\mathrm{CS}$, $\mathrm{H}_2\mathrm{O}$, $\mathrm{H}_2$ et le $\mathrm{CO}$. L'ajout du chlore diminue même l'intensité de certaines raies tels que celles du $\mathrm{CS}$ ou $\mathrm{H}_2\mathrm{O}$ Enfin (annexe) les diagrammes d'excitations pour les modèles 3-4-5 ne sont nullement impactés par l'ajout du chlore : ce qui voudrait dire que l'impact du chlore serait confiné dans la région que l'on a determiné.
 
 \begin{figure}[!htbp]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_Np.png}
-        \caption{Spectre de $\mathrm{N}^+$}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_Np.pdf}
+        \caption{$\mathrm{N}^+$}
     \end{subfigure}
     ~ 
    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_N.png}
-        \caption{Spectre de $\mathrm{N}$}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_N.pdf}
+        \caption{$\mathrm{N}$}
     \end{subfigure}
     
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_S.png}
-        \caption{Spectre de $\mathrm{S}$}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_S.pdf}
+        \caption{$\mathrm{S}$}
     \end{subfigure}
     ~
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_Si.png}
-        \caption{Spectre de $\mathrm{Si}$}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_Si.pdf}
+        \caption{$\mathrm{Si}$}
     \end{subfigure}
     
-    \caption{Spectre chlore code PDR \uncinq}
+    \caption{Diagramme d'excitation des traceurs modifiés par l'ajout du chlore dans le code PDR (\uncinq)}
     \label{fig:Cl:gridModelEmiss:yes}
 \end{figure}
-
-
-
-\subsubsection{$\mathrm{CS}$, $\mathrm{H}_2\mathrm{O}$}
-
 
 \begin{figure}[!htbp]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_CS.png}
-        \caption{Spectre de $\mathrm{CS}$}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_CS.pdf}
+        \caption{$\mathrm{CS}$}
     \end{subfigure}
     ~ 
    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_H2O.png}
-        \caption{Spectre de $\mathrm{H}_2\mathrm{O}$}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_H2O.pdf}
+        \caption{$\mathrm{H}_2\mathrm{O}$}
     \end{subfigure}
     
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_H2.png}
-        \caption{Spectre de $\mathrm{H}_2$}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_H2.pdf}
+        \caption{$\mathrm{H}_2$}
     \end{subfigure}
- 
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/I_comp_CO.pdf}
+        \caption{$\mathrm{CO}$}
+    \end{subfigure}
     
-    \caption{Spectre chlore code PDR \uncinq}
+    \caption{Diagramme d'excitation des traceurs peu modifiés par l'ajout du chlore dans le code PDR (\uncinq)}
     \label{fig:Cl:gridModelEmiss:no}
 \end{figure}
 
 
-\subsection{Comparaison de quelques modèles}
+\subsubsection{Profils de densités des traceurs}
+
+Pour comprendre les changements causé par le chlore sur les raies des traceurs, on a tracé les profils de densités et températures des traceurs dans le nuage figures \ref{fig:Cl:gridModelEmiss:nT:yes} et \ref{fig:Cl:gridModelEmiss:nT:no}. On remarque que pour le $\mathrm{N}$, la densité en bord atomique, reste identique tandis que pour le $\mathrm{N}^+$, $\mathrm{S}$ et $\mathrm{Si}$ leurs densités augmentent d'un facteur $\times 2$ à $\times 6$ en plus de l'augmentation de température. Ces raies seraient excités principalement dans les bords atomiques de la PDR et sont touché par l'ajout du chlore. Les autres espèces ($\mathrm{CS}$, $\mathrm{H}_2\mathrm{O}$, $\mathrm{H}_2$ et $\mathrm{CO}$) ne semblent pas impacté par le chlore (hormis $\mathrm{CS}$ d'un facteur $\times 2$. \newline 
+
+Attention, on voit les profils s'effondrer à partir de $A_\mathrm{V} \geq 4$ qui est du à un défaut du code dans le cas des modèles à densités constantes qui ne peut plus calculer la formation de $\mathrm{H}_2$ au sein du nuage moléculaire. 
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/nT_comp_Np.pdf}
+        \caption{$\mathrm{N}^+$}
+    \end{subfigure}
+    ~ 
+   \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/nT_comp_N.pdf}
+        \caption{$\mathrm{N}$}
+    \end{subfigure}
+    
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/nT_comp_S.pdf}
+        \caption{$\mathrm{S}$}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/nT_comp_Si.pdf}
+        \caption{$\mathrm{Si}$}
+    \end{subfigure}
+    
+    \caption{Profils de densité des traceurs modifiés par l'ajout du chlore dans le code PDR (\uncinq)}
+    \label{fig:Cl:gridModelEmiss:nT:yes}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/nT_comp_CS.pdf}
+        \caption{$\mathrm{CS}$}
+    \end{subfigure}
+    ~ 
+   \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/nT_comp_H2O.pdf}
+        \caption{$\mathrm{H}_2\mathrm{O}$}
+    \end{subfigure}
+    
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/nT_comp_H2.pdf}
+        \caption{$\mathrm{H}_2$}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/nT_comp_CO.pdf}
+        \caption{$\mathrm{CO}$}
+    \end{subfigure}
+    
+    \caption{Profil des densités des traceurs peu modifiés par l'ajout du chlore dans le code PDR (\uncinq)}
+    \label{fig:Cl:gridModelEmiss:nT:no}
+\end{figure}
+
+\subsubsection{Cartes d'intensité}
+
+Les raies que l'on espère pouvoir observer doivent être intenses (supérieur à un "seuil" d'observabilité $\sim 10^{-6} \ \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$), sensible l'ajout du chlore et appartenir aux domaines de longueurs d'ondes observées. La raie la plus prometteuse est la raie [N]$5200.257 \mathrm{A}$ correspondant à la transition (El=2Do,J=5/2)$\rightarrow$(El=4So,J=3/2). On voit sur la figure \ref{fig:Cl:gridModelEmiss:N} que lorsque l'on a du chlore, l'intensité de la raie atteint est de l'ordre de $10^{-3} \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$ et que l'on a une signature de la solution chaude proposée par le chlore. Néanmoins la taille de la zone concernée est petite et il est difficile de bien situer les observations dans l'espace des paramètres. Un autre problème, qui n'est pas des moindres, est que les modèles de PDR commencent après la partir ionisé de l'hydrogène et que le potentiel de ionisation de l'azote est de $14.6 \ \mathrm{eV}$ ce qui signifie que la transition $\mathrm{N}^+/\mathrm{N}$ se fait devant le nuage. Dans le code, l'azote est excité par collision avec les espèces majoritaires du nuage qui sont $\mathrm{H}$,$\mathrm{H}^+$ $\mathrm{H}_2$, $\mathrm{He}$ et $e^-$. La fraction électronique en bord atomique de nuage, dans le cas d'un emballement lié au chlore, est d'un facteur $10^{-4}$-$10^{-3}$ alors qu'il est d'un facteur 1 dans la partie ionisé du nuage. Cette augmentation de l'intensité de la raie sera masqué par le front $\mathrm{N}^+/\mathrm{N}$. \newline
+
+Il faudrait donc trouver des traceurs qui ont des potentiels de ionisations inférieures à celui de l'hydrogène et qui s'activerait uniquement en bord atomique. Enfin on a tracé les diagrammes d'excitations avec des modèles à densités constantes qui sont peut efficaces pour corroborer avec les données. Il faudrait lancer des grilles isobares et voir ce qu'il en est.
+
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/mapI_N.pdf}
+        \caption{Emissivité de la raie [N]$5200.257 \mathrm{A}$ d'une grille de modèle avec Chlore.}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/gridModelEmiss/map_Cl155_n_noCl155_nI_N.pdf}
+        \caption{Rapport des émissivités dans le cas avec ou sans chlore des grilles de modèles}
+    \end{subfigure}
+    
+    \caption{}
+    \label{fig:Cl:gridModelEmiss:N}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Comparaison avec le modèle}
