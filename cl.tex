@@ -83,8 +83,11 @@ Parmi les espèces figurant dans le modèle, la carbone, le soufre, le silicium 
 
 \subsection{Modèle analytique - Chimie}
 
-Les espèces qui contribuent à la production d'électrons en bord de nuage sont les ions hydrogènes $\mathrm{H}^+$, carbones $\mathrm{C}^+$ et soufres $\mathrm{S}^+$. On peut supposer qu'en entrée de nuage atomique le carbone et le soufre sont ionisés ce qui fournit une fraction d'électrons minimale de $10^{-4}$. Le modèle doit retrouver l'augmentation de la densité d'électrons (jusqu'à $2\ 10^{-3}$) pour des températures supérieures à 1000 K.
- 
+Les espèces qui contribuent à la production d'électrons en bord de nuage sont les ions hydrogènes $\mathrm{H}^+$, carbones $\mathrm{C}^+$ et soufres $\mathrm{S}^+$. On peut supposer qu'en entrée de nuage atomique le carbone et le soufre sont ionisés ce qui fournit une fraction d'électrons minimale de $10^{-4}$. Le modèle doit retrouver l'augmentation de la densité d'électrons (jusqu'à $2\ 10^{-3}$) pour des températures supérieures à 1000 K. \newline 
+
+Le modèle que l'on propose extrapole à partir d'un modèle à densité constante fait à $n_\mathrm{H} = 10^5 \, \mathrm{cm}^{-3}$ et $\chi = 10^4$
+
+
 \subsubsection{Ion hydrogène}
 
 J'ai isolé les réactions principales qui font intervenir les ions $\mathrm{H}^+$. Les réactions avec l'oxygène sont négligées car la formation et destruction de $\mathrm{H}^+$ par l'oxygène se compensent totalement en première approximation. 
@@ -231,7 +234,7 @@ Avec $G_0 = 1.71\chi \times 0.5$ car il considère une illumination provenant qu
     \Gamma_{\mathrm{pe}}^{\mathrm{Wolf}} = 10^{-24}\,G_0\,n_\mathrm{H}\, \bbig[ \frac{4.9\times 10^{-2}}{1 + 4\times 10^{-3}\, \frac{G_0 \sqrt{T}}{n_e \phi_\mathrm{PAH}}} + \frac{3.7\times 10^{-2} (T/10^4)^{0.7}}{1 + 2\times 10^{-4}\, \frac{G_0 \sqrt{T}}{n_e \phi_\mathrm{PAH}}} \bbig] \operatorname{erg} \mathrm{cm}^{-3} \mathrm{s}^{-1}
 \end{equation}
 
-avec $\phi_\mathrm{PAH}$ une efficacité de collision compris entre 0 et 1. L'effet photoélectrique est d'autant plus efficace sur les petits grains \cite{DraineBook}. Le choix de $r_\mathrm{min}$ (la taille minimale des grains dans la description MRN) est décisif. Si l'on trace ces formules sur la \autoref{fig:Cl:pePAH} pour différent $\phi_\mathrm{PAH}$ et $r_\mathrm{min}$ on voit que la formule de \cite{Rollig2005} sous-estime le taux calculé par le code PDR de Meudon. Avec $r_\mathrm{min} = 1\,10^7\,\mathrm{nm}$, la prescription de Rollig est 3 fois plus petit que le chauffage calculé par Meudon. Si l'on augmente la taille de grain minimale, on voit que cette écart diminue ce qui est normale car l'on réduit l'efficacité de l'effet photo-électrique en enlevant les petits grains. La prescription de \cite{Wolfire_2003} laisse plus de liberté à travers le $\phi_\mathrm{PAH}$ (not much to say).
+avec $\phi_\mathrm{PAH}$ une efficacité de collision compris entre 0 et 1. L'effet photoélectrique est d'autant plus efficace sur les petits grains \cite{DraineBook}. Le choix de $r_\mathrm{min}$ (la taille minimale des grains dans la description MRN) est décisif. Si l'on trace ces formules sur la \autoref{fig:Cl:pePAH} pour différent $\phi_\mathrm{PAH}$ et $r_\mathrm{min}$ on voit que la formule de \cite{Rollig2005} sous-estime le taux calculé par le code PDR de Meudon. Avec $r_\mathrm{min} = 1\,10^7\,\mathrm{nm}$, la prescription de Rollig est 3 fois plus petit que le chauffage calculé par Meudon. Si l'on augmente la taille de grain minimale, on voit que cette écart diminue ce qui est normale car l'on réduit l'efficacité de l'effet photo-électrique en enlevant les petits grains. La prescription de \cite{Wolfire_2003} laisse plus de liberté à travers le $\phi_\mathrm{PAH}$ (à mieux dire).
 
 \begin{figure}[!h]
     \centering
@@ -244,7 +247,7 @@ avec $\phi_\mathrm{PAH}$ une efficacité de collision compris entre 0 et 1. L'ef
         \centering \includegraphics[trim = {0 0 0 1cm},clip,width=1\textwidth]{figure/Cl/pePAH/pe_formulae_rgmin5.png}
         \caption{$r_\mathrm{min} = 5\,10^{-7}\, \mathrm{nm}$}
     \end{subfigure}
-    \caption{Comparaison des formules de l'effet photoélectrique de \cite{Rollig2005} et \cite{Wolfire_2003} avec le code PDR utilisant différents $r_\mathrm{min}$}
+    \caption{Comparaison des formules de l'effet photoélectrique de \cite{Rollig2005} et \cite{Wolfire_2003} avec le code PDR pour différents $r_\mathrm{min}$}
     \label{fig:Cl:pePAH}
 \end{figure}
 
@@ -324,96 +327,123 @@ Il existe également celle ci \cite{WolfireHollenbachMcKeeTielensBakes_1995} Eq.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Prédiction de la température au bord de nuage}
-\subsubsection{Carte de température en bord atomique du nuage}
+\subsubsection{Carte de température (pas de PAH)}
 
-Que fait le modèle ? On trace en fonction de la température le terme de chauffage $\Gamma$ et $\Lambda$ à partir de la densité d'électrons $n_e$ que l'on obtient à partir du modèle chimique. On cherche les $T_{eq}$ tel que $\Gamma - \Lambda  = 0$ que l'on caractérise de stable si autour du point d'équilibre $\frac{d}{dT}(\Gamma - \Lambda) <0$ et d'instable sinon. On visualise sur \autoref{fig:Cl:grid:mapT} la température maximale atteignable par le bord atomique. La zone hachurée indique les solutions instables.
+Que fait le modèle ? Connaissant les expressions des termes de chauffages $\Gamma$ et $\Lambda$ et étant capable de calculer une densité d'électrons $n_e$ en fonction de la température, il détermine les points $T_{eq}$ tel que $\Gamma - \Lambda  = 0$. Un point d'équilibre est stable (instable) si autour de $T_{eq}$, $\frac{d}{dT}(\Gamma - \Lambda)$ est négatif (positif). \newline 
 
-\textit{Conséquences dynamiques : Hydra d'Emeric}
+
+On visualise sur la figure \ref{fig:Cl:model:mapT:norec} la température maximale que peut atteindre le bord atomique de la PDR. On ne prend pas tout de suite en compte la recombinaison sur les grains. On voit que l'ajout du chlore peut provoquer un emballement de la température pour les PDR denses et fortement illuminées (de type bar d'Orion). La bistabilité représenté en hachuré couvre presque la totalité de la solution chaude.   
 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/model/mapG0nHTeq_pe_OI_CII_ggr_elecrec_lyman_OI_imp.png}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/model/mapG0nHTeq_m6p7_exp_noPAH_1p0PE_OI_CII_ggr_elecrec_lyman_OI.pdf}
         \caption{avec chlore}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/model/mapG0nHTeq_pe_OI_CII_ggr_elecrec_lyman_OI_noCl.png}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/model/mapG0nHTeq_m11p7_exp_noPAH_1p0PE_OI_CII_ggr_elecrec_lyman_OI.pdf}
         \caption{sans chlore}
     \end{subfigure}
-    \caption{Carte de la température en bord de nuage atomique ($A_\mathrm{V}= 10^{-6}$) prédit par le modèle.}
-    \label{fig:Cl:model:mapT}
+    \caption{Carte de température du bord atomique - pas de recombinaison du $\mathrm{H}^+$ sur les grains}
+    \label{fig:Cl:model:mapT:norec}
 \end{figure}
 
-Si l'on prend en compte la recombinaison sur les grains, la prédiction des la densité d'électrons devient quantitavement proche de celle que calculerait le modèle. En retracant les cartes de températures (\autoref{}) on se rend compte qu'elles ne sont pas beaucoup modifiées.
+Si l'on prend en compte la recombinaison sur les grains, la prédiction des la densité d'électrons devient quantitavement proche de celle que calculerait le modèle. En retracant les cartes de températures (figure \ref{fig:Cl:model:mapT:rec}) on voit que la recombinaison sur les grains réduit légerement vers les champs de rayonnement plus fort la solution chaude (faire une map du rapport).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/model/mapG0nHTeq_m6p7_imp_noPAH_1p0PE_OI_CII_ggr_elecrec_lyman_OI.pdf}
+        \caption{avec chlore}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/model/mapG0nHTeq_m11p7_imp_noPAH_1p0PE_OI_CII_ggr_elecrec_lyman_OI.pdf}
+        \caption{sans chlore}
+    \end{subfigure}
+    \caption{Carte de température du bord atomique - prise en compte de la recombinaison du $\mathrm{H}^+$ sur les grains}
+    \label{fig:Cl:model:mapT:rec}
+\end{figure}
+
 
 \subsubsection{Grille de modèles}
 
-Les grilles de modèle de la version du code \uncinq donne des cartes de température plotée sur la \autoref{fig:Cl:grid:mapT}. Le même quadrant est impacté bien que la solution haute ne soit pas toujours atteinte. La région faible champs de rayonnement et haute densité est prédominée par le chauffage par la molécule $\mathrm{H}_2$ qui n'est pas pris en compte dans ce petit modèle.  
+On a lancé des grilles de modèles de la version \uncinq du code PDR de Meudon avec et sans chlore et avons tracé la température de la deuxième cellule des calculs (\ref{fig:Cl:grid:mapT}). \newline 
 
-\textit{Que se passe t'il à faible densité ? Pourquoi n'a t on pas les tangentes horizontales de T ?}
+Les cartes sont différentes de celles prédites par le modèle. La région faible champs de rayonnement et haute densité est prédominée par le chauffage par la molécule $\mathrm{H}_2$ qui n'est pas pris en compte dans le modèle. La quadrant grand $n_\mathrm{H}$ et grand $G_0$ et marqué par l'ajout du chlore. Une partie des modèles arrive à atteindre la solution chaude créé par le chlore. La moitié basse densité et néanmoins sensiblement plus chaude que prédit par le modèle. 
+
+\textit{Que se passe t'il à faible densité ? Pourquoi n'a t on pas les tangentes horizontales de T ? pourquoi un point selle ? peut etre H2}
 
 \begin{figure}[!htbp]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/grid/mapTCl.png}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/grid/mapTba.pdf}
         \caption{avec chlore}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/grid/mapT.png}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/grid/nomapTba.pdf}
         \caption{sans chlore}
     \end{subfigure}
-    \caption{Température en bord de nuage atomique ($A_\mathrm{V}= 10^{-6}$) calculé par le code PDR \uncinq. Les PAH et la recombinaison du $\mathrm{H}^+ $ sur les grains n'ont pas été pris en compte.}
+    \caption{Température en bord de nuage atomique calculé par le code PDR \uncinq. Les PAH n'ont pas été inclus dans le .in}
     \label{fig:Cl:grid:mapT}
 \end{figure}
 
-On a discuté précédemment de la prescription de Rollig qui sous-estime l'efficacité de l'effet photoélectrique pour des modèles de PDR avec une taille minimale de grains de $1\,10^{-7} \, \mathrm{nm}$. Si l'on corrige d'un facteur 3 le taux de chauffage c.a.d. que l'on prend un $\Gamma_{pe}^{'} = 3 \times \Gamma_{pe}^{Rollïg}$, on obtient une nouvelle carte de température assez différente.
+Lorsqu'il y a une instabilité le code PDR peut sauter sur la solution haute ou basse en s'enfonçant dans le nuage. C'est un petit défaut du code qui n'arrive pas à rester sur une branche de solution. Pour essayer de capter toutes les solutions concernées, on trace la température maximale en zone atomique (figure \ref{fig:Cl:grid:mapTmax}). Quelques modèles sont concernés et la zone chaude devient plus grande.
 
-
-\subsubsection{Chauffage à l'entrée du nuage moléculaire}
-
-Il arrive qu'en entrée du nuage moléculaire, la température du gaz augmente de manière irrégulière. Dans cette région, l'effet photoélectrique devient encore plus efficace en raison de l'augmentation de la fraction électronique du nuage. La recombinaison sur les grains est rapide s'il y a une quantité importante d'électron autour des grains. Dans cette zone, le $\mathrm{H}_2$ tente de se former. La voie principale de formation passe par l'association radiative :
-
-\begin{equation}
-    \begin{array}{lccccclr}
-       \mathrm{H}  & + & e^- & \rightarrow & \mathrm{H}^{-} & + & h\nu &  \\
-    \end{array}
-\end{equation}
-
-suivi d'un détachement associatif :
-
-\begin{equation}
-    \begin{array}{lcccccclr}
-       \mathrm{H}  & + &  \mathrm{H}^- & \rightarrow & \mathrm{H}_2 & + & e^- & + & KE\\
-    \end{array}
-\end{equation}
-
-Cette réaction peut produire des électrons en quantité si elle devient dominante ce qui est le cas autour de $A_\mathrm{v} \approx 0.5 \mathrm{mag}$ sur \autoref{fig:Cl:grid:proH}. La formation du $\mathrm{H}_2$ déclenche également une chimie chaude permettant notamment de former le doux $\mathrm{CH}^+$ que l'on observe. Cette augmentation de température ne doit pas être confondue avec l'emballement provoqué par le Chlore.
-
+\textit{Attention, le sursaut de température peut etre provoqué par la recombinaison électronique en bord de nuage moléculaire ! Il faut creuser l'origine de ce sursaut de température}
 
 \begin{figure}[!htbp]
     \centering
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=0.6\textwidth]{figure/Cl/grid/profil_H.png}
-        \caption{...}
-    \label{fig:Cl:grid:proH}
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/grid/mapTmax.pdf}
+        \caption{avec chlore}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/grid/nomapTmax.pdf}
+        \caption{sans chlore}
+    \end{subfigure}
+    \caption{Température maximale en zone atomique calculé par le code PDR \uncinq}
+    \label{fig:Cl:grid:mapTmax}
 \end{figure}
 
-\subsection{Diagramme d'état}
+\subsection{Utilisation de modèles particuliers}
 
-\subsection{Traceurs modifiés par le chlore}
-
-On a pu extraire à partir des grilles calculé par le code (\uncinq) les raies d'émissions de chaques modèles et tracer des cartes d'intensités dans l'espace des paramètres et visualiser les spectres des traceurs impactés par l'ajout du chlore dans la chimie. On a étudié de 5 calculs de PDR, avec ou sans chlore, ayant des conditions physiques différentes afin de comparer localement le modèle au code de Meudon. Les 5 cas correspondent aux noms des modèles : 1. d5p0r4p5, 2. d4p0r4p5, 3. d3p0r4p5, 4. d3p0r3p0,  5. d5p0r3p0. \textbf{Cl155\_n} et \textbf{noCl155\_n} correspondent à des modèles à densité constante avec ou sans chlore de la version \uncinq.
+Pour étudier plus précisément le bord atomique on a extrait à partir des grilles calculé par le code (\uncinq) 5 modèles de PDR, avec ou sans chlore, ayant des conditions physiques différentes. Les 5 cas correspondent aux noms des modèles : 1. d5p0r4p5, 2. d4p0r4p5, 3. d3p0r4p5, 4. d3p0r3p0,  5. d5p0r3p0. \textbf{Cl155\_n} et \textbf{noCl155\_n} correspondent à des modèles à densité constante avec ou sans chlore de la version \uncinq. \newline
 
 \begin{figure}[!htbp]
     \centering
         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=0.6\textwidth]{figure/Cl/grid/mapT_cross.pdf}
-        \caption{Modèles utilisées pour les traceurs. Les modèles 1 et 2 sont directement concernés par l'ajout du chlore dans le code PDR. Seulement, le code parvient à trouver la solution haute que pour le calcul haute densité (1). Les cas 3, 4 et 5 explore les recoins de l'espace des paramètres. }
+        \caption{Les croix situent dans l'espace des paramètres les modèles retenus}
 \end{figure}
 
+\subsubsection{cas 1 et 2}
+On a tracé en trait plein rouge et vert les fonctions de chauffage calculés par le code pour les modèles avec et sans le chlore. En pointillé est représenté la colonne de l'effet photoélectrique. Le chauffage par $\mathrm{H}_2$ est du même ordre de grandeur. L'emballement de la courbe de chauffage est gouverné par l'effet photoélectrique seulement. En bleu (trait plein et pointillé) sont tracé les fonctions de refroidissement pour les deux modèles. Le chlore n'a aucune action sur elles. En noir est représenté les courbes de chauffage et de refroidissement donné par le modèle du chlore que l'on a construit. \newline 
+Pour le cas 1 (à gauche) les courbes de chauffage et refroidissement se coupe en un seul point d'intersection. Il n'y a pas de bistabilité. Le modèle (en noir) décellerait une bistabilité et une température d'équilibre plus froide que celle donnée par le code. Dans le cas 2 (à droite) on a la bistabilité et l'emballement provoqué par le chlore est net. Une fois de plus le modèle que l'on a construit sous estime le chauffage par effet photoélectrique et trouve des températures d'équilibre plus petite que celle calculé par le code. Si le code n'a pas réussi à trouver dans les deux la solution chaude, on est maintenant sur qu'une instabilité peut être provoqué dans ce type de PDR. Ces figures montrent un défaut de la formule de l'effet photoélectrique que l'on utilise (\cite{Rollig2005}) qui est qu'elle sous-estime environ d'un facteur 3 le chauffage calculé par le code \footnote{A titre informatif, on a choisit dans les calculs $r_\mathrm{min} = 1\,10^{-7} \mathrm{m}$ et $r_\mathrm{max} = 3\,10^{-5} \mathrm{m}$ et pas de PAH.}. Ce facteur est présent dans les autres cas que l'on a tracé en annexe (a faire). Un second manque à la formule proposé par Rollig est la forme de la courbe qui s'estompe aux très hautes températures (regarder les explications physiques de pourquoi ca s'arrete quitte à proposer une formule bâtarde). 
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/Cl/particuliers/chofra_d5p0r4p5_d5p0r4p5.pdf}
+        \caption{cas 1}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/Cl/particuliers/chofra_d4p0r4p5_d4p0r4p5.pdf}
+        \caption{cas 2}
+    \end{subfigure}
+    \caption{Courbes de chauffage et refroidissement en fonction de la température (cas 1 et 2)}
+    \label{fig:Cl:particuliers:chofra12}
+\end{figure}
+
+\subsubsection{}
+
+\subsection{Traceurs impactés par le chlore}
 \subsubsection{Diagramme d'excitation}
 
-L'ajout du chlore augmente certaines du $\mathrm{N}$, $\mathrm{N}^+$, $\mathrm{S}$, $\mathrm{Si}$ comme on le voit sur la figure (\autoref{fig:Cl:gridModelEmiss:yes}). La solution chaude avec chlore peut avoir des raies d'un facteur 10 fois plus importante. Le changement le plus remarquable est l'azote atomique. Les traceurs pas impactés sont $\mathrm{CS}$, $\mathrm{H}_2\mathrm{O}$, $\mathrm{H}_2$ et le $\mathrm{CO}$. L'ajout du chlore diminue même l'intensité de certaines raies tels que celles du $\mathrm{CS}$ ou $\mathrm{H}_2\mathrm{O}$ Enfin (annexe) les diagrammes d'excitations pour les modèles 3-4-5 ne sont nullement impactés par l'ajout du chlore : ce qui voudrait dire que l'impact du chlore serait confiné dans la région que l'on a determiné.
+L'ajout du chlore augmente certaines du $\mathrm{N}$, $\mathrm{N}^+$, $\mathrm{S}$, $\mathrm{Si}$ comme on le voit sur la figure (\autoref{fig:Cl:gridModelEmiss:yes}). La solution chaude avec chlore peut avoir des raies d'un facteur 10 fois plus importante. Le changement le plus remarquable est l'azote atomique. Les traceurs pas impactés sont $\mathrm{CS}$, $\mathrm{H}_2\mathrm{O}$, $\mathrm{H}_2$ et le $\mathrm{CO}$. L'ajout du chlore diminue même l'intensité de certaines raies tels que celles du $\mathrm{CS}$ ou $\mathrm{H}_2\mathrm{O}$ Enfin (annexe) les diagrammes d'excitations pour les modèles 3-4-5 ne sont nullement impactés par l'ajout du chlore : ce qui voudrait dire que l'impact du chlore serait confiné dans la région que l'on a déterminé.
 
 \begin{figure}[!htbp]
     \centering
@@ -528,7 +558,7 @@ Attention, on voit les profils s'effondrer à partir de $A_\mathrm{V} \geq 4$ qu
 
 \subsubsection{Cartes d'intensité}
 
-Les raies que l'on espère pouvoir observer doivent être intenses (supérieur à un "seuil" d'observabilité $\sim 10^{-6} \ \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$), sensible l'ajout du chlore et appartenir aux domaines de longueurs d'ondes observées. La raie la plus prometteuse est la raie [N]$5200.257 \mathrm{A}$ correspondant à la transition (El=2Do,J=5/2)$\rightarrow$(El=4So,J=3/2). On voit sur la figure \ref{fig:Cl:gridModelEmiss:N} que lorsque l'on a du chlore, l'intensité de la raie atteint est de l'ordre de $10^{-3} \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$ et que l'on a une signature de la solution chaude proposée par le chlore. Néanmoins la taille de la zone concernée est petite et il est difficile de bien situer les observations dans l'espace des paramètres. Un autre problème, qui n'est pas des moindres, est que les modèles de PDR commencent après la partir ionisé de l'hydrogène et que le potentiel de ionisation de l'azote est de $14.6 \ \mathrm{eV}$ ce qui signifie que la transition $\mathrm{N}^+/\mathrm{N}$ se fait devant le nuage. Dans le code, l'azote est excité par collision avec les espèces majoritaires du nuage qui sont $\mathrm{H}$,$\mathrm{H}^+$ $\mathrm{H}_2$, $\mathrm{He}$ et $e^-$. La fraction électronique en bord atomique de nuage, dans le cas d'un emballement lié au chlore, est d'un facteur $10^{-4}$-$10^{-3}$ alors qu'il est d'un facteur 1 dans la partie ionisé du nuage. Cette augmentation de l'intensité de la raie sera masqué par le front $\mathrm{N}^+/\mathrm{N}$. \newline
+Les raies que l'on espère pouvoir observer doivent être intenses (supérieur à un "seuil" d'observabilité $\sim 10^{-6} \ \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$), sensible l'ajout du chlore et appartenir aux domaines de longueurs d'ondes observées. La raie la plus prometteuse est la raie [N]$5200.257 \mathrm{A}$ correspondant à la transition (El=2Do,J=5/2)$\rightarrow$(El=4So,J=3/2). On voit sur la figure \ref{fig:Cl:gridModelEmiss:N} que lorsque l'on a du chlore, l'intensité de la raie atteint est de l'ordre de $10^{-3} \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$ et que l'on a une signature de la solution chaude proposée par le chlore. Néanmoins la taille de la zone concernée est petite et il est difficile de bien situer les observations dans l'espace des paramètres. Un autre problème, qui n'est pas des moindres, est que les modèles de PDR commencent après la partir ionisé de l'hydrogène et que le potentiel de ionisation de l'azote est de $14.6 \ \mathrm{eV}$ ce qui signifie que la transition $\mathrm{N}^+/\mathrm{N}$ se fait devant le nuage. Dans le code, l'azote est excité par collision avec les espèces majoritaires du nuage qui sont $\mathrm{H}$,$\mathrm{H}^+$ $\mathrm{H}_2$, $\mathrm{He}$ et $e^-$ (PXDR\_COLSPE). La fraction électronique en bord atomique de nuage, dans le cas d'un emballement lié au chlore, est d'un facteur $10^{-4}$-$10^{-3}$ alors qu'il est d'un facteur 1 dans la partie ionisé du nuage. Cette augmentation de l'intensité de la raie sera masqué par le front $\mathrm{N}^+/\mathrm{N}$. \newline
 
 Il faudrait donc trouver des traceurs qui ont des potentiels de ionisations inférieures à celui de l'hydrogène et qui s'activerait uniquement en bord atomique. Enfin on a tracé les diagrammes d'excitations avec des modèles à densités constantes qui sont peut efficaces pour corroborer avec les données. Il faudrait lancer des grilles isobares et voir ce qu'il en est.
 
@@ -553,3 +583,34 @@ Il faudrait donc trouver des traceurs qui ont des potentiels de ionisations inf�
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Comparaison avec le modèle}
+
+
+\subsubsection{Chauffage à l'entrée du nuage moléculaire}
+
+Il arrive qu'en entrée du nuage moléculaire, la température du gaz augmente de manière irrégulière. Dans cette région, l'effet photoélectrique devient encore plus efficace en raison de l'augmentation de la fraction électronique du nuage. La recombinaison sur les grains est rapide s'il y a une quantité importante d'électron autour des grains. Dans cette zone, le $\mathrm{H}_2$ tente de se former. La voie principale de formation passe par l'association radiative :
+
+\begin{equation}
+    \begin{array}{lccccclr}
+       \mathrm{H}  & + & e^- & \rightarrow & \mathrm{H}^{-} & + & h\nu &  \\
+    \end{array}
+\end{equation}
+
+suivi d'un détachement associatif :
+
+\begin{equation}
+    \begin{array}{lcccccclr}
+       \mathrm{H}  & + &  \mathrm{H}^- & \rightarrow & \mathrm{H}_2 & + & e^- & + & KE\\
+    \end{array}
+\end{equation}
+
+Cette réaction peut produire des électrons en quantité si elle devient dominante ce qui est le cas autour de $A_\mathrm{v} \approx 0.5 \mathrm{mag}$ sur \autoref{fig:Cl:grid:proH}. La formation du $\mathrm{H}_2$ déclenche également une chimie chaude permettant notamment de former le doux $\mathrm{CH}^+$ que l'on observe. Cette augmentation de température ne doit pas être confondue avec l'emballement provoqué par le Chlore.
+
+
+\begin{figure}[!htbp]
+    \centering
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=0.6\textwidth]{figure/Cl/grid/profil_H.png}
+        \caption{...}
+    \label{fig:Cl:grid:proH}
+\end{figure}
+
+\subsection{Diagramme d'état}

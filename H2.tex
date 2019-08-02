@@ -147,7 +147,7 @@ sont calculé selon Janev (2008) (retrouver citation). On utilise une nouvelle v
 \end{figure}
 
 
-Néanmoins on connaît mal la proportion effective qui chauffe le gaz par exothermicité alors que l'on compte sur elle pour exciter nos raies. Il faut reprendre l'étude sur l'exothermicité des réactions chimiques et jouer sur cette prescription. \newline 
+Néanmoins on connaît mal la proportion effective qui chauffe le gaz par exothermicité alors que l'on compte sur elle pour exciter nos raies. Il faut reprendre l'étude sur l'exothermicité des réactions chimiques en jouant sur la prescription. On devrait modifier la part de chauffage par exothermicité et peut etre que la structure du nuage sera modifié \newline 
 
 On cherche à visualiser l'impact des nouveaux calculs des niveaux de $\mathrm{H}_2$ sur les raies. On l'a calculé dans le cas de Janev et Glover mais l'on montre seulement la prescription de Glover qui est la plus importante (\autoref{fig:H2:GloverBossion:emiss})
 
@@ -180,9 +180,9 @@ On se rend compte que l'impact est minime alors que le travail pour calculer ces
 \end{figure}
 
 
-\subsection{Quand le chauffage par $\mathrm{H}_2$ prédomine ?}
+\subsection{Où le chauffage par $\mathrm{H}_2$ prédomine-t-il dans le nuage ?}
 
-On trace sur la figure ... le type de chauffage prédominant en bord de nuage. En comparant à la version \uncinq sans le chlore (Janev) on se rend compte que la zone concerné par le chauffage par $\mathrm{H}_2$ est plus large et joue pour des région à plus fort champs de rayonnement. \newline
+On trace sur la figure ... le type de chauffage prédominant en bord de nuage. En comparant à la version \uncinq, sans le chlore (Janev) on se rend compte que la zone concerné par le chauffage par $\mathrm{H}_2$ est plus large et joue pour des région à plus fort champs de rayonnement. \newline
 
 \begin{figure}[h!]
     \centering
@@ -225,6 +225,8 @@ On trace le profil de température de quelques modèles (\autoref{fig:H2:mapGlov
     \label{fig:H2:mapGloverBossion:profilTx}
 \end{figure}
 
+\subsection{Dans quelles conditions le chauffage par $\mathrm{H}_2$ prédomine-t-il ?}
+
 On observe également la température de la transition $\mathrm{H}/\mathrm{H}_2$ dans l'espace des paramètres (\autoref{fig:H2:mapGloverBossion:mapTHH2}). La température ne dépend toujours pas de l'intensité du champs de rayonnements. On voit que l'on arrive à dépasser le plateau des (600K) que Franck avait avec Janev. La dissociation étant moins importante on peut avoir du gaz plus chaud. Il sera plus facile de comprendre si c'est uniquement grâce à Bossion ou Glover. \newline 
 
 \begin{figure}[th!]
@@ -242,7 +244,7 @@ On observe également la température de la transition $\mathrm{H}/\mathrm{H}_2$
     \label{fig:H2:mapGloverBossion:mapTHH2}
 \end{figure}
 
-\underline{Conclusion partielle :} il reste à s'assurer si la zone concernée est du à la nouvelle prescription de Glover ou aux calculs semi classique des niveaux de $\mathrm{H}_2$. Sinon, on voit que le chauffage par $\mathrm{H}_2$ concerne les régions denses et impactent principalement les bords atomiques. Or c'est si l'on chauffait l'entrée du nuage que l'on pourrait espérer observer les changements. Il faudrait regarder les diagrammes d'excitations de quelques espèces comme $\mathrm{H}_2$ ou $\mathrm{CO}$. On se pose également une question sur l'impact de la raideur de la transition sur la température (\autoref{fig:H2:mapGloverBossion:smooth}) : dans certains cas, la transition se fait pour des gaz encore chaud ce qui signifie que l'on pourrait voir des raies plus excitées. Dans quelles conditions ces phénomènes ont ils lieux ? Est ce que cela a un impact sur les raies ? (Sternberg 2014) Enfin on n'a pas observé les instabilités que pouvait provoquer le $\mathrm{H}_2$. Tracer quelques courbes de chauffages et refroidissements pour différent modèles (là le gradient de Tmax) est maximale par exemple. On observait également mieux l'instabilité sur des modèles isobares : faire une petite grille. Pour avancer sur cette histoire de chauffage par réaction chimiqie : tracer $\max_{AV} \Gamma_{ch}/\Gamma_{tot}$ dans l'espace des paramètres et le $argmax_AV  \Gamma_{ch}/\Gamma_{tot}/AV_{HH2}$  qui nous permettra au moins de voir ou le chauffag epar réactions chimiques peut jouer beaucoup. 
+\underline{Conclusion partielle :} il reste à s'assurer si la zone concernée est du à la nouvelle prescription de Glover ou aux calculs semi classique des niveaux de $\mathrm{H}_2$. Sinon, on voit que le chauffage par $\mathrm{H}_2$ concerne les régions denses et impactent principalement les bords atomiques. Or c'est si l'on chauffait l'entrée du nuage que l'on pourrait espérer observer les changements. Il faudrait regarder les diagrammes d'excitations de quelques espèces comme $\mathrm{H}_2$ ou $\mathrm{CO}$. On se pose également une question sur l'impact de la raideur de la transition sur la température (\autoref{fig:H2:mapGloverBossion:smooth}) : dans certains cas, la transition se fait pour des gaz encore chaud ce qui signifie que l'on pourrait voir des raies plus excitées. Dans quelles conditions ces phénomènes ont ils lieux ? Est ce que cela a un impact sur les raies ? (Sternberg 2014) Enfin on n'a pas observé les instabilités que pouvait provoquer le $\mathrm{H}_2$. Tracer quelques courbes de chauffages et refroidissements pour différent modèles (là le gradient de Tmax) est maximale par exemple. On observait également mieux l'instabilité sur des modèles isobares : faire une petite grille. Pour avancer sur cette histoire de chauffage par réaction chimiqie : tracer $\max_{AV} \Gamma_{ch}/\Gamma_{tot}$ dans l'espace des paramètres et le $(argmax_{AV}  \Gamma_{ch}/\Gamma_{tot})/AV_{HH2}$ qui est lié également au $\mathrm{H}_2$ par la réaction avec le $\mathrm{CH}^+$
 
 \begin{figure}[th!]
         \centering \includegraphics[trim = {0 0 0 0},clip,width=0.5\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d3p5r2p5_d4p5r2p5_d5p5r2p5.png}
@@ -250,3 +252,5 @@ On observe également la température de la transition $\mathrm{H}/\mathrm{H}_2$
         \label{fig:H2:mapGloverBossion:smooth}
 \end{figure}
 
+\subsection{Dans quelles conditions peut on voir une instabilité ?}
+\subsection{Quel est l'impact sur les raies des traceurs ?}
