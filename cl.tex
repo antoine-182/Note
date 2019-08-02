@@ -409,9 +409,11 @@ Lorsqu'il y a une instabilité le code PDR peut sauter sur la solution haute ou 
     \label{fig:Cl:grid:mapTmax}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Utilisation de modèles particuliers}
 
-Pour étudier plus précisément le bord atomique on a extrait à partir des grilles calculé par le code (\uncinq) 5 modèles de PDR, avec ou sans chlore, ayant des conditions physiques différentes. Les 5 cas correspondent aux noms des modèles : 1. d5p0r4p5, 2. d4p0r4p5, 3. d3p0r4p5, 4. d3p0r3p0,  5. d5p0r3p0. \textbf{Cl155\_n} et \textbf{noCl155\_n} correspondent à des modèles à densité constante avec ou sans chlore de la version \uncinq. \newline
+Pour étudier plus précisément le bord atomique on a extrait à partir des grilles calculé par le code (\uncinq) 5 modèles de PDR, avec ou sans chlore, ayant des conditions physiques différentes. Les 5 cas correspondent aux noms des modèles : 1. d5p0r4p5, 2. d4p0r4p5, 3. d3p0r4p5, 4. d3p0r3p0,  5. d5p0r3p0. \textbf{Cl155\_n} et \textbf{noCl155\_n} correspondent à des modèles à densité constante avec ou sans chlore de la version \uncinq. 
 
 \begin{figure}[!htbp]
     \centering
@@ -419,7 +421,8 @@ Pour étudier plus précisément le bord atomique on a extrait à partir des gri
         \caption{Les croix situent dans l'espace des paramètres les modèles retenus}
 \end{figure}
 
-\subsubsection{cas 1 et 2}
+\subsubsection{Régions denses et illuminées (cas 1 et 2)}
+
 On a tracé en trait plein rouge et vert les fonctions de chauffage calculés par le code pour les modèles avec et sans le chlore. En pointillé est représenté la colonne de l'effet photoélectrique. Le chauffage par $\mathrm{H}_2$ est du même ordre de grandeur. L'emballement de la courbe de chauffage est gouverné par l'effet photoélectrique seulement. En bleu (trait plein et pointillé) sont tracé les fonctions de refroidissement pour les deux modèles. Le chlore n'a aucune action sur elles. En noir est représenté les courbes de chauffage et de refroidissement donné par le modèle du chlore que l'on a construit. \newline 
 Pour le cas 1 (à gauche) les courbes de chauffage et refroidissement se coupe en un seul point d'intersection. Il n'y a pas de bistabilité. Le modèle (en noir) décellerait une bistabilité et une température d'équilibre plus froide que celle donnée par le code. Dans le cas 2 (à droite) on a la bistabilité et l'emballement provoqué par le chlore est net. Une fois de plus le modèle que l'on a construit sous estime le chauffage par effet photoélectrique et trouve des températures d'équilibre plus petite que celle calculé par le code. Si le code n'a pas réussi à trouver dans les deux la solution chaude, on est maintenant sur qu'une instabilité peut être provoqué dans ce type de PDR. Ces figures montrent un défaut de la formule de l'effet photoélectrique que l'on utilise (\cite{Rollig2005}) qui est qu'elle sous-estime environ d'un facteur 3 le chauffage calculé par le code \footnote{A titre informatif, on a choisit dans les calculs $r_\mathrm{min} = 1\,10^{-7} \mathrm{m}$ et $r_\mathrm{max} = 3\,10^{-5} \mathrm{m}$ et pas de PAH.}. Ce facteur est présent dans les autres cas que l'on a tracé en annexe (a faire). Un second manque à la formule proposé par Rollig est la forme de la courbe qui s'estompe aux très hautes températures (regarder les explications physiques de pourquoi ca s'arrete quitte à proposer une formule bâtarde). 
 
@@ -438,7 +441,76 @@ Pour le cas 1 (à gauche) les courbes de chauffage et refroidissement se coupe e
     \label{fig:Cl:particuliers:chofra12}
 \end{figure}
 
-\subsubsection{}
+Si l'on corrige la formule de Rollig d'un facteur 3 en prenant un ${\Gamma^{\mathrm{Rollïg}}_{pe}}^{*} = 3\times \Gamma^{\mathrm{Rollïg}}_{pe}$ le modèle devient plus juste (figure \ref{fig:Cl:particuliers:chofra12} et colle aux courbes de chauffage calculé par le code. La formule reste néanmoins toujours trop grossière à très hautes températures. 
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/Cl/particuliers/chofra3_d5p0r4p5_d5p0r4p5.pdf}
+        \caption{cas 1}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/Cl/particuliers/chofra3_d4p0r4p5_d4p0r4p5.pdf}
+        \caption{cas 2}
+    \end{subfigure}
+    \caption{Multiplication de l'effet photoélectrique d'un facteur 3}
+    \label{fig:Cl:particuliers:chofra12}
+\end{figure}
+
+\subsubsection{Nouvelle carte de température}
+
+Que devient le carte de température si l'on booste l'effet photoélectrique et prenons ${\Gamma^{\mathrm{Rollïg}}_{pe}}^{*}$ ? On voit (figure \ref{fig:Cl:model:mapT:3norec}) que le chlore agit impacte toutes les régions fortement illuminées et qu'il peut déclencher une instabilité dans les régions peu denses. (est ce que cela a un sens ?). On remarque que l'on obtient également des solutions plus chaudes pour les régions peu denses et fortement illuminé dans le cas sans chlore. On retrouve un peu mieux les solutions chaudes des la moitié basse densité des grilles. 
+\textit{Peut etre que le H2 va tout changer}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/model/mapG0nHTeq_m6p7_imp_noPAH_3p0PE_OI_CII_ggr_elecrec_lyman_OI.pdf}
+        \caption{avec chlore}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/Cl/model/mapG0nHTeq_m11p7_imp_noPAH_3p0PE_OI_CII_ggr_elecrec_lyman_OI.pdf}
+        \caption{sans chlore}
+    \end{subfigure}
+    \caption{Carte de température du bord atomique - pas de recombinaison du $\mathrm{H}^+$ sur les grains}
+    \label{fig:Cl:model:mapT:3norec}
+\end{figure}
+
+\subsubsection{Régions peu denses (cas 3 et 4)}
+
+Pour ce type de PDR, l'ancienne prescription de l'effet photoélectrique dans le modèle ne nous permettait pas de prédire une augmentation de la température en bord de nuage des PDR. Or on voit sur la figure \ref{fig:Cl:particuliers:chofra34} que l'effet photoélectrique s'emballe également pour les PDR peu denses mais que les courbes ne parviennent pas à se couper pour des températures plus chaudes. Cela se joue à peu. \newline
+
+L'existence de deux solutions (une chaude et une froide) que l'on prédit avec les nouvelles cartes de température du modèle de chlore dans les régions basse densité sont, d'après le code PDR, plausibles. Ici encore, la formule de Rollïg surestime l'effet photoélectrique aux hautes températures. 
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/Cl/particuliers/chofra3_d3p0r3p0_d3p0r3p0.pdf}
+        \caption{cas 3}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/Cl/particuliers/chofra3_d3p0r4p5_d3p0r4p5.pdf}
+        \caption{cas 4}
+    \end{subfigure}
+    \caption{Courbes de chauffage et refroidissement régions basses densités}
+    \label{fig:Cl:particuliers:chofra34}
+\end{figure}
+
+\subsubsection{Région dense et peu illuminée (cas 5)}
+
+Dans cette région, l'effet photoélectrique (en pointillé) reste à plat et la fonction de chauffage et dominé par le chauffage par la molécule $\mathrm{H}_2$ qui s'emballe dans une plage de température intermédiaire. Cette observation motive l'étude suivante portant sur le chauffage par la molécule $\mathrm{H}_2$ 
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[trim = {0 0 0 0},clip,width=0.6\textwidth]{figure/Cl/particuliers/chofra3_d5p0r3p0_d5p0r3p0.pdf}
+        \caption{cas 5}
+    \caption{}
+    \label{fig:Cl:particuliers:chofra5}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Traceurs impactés par le chlore}
 \subsubsection{Diagramme d'excitation}
