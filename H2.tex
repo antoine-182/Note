@@ -117,67 +117,167 @@ Dans la version \uncinq les taux de dissociation collisionelle de $\mathrm{H}_2$
     \end{array}
 \end{equation}
 
-sont calculé selon Janev (2008) (retrouver citation). On utilise une nouvelle version du code (\unsept) qui calcule aussi les taux de dissociation selon Janev : rien ne bouge. Les raies du $\mathrm{H}_2$ et du $\mathrm{CO}$ sont les mêmes et le profils de température aussi. On utilise dorénavant pour cette étude la version \unsept. On compare la prescription de Glover à celle de Janev et on remarque plusieurs choses. Tout d'abord les raies d'émissions de $\mathrm{H}_2$ et $\mathrm{CO}$ sont augmentées (\autoref{figu:H2:..}). De plus le profil de température avec la nouvelle prescription (Glover) est modifié un tout petit peu au au bord (+100K) et un peu à l'entrée du nuage moléculaire (+400K) (\autoref{fig:H2:JanevGlover:emiss}). L'augmentation de la température à l'entrée du nuage moléculaire ($A_\mathrm{V} = 0.8$) provient du chauffage par exothermicité des réactions chimiques qui devient majeure (jusqu'à $50\%$ du chauffage total). Janev a tendance à surestimer les taux de dissociation qui sont toutes deux des réactions endothermiques et qui ont des efficacités de refroidissement les plus importantes. Les taux calculé par Glover réduisent leur refroidissement globale sur le nuage ce qui le chauffe. \newline 
+sont calculé selon Janev (2008). Le passage à la nouvelle version du code (\unsept) qui utilise aussi la prescription de Janev ne change rien (encore heureux). Les raies du $\mathrm{H}_2$ et du $\mathrm{CO}$ sont les mêmes et le profils de température aussi. On utilise dorénavant pour cette étude la version \unsept. On compare maintenant la prescription de Glover à celle de Janev. \newline
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùùùùù
 
-\begin{figure}[h!]
+\subsubsection{Bord Atomique - Janev/Glover}
+
+Les grilles sont à compléter notamment H2noBossion. En bord de région atomique, le chauffage par $\mathrm{H}_2$ prédomine sur les mêmes types de PDR (figure \ref{fig:H2:JanevGlover:Gmax}). Les agents refroidissants sont différents (figure \ref{fig:H2:JanevGlover:Lmax}): les réactions chimiques cessent de devenir majoritaire avec la prescription de Glover. En effet la dissociation collisionelle de $\mathrm{H}_2$ qui est endothermique n'est plus favorisé avec la nouvelle prescription. Il fait également plus chaud en bord de nuage (montrer des profils).
+
+\begin{figure}[!htbp]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/JanevGlover/I_comp_CO.png}
-        \caption{Spectre $\mathrm{H}_2$}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/mapGmax.pdf}
+        \caption{Chauffage - Janev}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/JanevGlover/nT_comp_CO.png}
-        \caption{Profil de densité et température de $\mathrm{H}_2$}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/mapGmax.pdf}
+        \caption{Chauffage - Glover}
     \end{subfigure}
-
-    \centering
+    \label{fig:H2:JanevGlover:Gmax}
+    \caption{Taux de chauffage maximal en bord de région atomique}
+    
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/JanevGlover/I_comp_H2.png}
-        \caption{Spectre de $\mathrm{CO}$}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/mapLmax.pdf}
+        \caption{Refroidissement - Janev}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/JanevGlover/nT_comp_H2.png}
-        \caption{Profil de densité et température de $\mathrm{CO}$}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/mapLmax.pdf}
+        \caption{Refroidissement - Glover}
     \end{subfigure}
-    \caption{Impact des prescriptions de Janev et Glover sur les raies d'émissions des traceurs $\mathrm{H}_2$ et $\mathrm{CO}$}
-    \label{fig:H2:JanevGlover:emiss}
+    \caption{Taux de refroidissement maximal en bord de région atomique}
+    
+    \label{fig:H2:JanevGlover:Lmax}
 \end{figure}
 
+Le rapport $\Gamma_{\mathrm{H}_2}/\Gamma_{\mathrm{tot}}$, montre une légère diminution de l'efficacité du chauffage avec la prescription de Glover.  Mais dans les formules du chauffage par pompage de H2, augmenter un peu la température améliore le chauffage (il y a plus de collision), mais est ce que cela touche le taux de H2 en bord de nuage ? 
 
-Néanmoins on connaît mal la proportion effective qui chauffe le gaz par exothermicité alors que l'on compte sur elle pour exciter nos raies. Il faut reprendre l'étude sur l'exothermicité des réactions chimiques en jouant sur la prescription. On devrait modifier la part de chauffage par exothermicité et peut etre que la structure du nuage sera modifié \newline 
+\textit{Est que le chauffage $\Gamma_\mathrm{H}_2$ perd de son efficacité en raison du chauffage un peu plus important ?}
 
-On cherche à visualiser l'impact des nouveaux calculs des niveaux de $\mathrm{H}_2$ sur les raies. On l'a calculé dans le cas de Janev et Glover mais l'on montre seulement la prescription de Glover qui est la plus importante (\autoref{fig:H2:GloverBossion:emiss})
-
-On se rend compte que l'impact est minime alors que le travail pour calculer ces niveaux est lourd. Au moins on sait que connaître précisément les niveaux de $\mathrm{H}_2$ n'est pas décisif dans l'interprétation des spectres d'émissions. Il faut explorer d'autres possibilités. 
-
-\begin{figure}[h!]
+\begin{figure}[!htbp]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/GloverBossion/I_comp_CO.png}
-        \caption{Spectre $\mathrm{H}_2$}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/mapG_H2.pdf}
+        \caption{Janev}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/GloverBossion/nT_comp_CO.png}
-        \caption{Profil de densité et température de $\mathrm{H}_2$}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/mapG_H2.pdf}
+        \caption{Glover}
     \end{subfigure}
-
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/GloverBossion/I_comp_H2.png}
-        \caption{Spectre de $\mathrm{CO}$}
-    \end{subfigure}
-    ~ 
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/GloverBossion/nT_comp_H2.png}
-        \caption{Profil de densité et température de $\mathrm{CO}$}
-    \end{subfigure}
-    \caption{Impact des calculs semi-classiques (Bossion) avec la prescription de Glover sur les raies d'émissions des traceurs $\mathrm{H}_2$ et $\mathrm{CO}$}
-    \label{fig:H2:GloverBossion:emiss}
+    \caption{Taux de chauffage maximal en bord de région atomique}
+    \label{fig:H2:JanevGlover:Gmax}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùùùùù
+
+
+\subsubsection{Transition $\mathrm{H}/\mathrm{H}_2$ - Janev/Glover}
+
+Grâce à la formule de Glover on dépasse le plateau de $600 K$ qu'avait Franck. On atteint des températures allant jusqu'au millier de Kelvin (figure \ref{fig:H2:JanevGlover:THH2}). il faut refaire les carte. Pourquoi ? Il faudrait tracer les .res pour comparer les taux de chauffages et refroidissements aux points de la transition HH2. 
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/HH2_T_Franck.pdf}
+        \caption{Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/HH2_T_Franck.pdf}
+        \caption{Glover}
+    \end{subfigure}
+    \caption{Température transition HH2}
+    \label{fig:H2:JanevGlover:THH2}
+\end{figure}
+
+Est ce que la région atomique augmente ? Franck aimerait car les observations ne sont pas très en accord avec les données observationelles. Sur la figure \ref{fig:H2:JanevGlover:AVHH2} on voit que la transition ne bouge pas tellement.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/HH2_AV_Franck.pdf}
+        \caption{Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/HH2_AV_Franck.pdf}
+        \caption{Glover}
+    \end{subfigure}
+    \caption{Température transition HH2}
+    \label{fig:H2:JanevGlover:AVHH2}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùùùùù
+
+
+\subsubsection{Raies du $\mathrm{CO}$ et $\mathrm{H}_2$ - Janev/Glover}
+à tracer en plus des profils de températures de modèles ...
+
+% et on remarque plusieurs choses. Tout d'abord les raies d'émissions de $\mathrm{H}_2$ et $\mathrm{CO}$ sont augmentées (\autoref{figu:H2:..}). De plus le profil de température avec la nouvelle prescription (Glover) est modifié un tout petit peu au au bord (+100K) et un peu à l'entrée du nuage moléculaire (+400K) (\autoref{fig:H2:JanevGlover:emiss}). L'augmentation de la température à l'entrée du nuage moléculaire ($A_\mathrm{V} = 0.8$) provient du chauffage par exothermicité des réactions chimiques qui devient majeure (jusqu'à $50\%$ du chauffage total). Janev a tendance à surestimer les taux de dissociation qui sont toutes deux des réactions endothermiques et qui ont des efficacités de refroidissement les plus importantes. Les taux calculé par Glover réduisent leur refroidissement globale sur le nuage ce qui le chauffe. \newline 
+
+
+% \begin{figure}[h!]
+%     \centering
+%     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+%         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/JanevGlover/I_comp_CO.png}
+%         \caption{Spectre $\mathrm{H}_2$}
+%     \end{subfigure}
+%     ~ 
+%     \begin{subfigure}[t]{0.45\textwidth}
+%         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/JanevGlover/nT_comp_CO.png}
+%         \caption{Profil de densité et température de $\mathrm{H}_2$}
+%     \end{subfigure}
+
+%     \centering
+%     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+%         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/JanevGlover/I_comp_H2.png}
+%         \caption{Spectre de $\mathrm{CO}$}
+%     \end{subfigure}
+%     ~ 
+%     \begin{subfigure}[t]{0.45\textwidth}
+%         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/JanevGlover/nT_comp_H2.png}
+%         \caption{Profil de densité et température de $\mathrm{CO}$}
+%     \end{subfigure}
+%     \caption{Impact des prescriptions de Janev et Glover sur les raies d'émissions des traceurs $\mathrm{H}_2$ et $\mathrm{CO}$}
+%     \label{fig:H2:JanevGlover:emiss}
+% \end{figure}
+
+
+% Néanmoins on connaît mal la proportion effective qui chauffe le gaz par exothermicité. Il faut reprendre l'étude sur l'exothermicité des réactions chimiques en jouant sur la prescription. \newline 
+
+% On cherche à visualiser l'impact des nouveaux calculs des niveaux de $\mathrm{H}_2$ sur les raies. On l'a calculé dans le cas de Janev et Glover mais l'on montre seulement la prescription de Glover qui est la plus importante (\autoref{fig:H2:GloverBossion:emiss})
+
+% On se rend compte que l'impact est minime alors que le travail pour calculer ces niveaux est lourd. Au moins on sait que connaître précisément les niveaux de $\mathrm{H}_2$ n'est pas décisif dans l'interprétation des spectres d'émissions. 
+
+% \begin{figure}[h!]
+%     \centering
+%     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+%         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/GloverBossion/I_comp_CO.png}
+%         \caption{Spectre $\mathrm{H}_2$}
+%     \end{subfigure}
+%     ~ 
+%     \begin{subfigure}[t]{0.45\textwidth}
+%         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/GloverBossion/nT_comp_CO.png}
+%         \caption{Profil de densité et température de $\mathrm{H}_2$}
+%     \end{subfigure}
+
+%     \centering
+%     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+%         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/GloverBossion/I_comp_H2.png}
+%         \caption{Spectre de $\mathrm{CO}$}
+%     \end{subfigure}
+%     ~ 
+%     \begin{subfigure}[t]{0.45\textwidth}
+%         \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/GloverBossion/nT_comp_H2.png}
+%         \caption{Profil de densité et température de $\mathrm{CO}$}
+%     \end{subfigure}
+%     \caption{Comparaison des raies d'émissions des traceurs $\mathrm{H}_2$ et $\mathrm{CO}$ entre les calculs avec ou sans Bossion}
+%     \label{fig:H2:GloverBossion:emiss}
+% \end{figure}
 
 
 \subsection{Où le chauffage par $\mathrm{H}_2$ prédomine-t-il dans le nuage ?}
