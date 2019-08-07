@@ -69,7 +69,7 @@ On fait de même pour le taux de refroidissement.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 0.4\textwidth]{figure/H2/pomp/fshield.png}
+    \includegraphics[width = 0.4\textwidth]{figure/H2/pumpingH2/fshield.png}
     \caption{Fonction de shielding $f_\mathrm{shield}$ de $\mathrm{H}_2$ en fonction de la colonne densité $N(\mathrm{H}_2)$}
     \label{fig:H2:fshield}
 \end{figure}
@@ -94,19 +94,19 @@ On récupère du code le taux de refroidissement $\Lambda_{\mathrm{PDR}}$ par la
     \end{split}
 \end{equation}
 
-La figure \ref{fig:H2:GammaPDR} compare les taux de chauffages nets utilisant différentes prescriptions à celui calculé dans le code (en noir). Le chauffage calculé par Rollïg et de Bialy&Sternberg ont la même intensité en bord de nuage où la désexcitation collisionnelle est prédominante. 
+La figure \ref{fig:H2:GammaPDR} compare les taux de chauffages nets utilisant différentes prescriptions à celui calculé dans le code (en noir). Le chauffage calculé par Rollïg et de Bialy\&Sternberg ont la même intensité en bord de nuage où la désexcitation collisionnelle est prédominante. 
 
 L'approximation FGK est une méthode qui calcule le spectre du champs de rayonnements à travers le nuage qui prend en compte l'absorption dans le continuum et le carbone. Il prend également en compte l'écrantage de la molécule $\mathrm{H}_2$ (figure \ref{fig:H2:fgk} \cite{FGK}). 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 0.8\textwidth]{figure/H2/fgk.png}
+    \includegraphics[width = 0.6\textwidth]{figure/H2/fgk.png}
     \caption{Densité d'énergie au sein d'un nuage à un $A_\mathrm{V}=0.5$. Les niveaux du $\mathrm{H}$ et de $\mathrm{H}_2$ absorbent certains photons sur certaines raies. A mesure que l'on s'enfonce dans le nuage beaucoup de matière se trouve sur la ligne de visée et les raies d'absroptions s'élargissent (voir optiquement épaisse Draine) \cite{FGK}}
     \label{fig:H2:fgk}
 \end{figure}
 
 
-\subsection{Prescription de Glover et Janev}
+\subsection{Prescription de Glover et Janev (sans les nouveaux taux de collisions)}
 
 Dans la version \uncinq les taux de dissociation collisionelle de $\mathrm{H}_2$ via 
 
@@ -119,33 +119,106 @@ Dans la version \uncinq les taux de dissociation collisionelle de $\mathrm{H}_2$
 
 sont calculé selon Janev (2008). Le passage à la nouvelle version du code (\unsept) qui utilise aussi la prescription de Janev ne change rien (encore heureux). Les raies du $\mathrm{H}_2$ et du $\mathrm{CO}$ sont les mêmes et le profils de température aussi. On utilise dorénavant pour cette étude la version \unsept. On compare maintenant la prescription de Glover à celle de Janev. \newline
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùùùùù
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Comparaison modèles - Janev/Glover}
+
+On utilise un modèle type Barre d'Orion (OrbarBestMod) qui est un modèle isobare et cherchons à voir les changements sur la PDR. On voit que sur la figure \ref{fig:H2:JanevGlover:model} que la transition HH2 s'effectue au même $A_\mathrm{V}$ et que la température au bord du nuage est légèrement plus chaude ($+200K$) avec la prescription de Glover. On observe de plus une bosse dans la température au début du nuage moléculaire. Pourquoi ? \newline 
+
+
+Les raies d'émissions de $\mathrm{H}_2$ et $\mathrm{CO}$ sont plus intenses en utilisant la prescription de Glover (figure \ref{fig:H2:JanevGlover:raiesCOH2}). Les profils des traceurs à travers le nuage révèle que l'on parvient à former plus de $\mathrm{CO}$ après le front moléculaire. Elle s'accompagne d'une hausse de température local. Elle est provoquée par l'augmentation local du chauffage par réactions chimiques. On sait que les dissociations collisionnelles sont les réactions endothermiques les plus efficaces pour refroidir le gaz. Les taux de réactions calculés par Glover les tuent ce qui permet à la recombinaison électronique du $\mathrm{CH}_3^+$ de chauffer le gaz. On voit sur la figure \ref{fig:H2:JanevGlover:heatingr} les taux de chauffage relatifs à travers le nuage : on voit clairement que les réactions chimiques commencent à chauffer le gaz au début du nuage moléculaire.
+
+\textit{A quoi est du le léger décrochage sur le profil de H dans Glover ?}
+\textit{j'ai l'impression que l'on a pas ca dans les modèles à densités constantes}
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/orbar_janevVSglover/janev/profil_H.png}
+        \caption{Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/orbar_janevVSglover/glover/profil_H.png}
+        \caption{Glover}
+    \end{subfigure}
+    \caption{Profil $\mathrm{H}$, $\mathrm{H}_2$ et température}
+    \label{fig:H2:JanevGlover:model}
+\end{figure}
+
+
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/orbar_janevVSglover/I_comp_CO.pdf}
+        \caption{CO - Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/orbar_janevVSglover/I_comp_H2.pdf}
+        \caption{H2 - Glover}
+    \end{subfigure}
+    \label{fig:H2:JanevGlover:Gmax}
+
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/orbar_janevVSglover/nT_comp_CO.pdf}
+        \caption{$n(\mathrm{CO})$ - Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/orbar_janevVSglover/nT_comp_H2.pdf}
+        \caption{$n(\mathrm{H}_2)$ - Glover}
+    \end{subfigure}
+    
+    \caption{}
+    
+    \label{fig:H2:JanevGlover:raiesCOH2}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/orbar_janevVSglover/janev/heating_r.png}
+        \caption{Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/orbar_janevVSglover/glover/heating_r.png}
+        \caption{Glover}
+    \end{subfigure}
+    \caption{Taux de chauffages relatifs en fonction de la profondeur du nuage.}
+    \label{fig:H2:JanevGlover:heatingr}
+\end{figure}
+
 
 \subsubsection{Bord Atomique - Janev/Glover}
 
-Les grilles sont à compléter notamment H2noBossion. En bord de région atomique, le chauffage par $\mathrm{H}_2$ prédomine sur les mêmes types de PDR (figure \ref{fig:H2:JanevGlover:Gmax}). Les agents refroidissants sont différents (figure \ref{fig:H2:JanevGlover:Lmax}): les réactions chimiques cessent de devenir majoritaire avec la prescription de Glover. En effet la dissociation collisionelle de $\mathrm{H}_2$ qui est endothermique n'est plus favorisé avec la nouvelle prescription. Il fait également plus chaud en bord de nuage (montrer des profils).
+On lancé des grilles, à densités constantes, et avons chercher à voir les différences qu'engendrent la nouvelle prescription.
 
-\begin{figure}[!htbp]
+En bord de région atomique, le chauffage par $\mathrm{H}_2$ prédomine sur les mêmes types de PDR (figure \ref{fig:H2:JanevGlover:Gmax}). Les processus de refroidissement sont différents (figure \ref{fig:H2:JanevGlover:Lmax}) : les réactions chimiques ne refroidissent plus les bords atomiques des PDR denses et faiblement illuminées. En effet, le calcul de Glover ne favorise plus la dissociation collisionelle de $\mathrm{H}_2$ qui est endothermique. La température de la partie atomique du nuage n'est que très peu affecté sinon qu'elle est plus chaude d'environ $200K$.
+
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/mapGmax.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_janev/mapGmax.pdf}
         \caption{Chauffage - Janev}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/mapGmax.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_glovernoBossion/mapGmax.pdf}
         \caption{Chauffage - Glover}
     \end{subfigure}
     \label{fig:H2:JanevGlover:Gmax}
     \caption{Taux de chauffage maximal en bord de région atomique}
     
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/mapLmax.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_janev/mapLmax.pdf}
         \caption{Refroidissement - Janev}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/mapLmax.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_glovernoBossion/mapLmax.pdf}
         \caption{Refroidissement - Glover}
     \end{subfigure}
     \caption{Taux de refroidissement maximal en bord de région atomique}
@@ -153,23 +226,39 @@ Les grilles sont à compléter notamment H2noBossion. En bord de région atomiqu
     \label{fig:H2:JanevGlover:Lmax}
 \end{figure}
 
-Le rapport $\Gamma_{\mathrm{H}_2}/\Gamma_{\mathrm{tot}}$, montre une légère diminution de l'efficacité du chauffage avec la prescription de Glover.  Mais dans les formules du chauffage par pompage de H2, augmenter un peu la température améliore le chauffage (il y a plus de collision), mais est ce que cela touche le taux de H2 en bord de nuage ? 
 
-\textit{Est que le chauffage $\Gamma_\mathrm{H}_2$ perd de son efficacité en raison du chauffage un peu plus important ?}
-
-\begin{figure}[!htbp]
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/mapG_H2.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_janev/mapTba.pdf}
         \caption{Janev}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/mapG_H2.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_glovernoBossion/mapTba.pdf}
         \caption{Glover}
     \end{subfigure}
-    \caption{Taux de chauffage maximal en bord de région atomique}
-    \label{fig:H2:JanevGlover:Gmax}
+    \caption{Température au bord atomique de la PDR}
+    \label{fig:H2:JanevGlover:Tba}
+\end{figure}
+
+On a tracé sur la figure \ref{fig:H2:JanevGlover:H2} le rapport $\Gamma_{\mathrm{H}_2}/\Gamma_{\mathrm{tot}}$ au bord atomique du nuage. 
+
+\textit{Est que le chauffage $\Gamma_{\mathrm{H}_2}$ perd de son efficacité car les bords atomiques sont plus chauds?}
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_janev/mapG_H2.pdf}
+        \caption{Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_glovernoBossion/mapG_H2.pdf}
+        \caption{Glover}
+    \end{subfigure}
+    \caption{Rapport du chauffage par $\mathrm{H}_2$ sur le chauffage total en bord de région atomique. Le trait rouge marque la limite où le chauffage par $\mathrm{H}_2$ est prédominant}
+    \label{fig:H2:JanevGlover:H2}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ùùùùù
@@ -177,34 +266,36 @@ Le rapport $\Gamma_{\mathrm{H}_2}/\Gamma_{\mathrm{tot}}$, montre une légère di
 
 \subsubsection{Transition $\mathrm{H}/\mathrm{H}_2$ - Janev/Glover}
 
-Grâce à la formule de Glover on dépasse le plateau de $600 K$ qu'avait Franck. On atteint des températures allant jusqu'au millier de Kelvin (figure \ref{fig:H2:JanevGlover:THH2}). il faut refaire les carte. Pourquoi ? Il faudrait tracer les .res pour comparer les taux de chauffages et refroidissements aux points de la transition HH2. 
+On s'intéresse maintenant aux effets sur la transition $\mathrm{H}/\mathrm{H}_2$. En utilisant la formule de Glover on dépasse le plateau de $600 K$ qu'avait Franck. On atteint des températures allant jusqu'au millier de Kelvin (figure \ref{fig:H2:JanevGlover:THH2} - il faut refaire les cartes, THH2 est trompeur).
 
-\begin{figure}[!htbp]
+\textit{Il faut comprendre pourquoi on dépasse ce plateau ? Pour cela on peut racer les .res aux niveaux de la transition afin de comprendre si des refroidisseurs manquent or not ?}
+
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/HH2_T_Franck.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_janev/HH2_T_Franck.pdf}
         \caption{Janev}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/HH2_T_Franck.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_glovernoBossion/HH2_T_Franck.pdf}
         \caption{Glover}
     \end{subfigure}
     \caption{Température transition HH2}
     \label{fig:H2:JanevGlover:THH2}
 \end{figure}
 
-Est ce que la région atomique augmente ? Franck aimerait car les observations ne sont pas très en accord avec les données observationelles. Sur la figure \ref{fig:H2:JanevGlover:AVHH2} on voit que la transition ne bouge pas tellement.
+Sur la figure \ref{fig:H2:JanevGlover:AVHH2}, on voit que la taille de la zone atomique est la même (ce qui attriste Franck car le modèle n'arrive pas à retrouver les dimensions observées).
 
-\begin{figure}[!htbp]
+\begin{figure}[!h]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/janev/HH2_AV_Franck.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_janev/HH2_AV_Franck.pdf}
         \caption{Janev}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/JanevGlover/glover/HH2_AV_Franck.pdf}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_glovernoBossion/HH2_AV_Franck.pdf}
         \caption{Glover}
     \end{subfigure}
     \caption{Température transition HH2}
@@ -279,22 +370,23 @@ Est ce que la région atomique augmente ? Franck aimerait car les observations n
 %     \label{fig:H2:GloverBossion:emiss}
 % \end{figure}
 
+\subsection{Utilisation des nouveaux taux de collisions (Glover)}
+\subsection{A la recherche de l'instabilité par $\mathrm{H}_2$}
+\subsubsection{Où le chauffage par $\mathrm{H}_2$ prédomine-t-il dans le nuage ?}
 
-\subsection{Où le chauffage par $\mathrm{H}_2$ prédomine-t-il dans le nuage ?}
-
-On trace sur la figure ... le type de chauffage prédominant en bord de nuage. En comparant à la version \uncinq, sans le chlore (Janev) on se rend compte que la zone concerné par le chauffage par $\mathrm{H}_2$ est plus large et joue pour des région à plus fort champs de rayonnement. \newline
+On a choisit quelques modèles parmi l'ensemble des calculs de la version \unsept utilisant les nouveaux taux de collisions. Il s'agit toujours de modèles à densités constantes. Ils sont symbolisé par des cercles pleins (en noirs) sur la figure \ref{fig:H2:mapGloverBossion:Gmax} et ont des conditions physiques différentes. On trace leurs profils de température à travers le nuage et l'on observe plusieurs choses (\autoref{fig:H2:mapGloverBossion:profilTx}) :  
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width = 0.6\textwidth]{figure/H2/mapGloverBossion/mapGmax.png}
+    \includegraphics[width = 0.6\textwidth]{figure/H2/grid_gloverBossion/mapGmax_cross.pdf}
     \caption{}
     \label{fig:H2:mapGloverBossion:Gmax}
 \end{figure}
 
-On trace le profil de température de quelques modèles (\autoref{fig:H2:mapGloverBossion:profilTx}). 
+
 \begin{itemize}
-    \item On voit (d) que la température au bord du nuage augmente pour les fort champs de rayonnement et que cette tendance est moins vraie (c) si le chauffage par $\mathrm{H}_2$ cesse de prédominer en bord de nuage. Il vient un $\chi$ où la température augmente de manière raide à l'entrée du nuage moléculaire (a). Je présume que c'est la recombinaison sur les grains qui est accéléré par le début de formation de $\mathrm{H}_2$ mais A VERIFIER. Comparer les $\Gamma$ et $\Lambda$ en fonction de la profondeur du nuage pour quelques modèles qui nous intéresse.
-    \item Si l'on s'enfonce en $\chi$ (b) le chauffage par $\mathrm{H}_2$ commence à prédominer en bord de nuage et on voit qu'il efface l'augmentation de température en bord de nuage moléculaire. Cela se voit aussi en comarant (a) et (c).
+    \item On voit (d) que la température au bord du nuage augmente pour les fort champs de rayonnement et que cette tendance est moins vraie (c) si le chauffage par $\mathrm{H}_2$ cesse de prédominer en bord de nuage (\ref{fig:H2:mapGloverBossion:Gmax}). Il vient un $\chi$ où la température augmente de manière raide à l'entrée du nuage moléculaire (a - $n_H = 10^{3.5}$ et $\chi = 10^{4.5}$). Je présume que c'est la recombinaison sur les grains qui est accélérée par le début de formation de $\mathrm{H}_2$ mais A VERIFIER. Comparer les $\Gamma$ et $\Lambda$ en fonction de la profondeur du nuage pour quelques modèles qui nous intéresse.
+    \item Si l'on se place à grand $\chi$ (b) le chauffage par $\mathrm{H}_2$ commence à prédominer en bord de nuage et on voit qu'il efface l'augmentation de température en bord de nuage moléculaire à mesure que le nuage devient dense. On voit un phénomène similaire en comparant (a) et (c) : la recombinaison des grains s'intensifie avec le champs de rayonnement.
     \item A forte densité (d) il apparaît un plateau après la transition $\mathrm{H}/\mathrm{H}_2$ : est ce que cela est du à l'effet photoélectrique ? pourrait il exciter d'avantage les raies du H2 ? On a vu avant qu'elle pouvait être du au chauffage par réactions chimiques qui devenait important car Glover tue la dissociation du H2. Et si l'on tracait ce T à cet endroit du nuage dans l'espace des paramètres. Peut être que l'on verrait aussi un bistabilité ? (première fois ou le gradient de T est minimale après la transition)
     \item La température de la transition ne change pas d'un poil avec $\chi$ mais bouge avec la densité. Un fort champ de rayonnement ne fera que déplacer l'AV mais pas la température. Se comprend un peu car $\Gamma \propto n^2$ et $\Lambda \propto n $ mais pas toujours $\propto \chi$.
 \end{itemize}
@@ -302,23 +394,23 @@ On trace le profil de température de quelques modèles (\autoref{fig:H2:mapGlov
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d3p5r2p5_d3p5r3p5_d3p5r4p5.png} 
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/grid_gloverBossion/H2_n_1p7_bossion_d3p5r2p5_d3p5r3p5_d3p5r4p5.png} 
         \caption{}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d3p5r4p5_d4p5r4p5_d5p5r4p5.png}
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/grid_gloverBossion/H2_n_1p7_bossion_d3p5r4p5_d4p5r4p5_d5p5r4p5.png}
         \caption{}
     \end{subfigure}
 
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d4p5r2p5_d4p5r3p5_d4p5r4p5.png} 
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/grid_gloverBossion/H2_n_1p7_bossion_d4p5r2p5_d4p5r3p5_d4p5r4p5.png} 
         \caption{}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d5p5r2p5_d5p5r3p5_d5p5r4p5.png} 
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/grid_gloverBossion/H2_n_1p7_bossion_d5p5r2p5_d5p5r3p5_d5p5r4p5.png} 
         \caption{}
     \end{subfigure}
     \caption{Profil de températures pour différent modèles de la grille (Glover + Bossion). La croix indique la température de la transition $\mathrm{H}/\mathrm{H}_2$ : $n(\mathrm{H})=2n(\mathrm{H}_2)$.}
@@ -332,25 +424,25 @@ On observe également la température de la transition $\mathrm{H}/\mathrm{H}_2$
 \begin{figure}[th!]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGlovernoBossion/HH2_T_Franck.png}
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/grid_glovernoBossion/HH2_T_Franck.pdf}
         \caption{}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.45\textwidth}
-        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/mapGloverBossion/HH2_T_Franck.png}
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=1\textwidth]{figure/H2/grid_gloverBossion/HH2_T_Franck.pdf}
         \caption{}
     \end{subfigure}
-    \caption{Carte de températures de la transition $\mathrm{H}/\mathrm{H}_2$ : $n(\mathrm{H})=2n(\mathrm{H}_2)$ avec ou sans les niveaux de Bossion (toujours Glover)}
+    \caption{Carte de températures de la transition $\mathrm{H}/\mathrm{H}_2$ : $n(\mathrm{H})=2n(\mathrm{H}_2)$ avec (a) ou sans (b) les niveaux de Bossion (Glover)}
     \label{fig:H2:mapGloverBossion:mapTHH2}
 \end{figure}
 
 \underline{Conclusion partielle :} il reste à s'assurer si la zone concernée est du à la nouvelle prescription de Glover ou aux calculs semi classique des niveaux de $\mathrm{H}_2$. Sinon, on voit que le chauffage par $\mathrm{H}_2$ concerne les régions denses et impactent principalement les bords atomiques. Or c'est si l'on chauffait l'entrée du nuage que l'on pourrait espérer observer les changements. Il faudrait regarder les diagrammes d'excitations de quelques espèces comme $\mathrm{H}_2$ ou $\mathrm{CO}$. On se pose également une question sur l'impact de la raideur de la transition sur la température (\autoref{fig:H2:mapGloverBossion:smooth}) : dans certains cas, la transition se fait pour des gaz encore chaud ce qui signifie que l'on pourrait voir des raies plus excitées. Dans quelles conditions ces phénomènes ont ils lieux ? Est ce que cela a un impact sur les raies ? (Sternberg 2014) Enfin on n'a pas observé les instabilités que pouvait provoquer le $\mathrm{H}_2$. Tracer quelques courbes de chauffages et refroidissements pour différent modèles (là le gradient de Tmax) est maximale par exemple. On observait également mieux l'instabilité sur des modèles isobares : faire une petite grille. Pour avancer sur cette histoire de chauffage par réaction chimiqie : tracer $\max_{AV} \Gamma_{ch}/\Gamma_{tot}$ dans l'espace des paramètres et le $(argmax_{AV}  \Gamma_{ch}/\Gamma_{tot})/AV_{HH2}$ qui est lié également au $\mathrm{H}_2$ par la réaction avec le $\mathrm{CH}^+$
 
 \begin{figure}[th!]
-        \centering \includegraphics[trim = {0 0 0 0},clip,width=0.5\textwidth]{figure/H2/mapGloverBossion/H2_n_1p7_bossion_d3p5r2p5_d4p5r2p5_d5p5r2p5.png}
+        \centering \includegraphics[trim = {0 0 0 0},clip,width=0.5\textwidth]{figure/H2/grid_gloverBossion/H2_n_1p7_bossion_d3p5r2p5_d4p5r2p5_d5p5r2p5.png}
         \caption{Profils de températures de différents modèles de la grille (Glover + Bossion)}
         \label{fig:H2:mapGloverBossion:smooth}
 \end{figure}
 
-\subsection{Dans quelles conditions peut on voir une instabilité ?}
-\subsection{Quel est l'impact sur les raies des traceurs ?}
+\subsubsection{Dans quelles conditions peut on voir une instabilité ?}
+\subsubsection{Quel est l'impact sur les raies des traceurs ?}

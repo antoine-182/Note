@@ -6,7 +6,7 @@
 \subsection{Neufeld and Wolfire}
 \subsubsection{Profil des espèces dérivés du chlore}
 
-Les réseaux d'astrochimie de PDR ont tendance à négliger le chlore qui a une abondance mineure dans les nuages. Or des espèces dérivées du chlore ont été observées en absorption dans des nuages diffus ($n \sim 10^2\ cm^{-3}$). Des raies de $\mathrm{H}_2\mathrm{Cl}^+$,HCl et $\mathrm{HCl}^+$ excitées ont également été observées par Herschel dans plusieurs sources de la Galaxie et notamment dans le nuage moléculaire de la barre d'Orion \cite{Neufeld2012,Neufire2009}. On a tout d'abord cherché à reproduire les résultats de \cite{Neufeld2009} en calculant les profils de densités à travers le nuage.
+Les réseaux d'astrochimie de PDR ont tendance à négliger le chlore qui a une abondance mineure dans les nuages. Or des espèces dérivées du chlore ont été observées en absorption dans des nuages diffus ($n \sim 10^2\ cm^{-3}$). Des raies de $\mathrm{H}_2\mathrm{Cl}^+$,HCl et $\mathrm{HCl}^+$ excitées ont également été observées par Herschel dans plusieurs sources de la Galaxie et notamment dans le nuage moléculaire de la barre d'Orion \cite{Neufeld2012,Neufire2009}. On a tout d'abord cherché à reproduire les résultats de \cite{Neufire2009}. On a ajouté un nouveau fichier de chimie au code comportant les réseaux chimiques du $\mathrm{Cl}$ et du $\mathrm{F}$ et on a résolu une PDR avec les mêmes conditions physiques de l'article (\ref{fig:Cl:neufire}).
 
 \begin{figure}[htbp]
     \centering
@@ -19,14 +19,18 @@ Les réseaux d'astrochimie de PDR ont tendance à négliger le chlore qui a une 
         \centering \includegraphics[trim = {0 2cm 0 1.8cm},clip,width=1\textwidth]{figure/Cl/neufire/HCl_profil.pdf}
         \caption{}
     \end{subfigure}
+    \label{fig:Cl:neufire}
     \caption{Profil de densité pour un modèle isochore $n_\mathrm{H} = 10^4 \mathrm{cm}^{-3}$ et $\chi_\mathrm{UV} = 10^4$. La figure de gauche (a) est extraite de \cite{Neufire2009} où les profils sont obtenus à partir d'une version modifié du code de \cite{Kaufman2006}. Le trait plein est un calcul avec un taux de ionisation par les rayons cosmiques de $1.8 \times 10^{−17 } \mathrm{s}^{-1}$ par atome d'hydrogène, tandis qu'en pointillé $1.8 \times 10^{−16} \mathrm{s}^{-1}$ . A droite (b) le code PDR de Meudon résout la PDR en utilisant le même réseau chimique proposé dans \cite{Neufire2009}.}
 \end{figure}
 
-Pour valider le réseau chimique implanté dans le code on a imposé au code de Meudon de suivre le profil de température donné dans l'article. On a également supprimé la formation du $\mathrm{H}_2$ sur les grains en utilisant une réaction équivalente permettant sa formation dans le nuage moléculaire qui ne serait pas possible dans un modèle isochore. On voit que l'on retrouve les allures des profils de densités. Les profils du $\mathrm{Cl}$,$\mathrm{Cl}^+$, $\mathrm{HCl}$, $\mathrm{HF}$ sont proches en ordre de grandeurs. Ceux du $\mathrm{H}_2\mathrm{HF}^+$, $\mathrm{HCl}^+$, $\mathrm{CF}^+$ n'ont pas exactement les mêmes allures ni les mêmes valeurs. 
+On n'arrivait pas à avoir le même profil de température, on a alors imposé au code de suivre le profil de température montré dans l'article. On utilise un modèle à densité constante qui, dans cette version du code (\uncinq), ne peut former de $\mathrm{H}_2$ dans le nuage moléculaire. Pour parer cela, on a utilisé une réaction équivalente. On voit que l'on retrouve les allures des profils de densités. Les profils du $\mathrm{Cl}$,$\mathrm{Cl}^+$, $\mathrm{HCl}$, $\mathrm{HF}$ sont proches en ordre de grandeurs. Ceux du $\mathrm{H}_2\mathrm{HF}^+$, $\mathrm{HCl}^+$, $\mathrm{CF}^+$ n'ont pas exactement les mêmes allures ni les mêmes valeurs. 
 
-\subsubsection{Existence d'une branche haute température}
+\subsubsection{radm et ladm}
 
-Si l'on laisse le code résoudre la température, on voit qu'en fin de zone atomique le nuage chauffe brusquement suggérant qu'il y a deux solutions possibles en cette région du nuage et que le code a sauté sur une des deux solutions...
+\subsubsection{run sur d'autres modèles}
+
+En runnant le code (comportant du chlore) sur d'autres types de PDR, on peut obtenir deux branches solutions possibles de températures (\ref{fig:Cl:neufire:profil}). Sur les figures, ajouter du chlore augmente subitement la température en entrée du nuage moléculaire de plus de $3000K$. Cette monté subite signifie qu'il existe probablement deux solutions stables et que le code, en résolvant la PDR, a switché de branche. Il faut aller étudier les fonctions de chauffages et de refroidissements en bord de nuage pour s'en convaincre. L'existence de deux solutions stable signifie que le gaz en bord atomique de nuage peut se trouver dans en situation de bistabilité thermique qui est un phénomène nouveau.  
+
 
 \begin{figure}[htbp]
     \centering
@@ -40,8 +44,8 @@ Si l'on laisse le code résoudre la température, on voit qu'en fin de zone atom
         \caption{Avec chlore}
     \end{subfigure}
     \caption{}
+    \label{fig:Cl:neufire:profil}
 \end{figure}
-
 
 
 \subsection{Analyse du rôle du chlore}
@@ -501,7 +505,7 @@ L'existence de deux solutions (une chaude et une froide) que l'on prédit avec l
 
 \subsubsection{Région dense et peu illuminée (cas 5)}
 
-Dans cette région, l'effet photoélectrique (en pointillé) reste à plat et la fonction de chauffage est dominée par le chauffage par la molécule $\mathrm{H}_2$ qui s'emballe dans une plage de température intermédiaire (figure \ref{fig:Cl:particuliers:chofra5}). Cette observation motive l'étude suivante portant sur le chauffage par la molécule $\mathrm{H}_2$.
+Dans cette région, l'effet photoélectrique (en pointillé) reste à plat et la fonction de chauffage est dominée par le chauffage par la molécule $\mathrm{H}_2$ qui s'emballe dans une plage de température intermédiaire (figure \ref{fig:Cl:particuliers:chofra5}). Il n'y pas d'instabilité provoqué par le chlore, cette observation motive l'étude portant sur le chauffage par la molécule $\mathrm{H}_2$.
 
 \begin{figure}[!htbp]
     \centering
@@ -512,9 +516,10 @@ Dans cette région, l'effet photoélectrique (en pointillé) reste à plat et la
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Traceurs impactés par le chlore}
-On trace à partir des modèles précédents les diagrammes d'excitation des principaux traceurs des PDR. On cherche à trouver des signatures dans les spectres ou des raies singulières impactées par le chlore. 
+\subsubsection{Diagrammes d'intensité}
 
-\subsubsection{Diagramme d'excitation}
+On trace à partir des modèles précédents les diagrammes d'intensité des principaux traceurs des PDR. On cherche à trouver des signatures dans les spectres ou des raies singulières impactées par le chlore. \newline
+
 
 L'ajout du chlore augmente certaines du $\mathrm{N}$, $\mathrm{N}^+$, $\mathrm{S}$, $\mathrm{Si}$ comme on le voit sur la figure (\autoref{fig:Cl:gridModelEmiss:yes}). La solution chaude avec chlore peut avoir des raies d'un facteur 10 fois plus importante. Le changement le plus remarquable est l'azote atomique. Les traceurs pas impactés sont $\mathrm{CS}$, $\mathrm{H}_2\mathrm{O}$, $\mathrm{H}_2$ et le $\mathrm{CO}$. L'ajout du chlore diminue même l'intensité de certaines raies tels que celles du $\mathrm{CS}$ ou $\mathrm{H}_2\mathrm{O}$ Enfin (annexe) les diagrammes d'excitations pour les modèles 3-4-5 ne sont nullement impactés par l'ajout du chlore : ce qui voudrait dire que l'impact du chlore serait confiné dans la région que l'on a déterminé.
 
@@ -633,7 +638,7 @@ Attention, on voit les profils s'effondrer à partir de $A_\mathrm{V} \geq 4$ qu
 
 Les raies que l'on espère pouvoir observer doivent être intenses (supérieur à un "seuil" d'observabilité $\sim 10^{-6} \ \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$), sensible l'ajout du chlore et appartenir aux domaines de longueurs d'ondes observées. La raie la plus prometteuse est la raie [N]$5200.257 \mathrm{A}$ correspondant à la transition (El=2Do,J=5/2)$\rightarrow$(El=4So,J=3/2). On voit sur la figure \ref{fig:Cl:gridModelEmiss:N} que lorsque l'on a du chlore, l'intensité de la raie atteint est de l'ordre de $10^{-3} \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$ et que l'on a une signature de la solution chaude proposée par le chlore. Néanmoins la taille de la zone concernée est petite et il est difficile de bien situer les observations dans l'espace des paramètres. Un autre problème, qui n'est pas des moindres, est que les modèles de PDR commencent après la partir ionisé de l'hydrogène et que le potentiel de ionisation de l'azote est de $14.6 \ \mathrm{eV}$ ce qui signifie que la transition $\mathrm{N}^+/\mathrm{N}$ se fait devant le nuage. Dans le code, l'azote est excité par collision avec les espèces majoritaires du nuage qui sont $\mathrm{H}$,$\mathrm{H}^+$ $\mathrm{H}_2$, $\mathrm{He}$ et $e^-$ (PXDR\_COLSPE). La fraction électronique en bord atomique de nuage, dans le cas d'un emballement lié au chlore, est d'un facteur $10^{-4}$-$10^{-3}$ alors qu'il est d'un facteur 1 dans la partie ionisé du nuage. Cette augmentation de l'intensité de la raie sera masqué par le front $\mathrm{N}^+/\mathrm{N}$. \newline
 
-Il faudrait donc trouver des traceurs qui ont des potentiels de ionisations inférieures à celui de l'hydrogène et qui s'activerait uniquement en bord atomique. Enfin on a tracé les diagrammes d'excitations avec des modèles à densités constantes qui sont peut efficaces pour corroborer avec les données. Il faudrait lancer des grilles isobares et voir ce qu'il en est.
+Il faudrait donc trouver des traceurs qui ont des potentiels de ionisations inférieures à celui de l'hydrogène et qui s'activerait uniquement en bord atomique. Enfin on a tracé les diagrammes d'excitations avec des modèles à densités constantes qui corrobore rarement avec les données. Il faudrait lancer des grilles isobares et voir ce qu'il en est.
 
 
 \begin{figure}[!htbp]
@@ -658,7 +663,7 @@ Il faudrait donc trouver des traceurs qui ont des potentiels de ionisations inf�
 \subsection{Bonus}
 \subsubsection{Chauffage à l'entrée du nuage moléculaire}
 
-Il arrive qu'en entrée du nuage moléculaire, la température du gaz augmente de manière irrégulière. Dans cette région, l'effet photoélectrique devient encore plus efficace en raison de l'augmentation de la fraction électronique du nuage. La recombinaison sur les grains est rapide s'il y a une quantité importante d'électron autour des grains. Dans cette zone, le $\mathrm{H}_2$ tente de se former. La voie principale de formation passe par l'association radiative :
+Il arrive qu'en entrée du nuage moléculaire, la température du gaz augmente de manière irrégulière. Dans cette région, l'effet photoélectrique devient encore plus efficace en raison de l'augmentation de la fraction électronique du nuage. La recombinaison sur les grains est d'autant plus rapide que la fraction électronique est grande. Dans cette région du nuage, le $\mathrm{H}_2$ se forme principalement sut les grains mais aussi par l'association radiative de l'hydrogène :
 
 \begin{equation}
     \begin{array}{lccccclr}
@@ -666,7 +671,7 @@ Il arrive qu'en entrée du nuage moléculaire, la température du gaz augmente d
     \end{array}
 \end{equation}
 
-suivi d'un détachement associatif :
+avec un coefficient de réaction $k(T) = 1.9\, 10^{-16} \big(\frac{T}{100}\big)^{0.67} \, \mathrm{cm}^3\mathrm{s}^{-1}$, suivi d'un détachement associatif :
 
 \begin{equation}
     \begin{array}{lcccccclr}
@@ -674,12 +679,44 @@ suivi d'un détachement associatif :
     \end{array}
 \end{equation}
 
-Cette réaction peut produire des électrons en quantité si elle devient dominante ce qui est le cas autour de $A_\mathrm{v} \approx 0.5 \mathrm{mag}$ sur \autoref{fig:Cl:grid:proH}. La formation du $\mathrm{H}_2$ déclenche également une chimie chaude permettant notamment de former le doux $\mathrm{CH}^+$ que l'on observe. Cette augmentation de température ne doit pas être confondue avec l'emballement provoqué par le Chlore.
-
+ou $\xi = 2.4\, 10^{-7} G_0 \, \mathrm{s}^{-1}$. On a remarqué que pour une PDR avec $n_\mathrm{H} = 10^{3.5} \, \mathrm{cm}^{-3}$ et $\chi = 10^{4.5}$, la température augmentait en pic avant le nuage moléculaire (figure \ref{fig:H2:recomb:profilH}). On cherche à comprendre quel phénomène est à l'origine de l'augmentation de la température ? Pourquoi le taux de H2 diminue t il en même temps ? Pourquoi prendre en compte les nouveaux taux de collisions accentue ce phénomène ? Qu'est ce qui provoque la monté ? Pourquoi ça s'arrête : lorsque la température du gaz est trop élevé, les états ro-vibrationelles de H2 sont remplis et se desexcitent en émettant des photons. On le voit sur la figure \ref{fig:H2:recomb:profilH} ou le chauffage par H2 cessent de chauffer.
 
 \begin{figure}[!htbp]
     \centering
-        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=0.6\textwidth]{figure/Cl/grid/profil_H.png}
-        \caption{...}
-    \label{fig:Cl:grid:proH}
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/rec_elec/H2_n_1p7_bossion_d3p5r4p5_H.png}
+        \caption{}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/rec_elec/H2_n_1p7_nobossion_d3p5r4p5_H.png}
+        \caption{}
+    \end{subfigure}
+    
+    \caption{Profil de température et de densités de $\mathrm{H}$ et $\mathrm{H}_2$. A l'entrée du nuage la température augmente accompagné d'une légère diminution de la densité de $\mathrm{H}_2$. Cet effet est accentué sur (a) qui prend en compte les nouveaux taux de collision de $\mathrm{H}_2$. }
+    \label{fig:H2:recomb:profilH}
+\end{figure}
+    
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/rec_elec/H2_n_1p7_bossion_d3p5r4p5hc_rheat.png}
+        \caption{}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.45\textwidth} % "0.45" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1.5cm},clip,width=1\textwidth]{figure/H2/rec_elec/H2_n_1p7_bossion_d3p5r4p5hc_rheat.png}
+        \caption{}
+    \end{subfigure}
+    \caption{Taux de chauffage (en relatif) en fonction de l'extinction. Dans les deux situations le chauffage par effet photo-électrique est le phénomène dominant pendant l'irrégularité tandis que le chauffage par $\mathrm{H}_2$ devient refroidisseur. Cet effet est accentué si l'on prend en compte les nouveaux taux de collisions.}
+    \label{fig:H2:recomb:profilH}
+\end{figure}
+
+On a tracé une figure comparant la température, la densité de molécules $\mathrm{H}_2$ et la densité d'électrons à l'entrée du nuage moléculaire (\ref{fig:recomb:comp}). On comprend que cette augmentation de la température s'accompagne d'une chute de 
+
+\begin{figure}
+    \centering
+    \includegraphics[trim = {0 0 0 0},clip,width=0.6\textwidth]{figure/H2/rec_elec/nT_H2_H2_n_1p7_bossion_H2_n_1p7_nobossion.png}
+    \caption{}
+    \label{fig:recomb:comp}
 \end{figure}
