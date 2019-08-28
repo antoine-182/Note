@@ -1,9 +1,10 @@
-\section{Pompage UV de la molécule $\mathrm{H}_2$}
+\section{Molécule $\mathrm{H}_2$}
 
 
 On cherche dans un premiers temps des expressions permettant d'estimer le chauffage par pompage UV de la molécule $\mathrm{H}_2$ calculé par le code. 
 
-\subsection{Chauffage net par Rollïg (1995)}
+\subsection{Construction d'un modèle}
+\subsubsection{Chauffage net par Rollïg (1995)}
 
 \subsubsection{Chauffage par désexcitation collisionelle}
 Eq (10) ou (C.3).
@@ -26,8 +27,8 @@ Excitation collisonelle (à $v=1$) puis émission (ou photodissociation à inspe
     \Lambda_{\mathrm{H}_2} = - \Delta E_{1,0} \, \gamma_{1,0} e^{-\Delta E_{1,0}/kT} n_{\mathrm{H}} \, n_{\mathrm{H}_2} \frac{A_{1,0} + \chi D_1}{\gamma_{1,0}  n_{\mathrm{H}} + A_{1,0} + \chi D_1} \operatorname{erg} \mathrm{cm}^{-3} \mathrm{s}^{-1}
 \end{equation}
 
-\subsection{Bialy et Sternberg (2019)}
-\subsubsection{Chauffage par désexcitation collisionelle}
+\subsubsection{Bialy et Sternberg (2019)}
+\subsubsubsection{Chauffage par désexcitation collisionelle}
 
 \cite{BialySternberg_2019} (A12) considère que 9 photons sur 10 permettent d'avoir du $\mathrm{H}_2$ excité. 
 
@@ -47,8 +48,8 @@ $D_0$ est le taux de photodissociation ($P \approx 10 D_0$, 1 photon sur 10 mèn
     \Gamma_{\mathrm{H}_2 \, \mathrm{pd}} = D_0\,\chi \, E_\mathrm{pd} \, n(\mathrm{H}_2)
 \end{equation}
 
-\subsection{Absorption du rayonnement}
-\subsubsection{Shielding par le molécule $\mathrm{H}_2$}
+\subsubsection{Absorption du rayonnement}
+\subsubsubsection{Shielding par le molécule $\mathrm{H}_2$}
 
 On utilise la fonction fitté (Eq.37) par \cite{DraineBertoldi_1996} pour calculer le \textit{shielding} de la molécule $\mathrm{H}_2$ sur le taux d'excitation par pompage $\chi P$.
 
@@ -83,7 +84,7 @@ $$\chi^{'} = e^{-\tau_d
 }\, f_{\mathrm{shield}}\, \chi$$
 
 
-\subsection{Comparaison avec le code PDR de Meudon}
+\subsubsection{Comparaison avec le code PDR de Meudon}
 
 On récupère du code le taux de refroidissement $\Lambda_{\mathrm{PDR}}$ par la molécule $\mathrm{H}_2$ qui peut être positif ou négatif. Le taux prend en compte du chauffage par desexcitation collisionnelle et du refroidissement ro-vibrationelle (émission). Il ne prend pas en compte de la photodissociation (qui chauffe). On veut étudier le chauffage, on appelle $\Gamma_{\mathrm{PDR}}$ la partie négative du taux ($\Lambda_{\mathrm{PDR}} < 0$) et on le compare aux de chauffage nets.
 
@@ -118,7 +119,7 @@ La destruction du $\mathrm{H}_2$ dans les nuages interstellaire s'effectue soit 
     \end{array}
 \end{equation}
 
-Il existe plusieurs prescriptions qui tentent d'estimer les valeurs des taux de dissociation collisionelle du $\mathrm{H}_2$ (eq \ref{eq:H2diss}) en fonction de la température et des niveaux de la molécule. Connaître leurs taux de réaction est important car ils changent la densité de $\mathrm{H}_2$ à travers le nuage ce qui a un impact sur le chauffage par $\mathrm{H}_2$ et donc la température du gaz. Deux prescriptions possibles ont été retenu dans le code : celle de Glover et Mac Low (article) et celle de Janev (article). Par ailleurs on a constaté que la prescription de Janev calcule des taux de dissociation très faible (d'un facteur $10^{-50}$) devant ceux de Glover ce qui change radicalement la chimie du nuage. Afin de n'en garder qu'une, nous avons comparé les effets de ces prescriptions sur l'ensemble des PDR. \newline 
+Il existe plusieurs prescriptions qui tentent d'estimer les valeurs des taux de dissociation collisionelle du $\mathrm{H}_2$ (eq \ref{eq:H2diss}) en fonction de la température et des niveaux de la molécule. Connaître leurs taux de réaction est important car ils changent la densité de $\mathrm{H}_2$ à travers le nuage ce qui a un impact sur le chauffage par $\mathrm{H}_2$ et donc la température du gaz. Deux prescriptions possibles ont été retenu dans le code : celle de Glover et Mac Low (article) et celle de Janev (article). Par ailleurs on a constaté que la prescription de Glover calcule des taux de dissociation très faible (d'un facteur $10^{-50}$ bof) devant ceux de Janev ce qui change radicalement la chimie du nuage. Afin de n'en garder qu'une, nous avons comparé les effets de ces prescriptions sur l'ensemble des PDR. \newline 
 
 Pour étudier globalement les PDR, on utilise des grilles de modèles qui explorent l'espace des paramètres (pression $\mathrm{P}$, densité $n_\mathrm{H}$ et le champ de rayonnement de l'étoile proche $\chi$). On représente une donnée - la température au bord de nuage, la température et l'$\mathrm{A}_\mathrm{v}$ de la transition $\mathrm{H}/\mathrm{H}_2$ ou le processus thermique dominant au bord du nuage - à travers la grille et étudions quelques modèles particuliers afin de comprendre profondément les changements sur le code. On étudie d'abord des modèles à densités constantes qui sont plus facile à interpréter (la pression et la température suivent les mêmes variations $\mathrm{P}\propto \mathrm{T}$) que les modèles isobares (la densité et la température varient de manière inversement proportionelle $\mathrm{n}_\mathrm{H}\mathrm{T}=\mathrm{cte}$).    
 

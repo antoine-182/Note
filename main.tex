@@ -80,15 +80,15 @@
 
 \title{Note de Stage\\Observatoire de Meudon} 
 \author{Antoine Nasser}
-\date{Printemps Été 2019}
+\date{Printemps Été (chaud) 2019}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%        Chapitre        %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand{\thesection}{\Roman{section})}
-\renewcommand{\thesubsection}{\arabic{subsection})}
-\renewcommand{\thesubsubsection}{     \alph{subsubsection})}
+\renewcommand{\thesection}{\Roman{section}) }
+\renewcommand{\thesubsection}{\Roman{section}-\arabic{subsection}) }
+\renewcommand{\thesubsubsection}{\Roman{section}-\arabic{subsection}-\alph{subsubsection})}
 
 %%%%%%%%%%%%%%%%%%%%%%
 %%        GO        %%
@@ -105,13 +105,13 @@
 
 \setcounter{secnumdepth}{4}
 \vfill
-\tableofcontents
-\vfill
-\begin{figure*}[b!]
+\begin{figure*}[!hb]
         \centering 
         \includegraphics[trim = {0 0 0 0cm},clip,width=0.8\textwidth]{figure/LERMA2.jpg}
 \end{figure*}
 \vfill
+
+\tableofcontents
 
 \setcounter{figure}{0}    
 
@@ -122,7 +122,9 @@
 
 
 \input{cl}
+
 \input{H2}
+
 \input{exotherm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
