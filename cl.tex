@@ -348,12 +348,12 @@ Il existe également celle ci \cite{WolfireHollenbachMcKeeTielensBakes_1995} Eq.
 
 \subsection{Correction de l'effet photoélectrique par le code}
 
-Grâce aux expressions de chauffages et de refroidissement ainsi qu'au modèle chimique, le modèle est capable de calculer la température d'équilibre du gaz. Elle est définie telle que $(\Gamma - \Lambda)(T_{\mathrm{éq}})  = 0$ et est stable (instable) si autour de $T_{eq}$, $\frac{d}{dT}(\Gamma - \Lambda)$ est négatif (positif). \newline 
+Grâce aux expressions de chauffage et de refroidissement ainsi qu'au modèle chimique, le modèle est capable de calculer la température d'équilibre du gaz. Elle est définie telle que $(\Gamma - \Lambda)(T_{\mathrm{éq}})  = 0$ et est stable (instable) si autour de $T_{eq}$, $\frac{d}{dT}(\Gamma - \Lambda)$ est négatif (positif). \newline 
 
-On trace sur la figure \ref{fig:Cl:modelPE:GC} la courbe de chauffage et de refroidissement d'un bord atomique de nuage résolu par le code PDR de Meudon. On trace également les courbes obtenues par notre modèle et on remarque qu'elles retrouvent l'emballement de l'effet photo-électrique à partir de $1000$ K. Néanmoins, on constate que le calcul de Rollïg (eq \ref{eq:Rollig:pe}) sous estime d'un facteur 3 l'effet photo-électrique calculé par le code si bien que le modèle obtient une solution \og chaude \fg{} $4000$ K plus froide que celle obtenue par le code. \newline 
+On trace sur la figure \ref{fig:Cl:modelPE:GC} la courbe de chauffage et de refroidissement d'un bord atomique de nuage résolu par le code PDR. On trace également les courbes obtenues par notre modèle et on remarque qu'elles retrouvent l'emballement de l'effet photo-électrique à partir de $1000$ K. Néanmoins, on constate que le calcul de Rollïg (eq \ref{eq:Rollig:pe}) sous-estime d'un facteur 3 l'effet photo-électrique calculé par le code si bien que le modèle obtient une solution \og chaude \fg{} $4000$ K plus froide que celle obtenue par le code. \newline 
 % Par ailleurs la température maximale calculé par notre modèle étant proche de la température du nuage ne comportant pas de chlore, le modèle ne peut pas prédire qu 
 
-Il est prévisible que la formule de Rollïg (eq \ref{eq:Rollig:pe}) diffère de l'effet photoélectrique calculé par le code. Ce processus dépend en effet des paramètres de grains choisis et sont naturellement différents de ceux de l'éq. \ref{eq:Rollig:pe}. Cette formule retrouve pourtant l'emballement à hautes températures et a la même allure que le taux calculé par le code PDR. On constate sur la figure \label{fig:Cl:modelPE:GC3} que l'expression eq \ref{eq:Rollig:pe}, multipliée par un facteur 3, retrouve celle du code et obtient une solution "chaude" proche ($+1500$ K) de celle du code. On utilisera désormais cette correction. 
+Il est prévisible que la formule de Rollïg (eq \ref{eq:Rollig:pe}) diffère de l'effet photoélectrique calculé par le code. En effet, ce processus dépend des paramètres de grains choisis et sont probablement différents de ceux de l'éq. \ref{eq:Rollig:pe}. Cette formule retrouve pourtant l'emballement à hautes températures et a la même allure que le taux calculé par le code PDR. On constate sur la figure \label{fig:Cl:modelPE:GC3} que l'expression eq \ref{eq:Rollig:pe}, multipliée par un facteur 3, retrouve celle du code et obtient une solution "chaude" proche ($+1500$ K) de celle du code. On utilisera désormais cette correction. 
 
 
 \begin{figure}[!h]
@@ -375,13 +375,13 @@ Il est prévisible que la formule de Rollïg (eq \ref{eq:Rollig:pe}) diffère de
 
 \subsection{Prédiction de la température au bord de nuage}
  
-A l'aide du modèle de chlore nous pouvons chercher dans quelles conditions ($n_\mathrm{H}$ et $\chi$) les bords atomiques des PDR subissent l'instabilité induite par le chlore. Pour étudier globalement les PDR, on utilise des grilles de modèles qui varient dans l'espace des paramètres (densité $n_\mathrm{H}$ et le champ de rayonnement de l'étoile proche $\chi$). Le code PDR résout chaque modèle puis l'on représente une donnée - la température au bord de nuage ou le processus thermique dominant au bord du nuage - dans l'espace des paramètres. On préfère étudier des modèles à densités constantes qui sont plus facile à interpréter (la pression et la température suivent les mêmes variations $\mathrm{P}\propto \mathrm{T}$) que les modèles isobares (la densité et la température varient de manière inversement proportionelle $\mathrm{n}_\mathrm{H}\mathrm{T}=\mathrm{cte}$). 
+A l'aide du modèle de chlore nous pouvons chercher dans quelles conditions ($n_\mathrm{H}$ et $\chi$) les bords atomiques des PDR subissent l'instabilité induite par le chlore. Pour étudier globalement les PDR, on utilise des grilles de modèles qui varient dans l'espace des paramètres (densité $n_\mathrm{H}$ et le champ de rayonnement de l'étoile proche $\chi$). Le code PDR résout chaque modèles puis l'on représente une donnée - la température au bord de nuage ou le processus thermique dominant au bord du nuage - dans l'espace des paramètres. On préfère étudier des modèles à densités constantes qui sont plus facile à interpréter (la pression et la température suivent les mêmes variations $\mathrm{P}\propto \mathrm{T}$) que les modèles isobares (la densité et la température varient de manière inversement proportionelle $\mathrm{n}_\mathrm{H}\mathrm{T}=\mathrm{cte}$). 
 
 
 \subsubsection{Carte de température au bord du nuage}
 
 La figure \ref{fig:Cl:gridModel:Tba} représente la température d'équilibre maximale calculée par notre modèle. On constate que les bords atomiques des régions fortement illuminées chauffent en présence du chlore de plusieurs milliers de Kelvin. 
-Il apparaît également des instabilités thermiques dans les régions diffuses et fortement illuminées ($n_\mathrm{H} \leq 10^4 \, \mathrm{cm}^{-3}$ et $\chi \geq 10^2$) . Les cartes de température de la figure \ref{fig:Cl:grid:Tba} sont calculées grâce au code PDR.  La région chauffé par le chlore se réduit seulement aux régions denses et fortement illuminées ($n_\mathrm{H} \geq 10^4 \, \mathrm{cm}^{-3}$ et $\chi \geq 10^3$). Les régions moins denses ne sont pas aussi chaudes que ce notre modèle prédit. Cette différence est causée, dans une certaine mesure, par la formule de l'effet photoélectrique qui a été choisi et par la méthode de résolution du code PDR.  \newline 
+Il apparaît également des instabilités thermiques dans les régions diffuses et fortement illuminées ($n_\mathrm{H} \leq 10^4 \, \mathrm{cm}^{-3}$ et $\chi \geq 10^2$) . Les cartes de température de la figure \ref{fig:Cl:grid:Tba} sont calculées grâce au code PDR. La région chauffée par le chlore se réduit seulement aux régions denses et fortement illuminées ($n_\mathrm{H} \geq 10^4 \, \mathrm{cm}^{-3}$ et $\chi \geq 10^3$). Les régions moins denses ne sont pas aussi chaudes que ce notre modèle prédit. Cette différence est causée, dans une certaine mesure, par la formule de l'effet photoélectrique qui a été choisi et par la méthode de résolution du code PDR.  \newline 
 
 
 \begin{figure}[!h]
@@ -397,7 +397,7 @@ Il apparaît également des instabilités thermiques dans les régions diffuses 
     \end{subfigure}
     \caption{Carte de température prédite par le modèle}
      \begin{minipage}{\textwidth} 
-     La zone hachurés sur la figure (a) signifie qu'il existe plus d'une solution : au moins une solution stable et une solution instable.
+     La zone hachurée sur la figure (a) signifie qu'il existe plus d'une solution : au moins une solution stable et une solution instable.
      \label{fig:Cl:gridModel:Tba:noCl}
      \end{minipage}
     \label{fig:Cl:gridModel:Tba}
@@ -407,7 +407,7 @@ Tout d'abord sur la figure \ref{fig:Cl:grid:Tba:noCl}, on remarque l'existence d
 
 De plus, le code PDR calcule la température d'équilibre du gaz en cherchant par dichotomie les zéros de la fonction $\mathrm{T} \rightarrow (\Gamma - \Lambda)(\mathrm{T)}$. Rien n'assure que le code décèle toutes les solutions. Par exemple dans la figure \ref{fig:Cl:particulier:2}, le code ne trouve que la solution basse température alors qu'il existe une solution chaude proche de $9000$ K. Il peut arriver que le code saute d'une branche de solution à une autre comme c'est le cas sur le profil de température de la figure \ref{fig:Cl:firstprofil}. Une amélioration qui pourrait être faite au code est de le rendre capable de déceler deux solutions (s'il y en a) et de rester sur une même branche de solution à travers le nuage. \newline 
 
-Enfin, l'absence du $\mathrm{H}_2$ dans le modèle thermo-chimique a un impact important sur la température car il chauffe par pompage UV les régions denses et refroidit par désexcitation collisionelle. On voit sur la figure \ref{fig:Cl:particulier:4} que l'effet photoélectrique est négligeable devant le chauffage par $\mathrm{H}_2$. 
+Enfin, l'absence du $\mathrm{H}_2$ dans le modèle thermo-chimique a un impact important sur la température car il chauffe par pompage UV les régions denses et refroidit par désexcitation collisionelle. On voit sur la figure \ref{fig:Cl:particulier:4} qui est un modèle dense ($n_\mathrm{H}=10^4 \, \mathrm{cm}^{-3}$, $\chi=10^{4.5}$) que l'effet photoélectrique est négligeable devant le chauffage par $\mathrm{H}_2$. 
 
 
 \begin{figure}[!h]
@@ -449,13 +449,13 @@ Enfin, l'absence du $\mathrm{H}_2$ dans le modèle thermo-chimique a un impact i
     \centering
     \begin{subfigure}[t]{0.49\textwidth} % "0.49" donne ici la largeur de l'image
         \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/Cl/particuliers/GCcomp_Cl_2.pdf}
-        \caption{$n_\mathrm{H}=10^4 \, \mathrm{cm}^{-3}$, $\chi=10^{4.5}$ (zone 2)}
+        \caption{$n_\mathrm{H}=10^4 \, \mathrm{cm}^{-3}$, $\chi=10^{4.5}$}
         \label{fig:Cl:particulier:2}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.49\textwidth}
         \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/Cl/particuliers/GCcomp_Cl_5.pdf}
-        \caption{$n_\mathrm{H}=10^3 \, \mathrm{cm}^{-3}$, $\chi=10^3$ (zone 5)}
+        \caption{$n_\mathrm{H}=10^3 \, \mathrm{cm}^{-3}$, $\chi=10^3$}
         \label{fig:Cl:particulier:4}
     \end{subfigure}
     \caption{Courbes de chauffage et refroidissement, au bord atomique de nuage, de modèles résolus par le code PDR de Meudon. Mêmes règles de couleurs que dans la figure \ref{fig:Cl:modelPE:GC}.}
@@ -470,7 +470,7 @@ Enfin, l'absence du $\mathrm{H}_2$ dans le modèle thermo-chimique a un impact i
 
 Nous avons pu prouver l'existence et expliquer le fonctionnement de l'instabilité provoquée par le chlore dans le bord atomique des PDR. Afin de l'observer, il est nécessaire de trouver les spectres d'émissions impactés par le chlore. \newline 
 
-On choisit un modèle ($n_\mathrm{H}=10^5 \, \mathrm{cm}^{-3}$, $\chi=10^{4.5}$) dont le bord atomique devient nettement plus chaud lorsque l'on ajoute du chlore (figure \ref{fig:Cl:grid:Tba}). En traçant les spectres d'émission donnés par le code nous constatons que les raies $\mathrm{N}$, $\mathrm{N}^+$, $\mathrm{S}$, $\mathrm{Si}$ sont modifiées par la solution chaude (figure \ref{fig:Cl:gridModelEmiss:yes}). La présence du chlore augmente les raies du $\mathrm{N}$, $\mathrm{N}^+$ et $\mathrm{Si}$ d'un facteur 10 et du $\mathrm{S}$ d'un facteur 100. Le chlore opère un grand changement sur certaines raies mais il y existe néanmoins un "seuil" d'observabilité des raies de l'ordre de $10^{-6} \ \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$. Seules certaines raies du $\mathrm{N}$ sont supérieures à ce seuil. En revanche, les raies du $\mathrm{CS}$, $\mathrm{H}_2\mathrm{O}$, $\mathrm{H}_2$, ne sont pas affectées par les chlore (figure \ref{fig:Cl:gridModelEmiss:no}). \newline
+On choisit un modèle ($n_\mathrm{H}=10^5 \, \mathrm{cm}^{-3}$, $\chi=10^{4.5}$) dont le bord atomique devient nettement plus chaud lorsque l'on ajoute du chlore (figure \ref{fig:Cl:grid:Tba}). En traçant les spectres d'émission donnés par le code nous constatons que les raies $\mathrm{N}$, $\mathrm{N}^+$, $\mathrm{S}$, $\mathrm{Si}$ sont modifiées par la solution chaude (figure \ref{fig:Cl:gridModelEmiss:yes}). La présence du chlore augmente les raies du $\mathrm{N}$, $\mathrm{N}^+$ et $\mathrm{Si}$ d'un facteur 10 et du $\mathrm{S}$ d'un facteur 100. Bien que le chlore intensifient de manière importante les raies d'émissions, il y existe un seuil d'observabilité, de l'ordre de $10^{-6} \ \mathrm{erg}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}$, au dessus duquel les raies sont expérimentalement mesurables. Par conséqunt on ne peut considérer seulement certaines raies du spectre de $\mathrm{N}$. En revanche, les raies du $\mathrm{CS}$, $\mathrm{H}_2\mathrm{O}$, $\mathrm{H}_2$, ne sont pas affectées par la présence de chlore  dans le nuage (figure \ref{fig:Cl:gridModelEmiss:no}). \newline
 
 \begin{figure}[!h]
     \centering
