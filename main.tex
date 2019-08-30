@@ -27,6 +27,10 @@
 \usepackage{multirow} % pour des tableaux multicolumns
 % \usepackage{float} 
 
+\usepackage[titletoc,page]{appendix}
+% \usepackage{chngcntr}
+% \counterwithout{figure}{section}
+
 % \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
 \usepackage{xcolor}
@@ -85,7 +89,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%        Chapitre        %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% \renewcommand\partname{}
+% \renewcommand{\thepart}{\Roman{part}) }
 \renewcommand{\thesection}{\Roman{section}) }
 \renewcommand{\thesubsection}{\Roman{section}-\arabic{subsection}) }
 \renewcommand{\thesubsubsection}{\Roman{section}-\arabic{subsection}-\alph{subsubsection})}
@@ -117,21 +122,31 @@
 
 \newpage
  
-
+\section*{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \input{cl}
 
+\input{type46}
+
 \input{H2}
 
-\input{exotherm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Conclusion}
 
 
+\clearpage
 \bibliographystyle{apalike}
 \bibliography{bib}
+
+\clearpage
+\input{appendices}
+
+
+
+
 \end{spacing}
 
 \end{document}
