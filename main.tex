@@ -91,9 +91,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % \renewcommand\partname{}
 % \renewcommand{\thepart}{\Roman{part}) }
-\renewcommand{\thesection}{\Roman{section}) }
-\renewcommand{\thesubsection}{\Roman{section}-\arabic{subsection}) }
-\renewcommand{\thesubsubsection}{\Roman{section}-\arabic{subsection}-\alph{subsubsection})}
+\renewcommand{\thesection}{\arabic{section} }
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection} }
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 
 %%%%%%%%%%%%%%%%%%%%%%
 %%        GO        %%
@@ -123,19 +123,13 @@
 \newpage
  
 \section*{Introduction}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\clearpage
 \input{cl}
-
 \input{type46}
-
 \input{H2}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Conclusion}
-
 
 \clearpage
 \bibliographystyle{apalike}
