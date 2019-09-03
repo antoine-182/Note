@@ -121,8 +121,44 @@
 \setcounter{figure}{0}    
 
 \newpage
+
  
 \section*{Introduction}
+
+Le sujet de cette étude traite du gaz et des poussières qui se trouvent entre les étoiles, c'est à dire le milieu interstellaire (MIS). On sait que la masse de la majorité des galaxies est sous forme de matière noire et que les baryons (qui représente $10\%$ de leurs masses) sont responsables de l'aspect visible des galaxies. Dans note Voie Lactée, la masse baryonique est principalement sous forme d'étoiles et seulement $10\%$ est trouvé dans le milieu interstellaire. Bien que le MIS soit présent partout dans notre galaxie, $50\%$ des particules sont confinés dans un disque \textit{fin} autour du plan galactique. Les poussières représentent à peine $1\%$ de la masse du milieu. Les $99\%$ de gaz est constitué, en masse, à $\sim 74\%$ d'Hydrogène, $\sim 15\%$ d'Hélium et $<1\%$ d'éléments dit \og lourds \fg{} soit des éléments ayant un numéro atomique $Z$ supérieur à celui de l'Hélium (Carbone, Oxygène, Azote...).\newline 
+
+Le milieu interstellaire est donc un gigantesque nuage de gaz et de poussière qui enveloppe les étoiles de la galaxie et qui est intimement lié à leurs formations. Celles-ci se forment dans des nuages moléculaires denses et froids qui sont confinés par leur propre gravité. L'effondrement d'un nuage moléculaire sur lui-même amorce la formation d'étoiles qui, une fois allumées, émettent un champs de rayonnement UV intense. Ces nouvelles sources d'énergies interagissent à leur tour avec leur nuage parent en dissociant les molécules et en chauffant le gaz. La photoévaporation par les UV entraîne une expansion rapide du gaz et peut causer la dissipation du nuage parent, mais aussi, comprimer localement le nuage ce qui peut amener à la formation de nouvelles étoiles (figure \ref{fig:m17}). On appelle parfois ces régions de formation des \og pouponnières d'étoiles \fg{} tant la naissance d'une étoile amorce la création en cascade d'autres étoiles (figure \ref{fig:intro:mystic}). Ainsi, comprendre le feedback radiatif des jeunes étoiles sur leurs nuages parents permet de mieux comprendre la formation des étoiles. \newline 
+
+\begin{figure}[!p]
+    \centering
+    \includegraphics[trim = {0 0 0 0},clip, width=0.4\textwidth]{figure/omega.pdf}
+    \caption{M17 ou nébuleuse du Cygne, elle est située à 5500 années lumières dans la constellation du Sagittaire. Le nuage moléculaire froid est creusé et chauffé par le champs de rayonnement UV intense émis par un amas de jeunes étoiles qui serait situé en haut à gauche. Le rouge représente l'émission du soufre, le vert l'hydrogène et le bleu l'oxygène.
+    % http://hubblesite.org/image/1331/news_release/2003-13
+    Crédits NASA/ESA/J. Hester (ASU)}
+    \label{fig:m17}
+\end{figure}{}
+
+\begin{figure}[!p]
+    \centering
+    \includegraphics[width = 0.6\textwidth]{figure/mystic.pdf}
+    \caption{Nébuleuse de la Carène, \og Montagne mystique \fg{}. Image composite des émissions de l’oxygène (en bleu), hydrogène et nitrogène (vert) et soufre (rouge). Crédits HST/NASA.}
+    %https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA15985
+    \begin{minipage}{\textwidth}
+    Cette image prise par Hubble montre la forme complexe du milieu interstellaire. Les filament bleus-verts révèlent des jeunes étoiles brillantes situés hors cadre et à des années lumière de la structure qui érodent les colonnes de gaz par leurs champs UV intense. Des milliers d'étoiles sont enfouies dans le nuage interstellaire qui absorbent leurs émissions et nous empêche de les détecter. Aux sommets des colonnes, on voit les signes d'étoiles récemment formées qui éjectent de la matière dans des jets chauds tourbillonnant qui vont s'accréter sur la surface de l'étoile.
+    \end{minipage}
+    \label{fig:intro:mystic}
+\end{figure}
+
+Ces jeunes étoiles interagissent avec les nuages dans des interfaces que l'on appelle des régions photon-dominées ou régions de photo-dissociations (PDR). Il s'agit de région du milieu interstellaire où la chimie et la température du gaz sont fortement influencés par le champs UV proche. Les observations Herschel et ALMA ont sondé la structure de ces régions et révolutionné notre compréhension des PDR \cite{Goicoechea2016}. Après la naissance d'une étoile au sein d'un nuage moléculaire, la photoionisation du gaz proche de l'étoile créé un front d'ionisation qui s'expand vers le nuage moléculaire et comprime la PDR. \newline 
+
+
+
+
+Ces couches du gaz sont contenues à des hautes pressions et chauffées par l'effet photoélectrique sur les grains ce qui permet à une chimie chaude de se développer. Elle initie la formation et l'excitation de traceurs importants comme le CO observé par Herschel \cite{COJoblin}. Le flux UV des jeunes étoiles assurent ainsi la formation des espèces moléculaires au sein du nuage et l'excitation des raies observées. L'interprétation des raies d'émissions à l'aide des modèles PDR dépend directement de la température. Celle-ci est déterminée à partir des processus de chauffage et de refroidissement qui sont pourtant mal connus. L'objectif du stage est de revoir l'ensemble des processus thermiques qui se déroulent au sein des PDR afin de mieux interpréter les observations. \newline
+
+L'étude s'intéresse à des processus de chauffage qui peuvent dominer localement dans des zones du nuage et donc jouer un rôle clé dans la compréhension de certains traceurs. Il s'agit notamment du chauffage par pompage UV de la molécule $\mathrm{H}_2$, du chauffage par exothermicité des réactions chimiques et du chauffage par les rayons cosmiques. Par ailleurs, je me suis attardé pendant une partie de mon stage sur la découverte d'une amplification de l'effet photo-électrique sur les grains induite par la chimie du chlore. L'effet photoélectrique sur les grains domine le bilan énergétique global dans les PDR et sera revu au cours de mon projet de thèse qui porte sur les grains interstellaires. L'étude est faite à l'aide du code PDR de Meudon \cite{LePetit2006} qui est un modèle complet de PDR qui résout le transfert de rayonnement à travers le gaz, la chimie du nuage et le bilan thermique. C'est un code 1D stationnaire qui permet de prédire les intensités de raies observées. \newline 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
 \input{cl}
