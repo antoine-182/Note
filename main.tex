@@ -116,6 +116,8 @@
 \end{figure*}
 \vfill
 
+\newpage 
+
 \tableofcontents
 
 \setcounter{figure}{0}    
@@ -125,38 +127,68 @@
  
 \section*{Introduction}
 
-Le sujet de cette étude traite du gaz et des poussières qui se trouvent entre les étoiles, c'est à dire le milieu interstellaire (MIS). On sait que la masse de la majorité des galaxies est sous forme de matière noire et que les baryons (qui représente $10\%$ de leurs masses) sont responsables de l'aspect visible des galaxies. Dans note Voie Lactée, la masse baryonique est principalement sous forme d'étoiles et seulement $10\%$ est trouvé dans le milieu interstellaire. Bien que le MIS soit présent partout dans notre galaxie, $50\%$ des particules sont confinés dans un disque \textit{fin} autour du plan galactique. Les poussières représentent à peine $1\%$ de la masse du milieu. Les $99\%$ de gaz est constitué, en masse, à $\sim 74\%$ d'Hydrogène, $\sim 15\%$ d'Hélium et $<1\%$ d'éléments dit \og lourds \fg{} soit des éléments ayant un numéro atomique $Z$ supérieur à celui de l'Hélium (Carbone, Oxygène, Azote...).\newline 
 
-Le milieu interstellaire est donc un gigantesque nuage de gaz et de poussière qui enveloppe les étoiles de la galaxie et qui est intimement lié à leurs formations. Celles-ci se forment dans des nuages moléculaires denses et froids qui sont confinés par leur propre gravité. L'effondrement d'un nuage moléculaire sur lui-même amorce la formation d'étoiles qui, une fois allumées, émettent un champs de rayonnement UV intense. Ces nouvelles sources d'énergies interagissent à leur tour avec leur nuage parent en dissociant les molécules et en chauffant le gaz. La photoévaporation par les UV entraîne une expansion rapide du gaz et peut causer la dissipation du nuage parent, mais aussi, comprimer localement le nuage ce qui peut amener à la formation de nouvelles étoiles (figure \ref{fig:m17}). On appelle parfois ces régions de formation des \og pouponnières d'étoiles \fg{} tant la naissance d'une étoile amorce la création en cascade d'autres étoiles (figure \ref{fig:intro:mystic}). Ainsi, comprendre le feedback radiatif des jeunes étoiles sur leurs nuages parents permet de mieux comprendre la formation des étoiles. \newline 
+Le contexte général de cette étude traite du gaz et des poussières se trouvant entre les étoiles, il s'agit du milieu interstellaire (le MIS). Actuellement, on sait que la masse de la majorité des galaxies est sous forme de matière noire et que les baryons représentent $10\%$ de leurs masses et sont responsables de leurs aspects visibles. Dans notre Voie Lactée, la masse baryonique est principalement sous forme d'étoiles et seulement $10\%$ est trouvé dans le milieu interstellaire qui est distribué principalement autour du plan galactique. Les poussières représentent à peine $1\%$ de la masse du milieu interstellaire. Les $99\%$ de gaz est constitué, en masse, à $\sim 74\%$ d'hydrogène, $\sim 15\%$ d'hélium et $<1\%$ d'éléments dit \og lourds \fg{} soit des éléments ayant un numéro atomique $Z$ supérieur à celui de l'hélium (carbone, oxygène, azote...).\newline 
+
+Le milieu interstellaire est un gigantesque nuage de gaz et de poussière enveloppant les étoiles et qui est intimement lié à leurs formations. Celles-ci se forment dans des nuages moléculaires denses et froids qui sont confinés par leur propre gravité. L'effondrement d'un nuage moléculaire sur lui-même amorce la formation d'étoiles qui, une fois allumées, émettent un champs de rayonnement UV intense. Ces nouvelles sources d'énergies interagissent à leur tour avec leur nuage parent en dissociant les molécules et en chauffant le gaz. La photoévaporation par les UV entraîne une expansion rapide du gaz et peut causer la dissipation du nuage parent, mais aussi, comprimer localement le nuage ce qui peut amener à la formation de nouvelles étoiles (figure \ref{fig:m17}). On appelle parfois ces régions de formation des \og pouponnières d'étoiles \fg{} tant leurs naissances amorcent la création, en cascade, d'autres étoiles (figure \ref{fig:intro:mystic}). Ainsi, comprendre le feedback radiatif des jeunes étoiles sur leurs nuages parents permet de mieux comprendre la formation des étoiles. \newline 
+
+% Pour la présentation
+% https://www.britannica.com/place/Orion-Nebula
+
+Ces jeunes étoiles interagissent avec les nuages dans des interfaces que l'on appelle des régions photon-dominées ou régions de photo-dissociations (PDR). Il s'agit de région du milieu interstellaire où la chimie et la température du gaz sont fortement influencées par le champs UV proche. Les observations Herschel et ALMA ont sondé la structure de ces régions et révolutionné notre compréhension\cite{Goicoechea2016}.
+% La photoionisation du gaz proche de l'étoile créé un front d'ionisation qui s'expand vers le nuage moléculaire et comprime la PDR. Ces couches du gaz sont contenues à des hautes pressions et chauffées par l'effet photoélectrique sur les grains ce qui permet à une chimie chaude de se développer. Elle initie la formation et l'excitation d'observables, ou traceurs, comme le CO observé par Herschel \cite{COJoblin}. 
+Une PDR commence à la frontière entre la région photoionisée (c'est du gaz chaud ionisé soit du $\mathrm{H}^+$ à plus de $1000$ K) et le nuage où les photons émis par les étoiles qui pénètrent le gaz ne peuvent plus photoioniser les atomes d'hydrogène (photons dans l'UV lointain, $6<h\nu<13.6$ eV) mais encore dissocier des molécules ($\mathrm{H}_2 + h\nu \rightarrow \mathrm{H}+\mathrm{H}$) ou ioniser d'autres espèces comme le carbone. A mesure que l'on s'enfonce dans le nuage et que l'on s'éloigne de l'étoile, les photons UV sont progressivement absorbés par les poussières et la molécule $\mathrm{H}_2$. Celle-ci se forme sur les grains\footnote{Deux atomes d'hydrogènes collés sur la surface d'un grain se rencontrent et forme une molécule en se détachant de la surface. Les grains servent de catalyseur pour la formation du $\mathrm{H}_2$.} mais est immédiatement photodissocié. Le gaz est principalement sous forme atomique ($\mathrm{H}$) et on nomme cette région la zone atomique. Il vient une profondeur dans le nuage où le flux de photons UV capables de dissocier les molécules $\mathrm{H}_2$ est totatement absorbé permettant au gaz de devenir moléculaire ($\mathrm{H}_2$). La présence de $\mathrm{H}_2$ amorce une chimie chaude qui initie la formation et l'excitation d'observables importantes comme le $\mathrm{CO}$ \cite{COJoblin}. La figure \ref{fig:intro:struct} schématise la structure d'une PDR. Ainsi, le flux UV des jeunes étoiles assurent la formation des espèces moléculaires au sein du nuage et l'excitation des raies observées. Les astronomes utilisent des modèles PDR pour interpréter les raies d'émissions qui dépendent directement de la température du nuage. Celle-ci est déterminée à partir des processus de chauffage et de refroidissement qui sont pourtant mal connus. L'objectif du stage est de revoir l'ensemble des processus thermiques qui se déroulent au sein des PDR afin de mieux interpréter les observations. \newline 
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{figure/structurepdr.pdf}
+    \caption{Structure d'une région de photo-dissociation. Les photons UV émis par les étoiles viennent de la gauche. Image tirée de \cite{Goicoechea2016}.}
+    \label{fig:intro:struct}
+\end{figure}
+ \newline
+
+Le bilan thermique est fait par rapport au gaz, ce qui signifie qu'un processus est chauffant s'il augmente l'agitation thermique des particules du gaz. On note $\Gamma$ un processus de chauffage et, inversement, on note $\Lambda$ un processus de refroidissement. L'étude s'intéresse à des processus de chauffage qui peuvent dominer localement dans des zones du nuage et donc jouer un rôle clé dans la compréhension de certains traceurs. Je vais vous les présenter. Tout d'abord, l'effet photoélectrique sur les grains est généralement le processus de chauffage dominant dans les PDR. L'absorption d'un photon UV par un grain emmène son électron dans des hauts états énergétique et l'éjecte de la surface du grain avec une énergie de l'ordre de l'électron volt. Ces électrons supra-thermiques (1 eV $\approx 50\,000$ K) entrent en collisions avec les particules de gaz pour se thermaliser ce qui chauffe le gaz. Un second processus de chauffage majeur est la désexcitation collisionnelle des ions ($\mathrm{C}^+$, $\mathrm{S}^+$), des atomes ($\mathrm{O}$, $\mathrm{N}$, $\mathrm{C}$) et des molécules ($\mathrm{H}_2$, $\mathrm{OH}^+$). Lorsque une espèce absorbe un photon, elle est excité dans ses niveaux internes et peut se désexciter en entrant en collision avec les particules du gaz. L'énergie du photon est convertie en agitation thermique et chauffe le gaz. Le phénomène inverse peut avoir lieu : une espèce est excitée par collisions puis se désexcite et émet, par émission spontanée, un photon dans une direction aléatoire. Enfin, la chimie a un impact sur la température du nuage. En effet, une réaction chimique est endothermique ou exothermique selon que l’enthalpie des produits est plus grande que celles de réactifs. Ainsi, une réaction exothermique redistribue son excédent d'énergie au gaz, ce qui le chauffe, et inversement une réaction endothermique prélève de l'énergie. Il existe également d'autres phénomènes dont l'on ne parlera pas ici comme le chauffage par les rayons cosmiques. \newline 
+
+L'étude est menée à l'aide du code PDR de Meudon \cite{LePetit2006} qui est un modèle complet de PDR qui résout, en 1D, le transfert de rayonnement à travers le gaz, la chimie du nuage et le bilan thermique. Ces trois éléments sont en effet couplés car les processus thermiques dépendent du rayonnement et des densités des espèces alors que la chimie dépend de la température du gaz, de celle des poussières ainsi que du rayonnement. Ce dernier varie à travers le nuage à cause de l'absorption par les espèces et les poussières. Le code PDR résout ces processus en chaque point du nuage et cherche la solution de manière itérative par la méthode de Raphson-Newton. C'est de plus un modèle stationnaire ce qui signifie qu'il résout la chimie et la thermique du nuage à l'équilibre. Le code PDR calcule les profils de densités et de température en fonction de la profondeur du nuage et également des diagrammes d'intensités de raies permettant de comparer le modèle aux observations. Enfin, on caractérise généralement un modèle de PDR par le champs UV proche auquel il est soumis, d'intensité $\chi$ en unité d'Habing \footnote{Est parfois utilisé $G_0 = 1.71\chi$ en unité de Draine}, ainsi que par sa densité $n_\mathrm{H}$ ou sa pression $P$ selon que l'on considère un nuage à densité constante\footnote{On note la densité du nuage $n_\mathrm{H}$ qui est la densité de protons et non pas la densité total du nuage. Ainsi selon que le nuage est sous forme moléculaire ou atomique, la densité $n_\mathrm{H}$ reste bien constante.
+\begin{equation*}
+n_\mathrm{H} =  n(\mathrm{H}^+) + n(\mathrm{H}) + 2n(\mathrm{H}_2) +  ... \neq n_\mathrm{tot}
+\end{equation*}
+} ou à pression constante. On associe à une PDR réelle, les modèles dont les raies correspondent au mieux aux observations.  \newline 
+
+Au cours du stage, j'ai découvert que l'ajout de chlore dans les réseaux chimiques des PDR pouvait provoquer une instabilité thermique dans les bords atomique de nuage. Je me suis par la suite penché sur le chauffage par pompage UV de la molécule $\mathrm{H}_2$. Une étude fine nécessite d'estimer précisément la densité de $\mathrm{H}_2$ dans le nuage. J'ai d'abord testé l'impact sur les raies d'un nouveau calcul des taux de réactions impliquant le $\mathrm{H}_2$. Puis J'ai analysé dans quelles circonstances le chauffage par les réactions chimiques, qui est très souvent négligé dans les code, pouvait dominer. 
+
+
 
 \begin{figure}[!p]
     \centering
-    \includegraphics[trim = {0 0 0 0},clip, width=0.4\textwidth]{figure/omega.pdf}
-    \caption{M17 ou nébuleuse du Cygne, elle est située à 5500 années lumières dans la constellation du Sagittaire. Le nuage moléculaire froid est creusé et chauffé par le champs de rayonnement UV intense émis par un amas de jeunes étoiles qui serait situé en haut à gauche. Le rouge représente l'émission du soufre, le vert l'hydrogène et le bleu l'oxygène.
+    \includegraphics[trim = {0 0 0 0},clip, width=0.6\textwidth]{figure/omega.pdf}
+    \vspace{1em}
+    \caption{M17 ou nébuleuse du Cygne.
     % http://hubblesite.org/image/1331/news_release/2003-13
     Crédits NASA/ESA/J. Hester (ASU)}
+    \vspace{1em}
+    \begin{minipage}{\textwidth}
+    Le rouge représente l'émission du soufre, le vert l'hydrogène et le bleu l'oxygène. Le nuage moléculaire froid est creusé et chauffé par le champs de rayonnement UV intense émis par un amas de jeunes étoiles qui serait situé hors du cadre en haut à gauche.
+    \end{minipage} 
     \label{fig:m17}
 \end{figure}{}
+
 
 \begin{figure}[!p]
     \centering
     \includegraphics[width = 0.6\textwidth]{figure/mystic.pdf}
-    \caption{Nébuleuse de la Carène, \og Montagne mystique \fg{}. Image composite des émissions de l’oxygène (en bleu), hydrogène et nitrogène (vert) et soufre (rouge). Crédits HST/NASA.}
+    \caption{Nébuleuse de la Carène, \og Montagne mystique \fg{}. Image composite des émissions de l’oxygène (en bleu), hydrogène et azote (vert) et soufre (rouge). Crédits HST/NASA.}
     %https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA15985
+    \vspace{1em}
     \begin{minipage}{\textwidth}
     Cette image prise par Hubble montre la forme complexe du milieu interstellaire. Les filament bleus-verts révèlent des jeunes étoiles brillantes situés hors cadre et à des années lumière de la structure qui érodent les colonnes de gaz par leurs champs UV intense. Des milliers d'étoiles sont enfouies dans le nuage interstellaire qui absorbent leurs émissions et nous empêche de les détecter. Aux sommets des colonnes, on voit les signes d'étoiles récemment formées qui éjectent de la matière dans des jets chauds tourbillonnant qui vont s'accréter sur la surface de l'étoile.
     \end{minipage}
     \label{fig:intro:mystic}
 \end{figure}
 
-Ces jeunes étoiles interagissent avec les nuages dans des interfaces que l'on appelle des régions photon-dominées ou régions de photo-dissociations (PDR). Il s'agit de région du milieu interstellaire où la chimie et la température du gaz sont fortement influencés par le champs UV proche. Les observations Herschel et ALMA ont sondé la structure de ces régions et révolutionné notre compréhension des PDR \cite{Goicoechea2016}. Après la naissance d'une étoile au sein d'un nuage moléculaire, la photoionisation du gaz proche de l'étoile créé un front d'ionisation qui s'expand vers le nuage moléculaire et comprime la PDR. \newline 
 
 
 
-
-Ces couches du gaz sont contenues à des hautes pressions et chauffées par l'effet photoélectrique sur les grains ce qui permet à une chimie chaude de se développer. Elle initie la formation et l'excitation de traceurs importants comme le CO observé par Herschel \cite{COJoblin}. Le flux UV des jeunes étoiles assurent ainsi la formation des espèces moléculaires au sein du nuage et l'excitation des raies observées. L'interprétation des raies d'émissions à l'aide des modèles PDR dépend directement de la température. Celle-ci est déterminée à partir des processus de chauffage et de refroidissement qui sont pourtant mal connus. L'objectif du stage est de revoir l'ensemble des processus thermiques qui se déroulent au sein des PDR afin de mieux interpréter les observations. \newline
-
-L'étude s'intéresse à des processus de chauffage qui peuvent dominer localement dans des zones du nuage et donc jouer un rôle clé dans la compréhension de certains traceurs. Il s'agit notamment du chauffage par pompage UV de la molécule $\mathrm{H}_2$, du chauffage par exothermicité des réactions chimiques et du chauffage par les rayons cosmiques. Par ailleurs, je me suis attardé pendant une partie de mon stage sur la découverte d'une amplification de l'effet photo-électrique sur les grains induite par la chimie du chlore. L'effet photoélectrique sur les grains domine le bilan énergétique global dans les PDR et sera revu au cours de mon projet de thèse qui porte sur les grains interstellaires. L'étude est faite à l'aide du code PDR de Meudon \cite{LePetit2006} qui est un modèle complet de PDR qui résout le transfert de rayonnement à travers le gaz, la chimie du nuage et le bilan thermique. C'est un code 1D stationnaire qui permet de prédire les intensités de raies observées. \newline 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
