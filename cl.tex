@@ -489,7 +489,9 @@ Il apparaît également des instabilités thermiques dans les régions diffuses 
 
 Tout d'abord sur la figure \ref{fig:Cl:grid:Tba:noCl}, on remarque l'existence d'un point-selle en température vers $n_\mathrm{H}=10^3 \, \mathrm{cm}^{-3}$ et $\chi=10^3$ qui est absent de la figure \ref{fig:Cl:gridModel:Tba:noCl}. Une analyse de cette région montre que l'augmentation de l'intensité du champs de rayonnement $\chi$ dans les régions à basse densité accélère la recombinaison des électrons sur les grains qui la rend plus efficace que l'effet photoélectrique pur, ce qui diminue le chauffage net et donc la température du gaz. Les formules d'effet photoélectrique (eq \ref{eq:Rollig:pe}) et de recombinaisons des électrons sur les grains (eq \ref{eq:Rollig:rece}) reproduisent mal ce phénomène. Le modèle obtient dans ces régions des températures plus chaudes. \newline 
 
-De plus, le code PDR calcule la température d'équilibre du gaz en cherchant par dichotomie les zéros de la fonction $\mathrm{T} \rightarrow (\Gamma - \Lambda)(\mathrm{T)}$. Rien n'assure que le code décèle toutes les solutions. Par exemple dans la figure \ref{fig:Cl:particulier:2}, le code ne trouve que la solution basse température alors qu'il existe une solution chaude proche de $9000$ K. Il peut arriver que le code saute d'une branche de solution à une autre comme c'est le cas sur le profil de température de la figure \ref{fig:Cl:firstprofil}. Une amélioration qui pourrait être faite au code est de le rendre capable de déceler deux solutions (s'il y en a) et de rester sur une même branche de solution à travers le nuage. \newline 
+De plus, le code PDR calcule la température d'équilibre du gaz en cherchant par dichotomie les zéros de la fonction $\mathrm{T} \rightarrow (\Gamma - \Lambda)(\mathrm{T)}$. Rien n'assure que le code décèle toutes les solutions. Par exemple dans la figure \ref{fig:Cl:particulier:2}, le code ne trouve que la solution basse température alors qu'il existe une solution chaude proche de $9000$ K. Il peut arriver que le code saute d'une branche de solution à une autre 
+% comme c'est le cas sur le profil de température de la figure \ref{fig:Cl:firstprofil}
+. Une amélioration qui pourrait être faite au code est de le rendre capable de déceler deux solutions (s'il y en a) et de rester sur une même branche de solution à travers le nuage. \newline 
 
 Enfin, l'absence de la prise en compte du $\mathrm{H}_2$ dans le modèle semi-analytique a un impact important sur la température car il chauffe par pompage UV les régions denses et refroidit par désexcitation collisionelle. On voit sur la figure \ref{fig:Cl:particulier:4} qui est un modèle dense ($n_\mathrm{H}=10^4 \, \mathrm{cm}^{-3}$, $\chi=10^{4.5}$) que l'effet photoélectrique est négligeable devant le chauffage par $\mathrm{H}_2$. 
 
@@ -605,6 +607,10 @@ Il est donc nécessaire de déterminer des traceurs qui ont des potentiels de io
     \label{fig:Cl:gridModelEmiss:N}
 \end{figure}
 
+
+\subsection*{Conclusion}
+
+Bien que le chlore se trouve en faible abondance de le gaz interstellaire, on a démontré qu'il peut provoquer une augmentation de la température de plus de $1000$ K dans les bords atomiques des nuages. Ce chauffage est provoqué par l'existence d'une bistabilité thermique pour les PDR fortement illuminées. C'est un phénomène nouveau difficile à observer car l'on manque de traceurs atomiques qui ne sont pas masqué par la région photoionisée. Enfin, le passage de la solution froide à la solution chaude provoque une dilatation du gaz. Il serait alors intéressant d'étudier l'impact du chlore dans un code dynamique comme le code Hydra \cite{Bron2018}.
 
 
 
