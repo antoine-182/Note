@@ -159,39 +159,31 @@ Les réactions les plus efficaces qui forment et détruisent les ions $\mathrm{H
     \end{array}
 \end{equation}
 
-Les réactions avec l'oxygène sont négligées car la formation et destruction de $\mathrm{H}^+$ par l'oxygène se compensent totalement en première approximation. De plus la prise en compte de la recombinaison de l'ion $\mathrm{H}^+$ sur les grains ($\mathrm{H}^+  + \mathrm{grains}  \rightarrow \mathrm{H}$) dans les calculs va les alourdir, on la néglige dans un premier temps. Il reste le transfert de charge entre le chlore et l'hydrogène ($\mathrm{Cl}^+  + \mathrm{H}    \rightleftharpoons &\mathrm{Cl}   +  \mathrm{H}^+$) ainsi que la recombinaison électronique de l'hydrogène ($\mathrm{H}^+  + \mathrm{e}^-  \rightarrow\mathrm{H}$). On associe à chaque réaction un taux de réaction $k_3$,$k_4$, $k_5$ en $\mathrm{cm}^{-3}\,\mathrm{s}^{-1}$ et qui dépendent de la température.  <nommer les coefficients en recommencant de 1 ?>
-
+Les réactions avec l'oxygène sont négligées car la formation et destruction de $\mathrm{H}^+$ par l'oxygène se compensent totalement en première approximation. De plus la prise en compte de la recombinaison de l'ion $\mathrm{H}^+$ sur les grains ($\mathrm{H}^+  + \mathrm{grains}  \rightarrow \mathrm{H}$) dans les calculs va les alourdir, on la néglige dans un premier temps. Il reste le transfert de charge entre le chlore et l'hydrogène ($\mathrm{Cl}^+  + \mathrm{H}    \rightleftharpoons &\mathrm{Cl}   +  \mathrm{H}^+$) ainsi que la recombinaison électronique de l'hydrogène ($\mathrm{H}^+  + \mathrm{e}^-  \rightarrow\mathrm{H}$). On associe à chaque réaction un taux de réaction $k_1$,$k_2$, $k_3$ en $\mathrm{cm}^{-3}\,\mathrm{s}^{-1}$ et qui dépendent de la température.  
 \begin{equation}
     \begin{array}{lllllllr}
-        \mathrm{Cl}^+ & + &\mathrm{H}   & \rightarrow &\mathrm{Cl}  & + & \mathrm{H}^+ & (k_3) \\
-        \mathrm{Cl}  & + & \mathrm{H}^+  & \rightarrow & \mathrm{Cl}^+ & + &\mathrm{H}  & (k_4) \\
-        \mathrm{H}^+  & + & \mathrm{e}^-  & \rightarrow &\mathrm{H}   &   &     & (k_5) \\
+        \mathrm{Cl}^+ & + &\mathrm{H}   & \rightarrow &\mathrm{Cl}  & + & \mathrm{H}^+ & (k_1) \\
+        \mathrm{Cl}  & + & \mathrm{H}^+  & \rightarrow & \mathrm{Cl}^+ & + &\mathrm{H}  & (k_2) \\
+        \mathrm{H}^+  & + & \mathrm{e}^-  & \rightarrow &\mathrm{H}   &   &     & (k_3) \\
     \end{array}
 \end{equation}
 
 A l'état stationnaire, le bilan de formation des ions $\mathrm{H}^+$ donne
 \begin{equation}\label{eq:h+}
-    \frac{d}{dt}n(\mathrm{H}^+) = k_3n(\mathrm{Cl}^+)n(\mathrm{H}) - k_4n(\mathrm{Cl})n(\mathrm{H}^+) - k_5 n(\mathrm{H}^+)n_e = 0
+    \frac{d}{dt}n(\mathrm{H}^+) = k_1n(\mathrm{Cl}^+)n(\mathrm{H}) - k_2n(\mathrm{Cl})n(\mathrm{H}^+) - k_3 n(\mathrm{H}^+)n_e = 0
 \end{equation}
 
-En introduisant la fraction atomique de chlore $\delta_{Cl}$, fixée dans le gaz, et le bilan de charge (eq \ref{eq:bilan:ne}) on obtient une équation en $n(\mathrm{H}^+)$ :
+En utilisant le bilan de charge on obtient une équation en $n(\mathrm{H}^+)$ :
 
 \begin{equation}
-    -k_3n(\mathrm{Cl}^+)n_{\mathrm{H}} + \bigg( \frac{k_3 k_4}{k_1} n_{\mathrm{H}} n(\mathrm{Cl}^+) + k_5 \big(n(\mathrm{C}^+)+ n(\mathrm{S}^+)\big) \bigg) n(\mathrm{H}^+) + k_5 n(\mathrm{H}^+)^2 = 0
+    -k_1n(\mathrm{Cl}^+)n_{\mathrm{H}} + \bigg(k_2 n(\mathrm{Cl})+ k_3 \big(n(\mathrm{C}^+)+ n(\mathrm{S}^+)\big) \bigg) n(\mathrm{H}^+) + k_3 n(\mathrm{H}^+)^2 = 0
 \end{equation}
 
- avec,
-\begin{equation}
-    \delta_{Cl} = 1.8\,10^{-7} = \frac{n(\mathrm{Cl}) + n(\mathrm{Cl}^+) + ...}{n(\mathrm{H}) + n(\mathrm{H}^+) + 2n(\mathrm{H}_2) + ...} \approx \frac{1}{n_{\mathrm{H}}} (n(\mathrm{Cl}) + n(\mathrm{Cl}^+) )
-\end{equation}
-
-On obtient alors une solution qui dépend de $n(\mathrm{Cl}^+)$,
+On obtient alors une solution qui dépend de $n(\mathrm{Cl}^+)$ et $n(\mathrm{Cl})$,
 
 \begin{equation}
-\hspace{-3em}
-\resizebox{1.1\hsize}{!}{
-    \boxed{n(\mathrm{H}^+) = -\frac{1}{2} \bigg( \frac{k_3 k_4}{k_1 k_5} n_{\mathrm{H}} n(\mathrm{Cl}^+) + n(\mathrm{C}^+)+ n(\mathrm{S}^+) \bigg) \pm \frac{1}{2} \sqrt{\bigg( \frac{k_3 k_4}{k_1 k_5} n_{\mathrm{H}} n(\mathrm{Cl}^+) + n(\mathrm{C}^+)+ n(\mathrm{S}^+) \bigg)^2 + 4\frac{k_3}{k_5}n_{\mathrm{H}} n(\mathrm{Cl}^+)}}
-    }
+n(\mathrm{H}^+) = -\frac{1}{2} \bigg( \frac{k_2}{k_3} n(\mathrm{Cl}) + n(\mathrm{C}^+)+ n(\mathrm{S}^+) \bigg) \pm \frac{1}{2} \sqrt{\bigg( \frac{k_2}{k_3} n(\mathrm{Cl}) + n(\mathrm{C}^+)+ n(\mathrm{S}^+) \bigg)^2 + 4\frac{k_1}{k_3}n_{\mathrm{H}} n(\mathrm{Cl}^+)}
+
 \end{equation}
 
 % \subsubsection{Rôle de l'oxygène}
@@ -224,24 +216,46 @@ De la même manière, les réactions importantes faisant intervenir le chlore so
 \end{equation}
 
 
-La recombinaison électronique de $\mathrm{Cl}^+$ ($\mathrm{Cl}^+ + \mathrm{e}^-\rightarrow & \mathrm{Cl} + h\nu $) reste négligeable devant le transfert de charge avec $\mathrm{H}$  ($\mathrm{Cl}^+ + \mathrm{H} \rightarrow & \mathrm{Cl}+ \mathrm{H}^+ $) pour des températures supérieure à $100$K et la destruction par formation du $\mathrm{HCl}^+$ devient dominante dans la gamme de température $100-1000$K. Négliger ces réactions donne une approximation correcte de la densité d'ion chlore pour les régimes de températures $T\geq 1000$ K et garde l'emballement de l'effet photoélectrique. On considère ainsi les réactions ci-dessous avec les taux de réactions $k_1$ en $\mathrm{s}^{-1}$ et $k_3$ en $\mathrm{cm}^{-3}\,\mathrm{s}^{-1}$.
+La recombinaison électronique de $\mathrm{Cl}^+$ ($\mathrm{Cl}^+ + \mathrm{e}^-\rightarrow & \mathrm{Cl} + h\nu $) reste négligeable devant le transfert de charge avec $\mathrm{H}$  ($\mathrm{Cl}^+ + \mathrm{H} \rightarrow & \mathrm{Cl}+ \mathrm{H}^+ $) pour des températures supérieure à $100$K et la destruction par formation du $\mathrm{HCl}^+$ devient dominante dans la gamme de température $100-1000$K. Négliger ces réactions donne une approximation correcte de la densité d'ion chlore pour les régimes de températures $T\geq 1000$ K et garde l'emballement de l'effet photoélectrique. On considère ainsi les réactions ci-dessous avec les taux de réactions $k_4$ en $\mathrm{s}^{-1}$ et $k_5$ en $\mathrm{cm}^{-3}\,\mathrm{s}^{-1}$.
 
 \begin{equation}
     \begin{array}{lccccclr}
-       \mathrm{Cl}  & + & h\nu & \rightarrow & \mathrm{Cl}^+ & + & \mathrm{e}^- & (k_1) \\
-        \mathrm{Cl}^+ & + &\mathrm{H}   & \rightarrow &\mathrm{Cl}  & + & \mathrm{H}^+ & (k_3) \\
+       \mathrm{Cl}  & + & h\nu & \rightarrow & \mathrm{Cl}^+ & + & \mathrm{e}^- & (k_4) \\
+        \mathrm{Cl}^+ & + &\mathrm{H}   & \rightarrow &\mathrm{Cl}  & + & \mathrm{H}^+ & (k_5) \\
     \end{array}
 \end{equation}
 
-Un travail similaire nous donne 
+On obtient,
+
 \begin{equation}
-    k_1(\delta_{Cl}n_{\mathrm{H}} - n(\mathrm{Cl}^+)) - k_3 n(\mathrm{Cl}^+) n_{\mathrm{H}} = 0
+     \frac{d}{dt}n(\mathrm{Cl}^+) = k_4 n(\mathrm{Cl}) - k_5 n(\mathrm{Cl}^+) n_{\mathrm{H}} = 0
+     \label{eq:cl}
 \end{equation}
 
-Ce qui fait en posant $A = \frac{k_1}{k_3 n_{\mathrm{H}}}$:
+
+En introduisant la fraction atomique de chlore $\delta_{Cl}$, fixée dans le gaz, on a 
+\begin{equation}
+    k_4(\delta_{Cl}n_{\mathrm{H}} - n(\mathrm{Cl}^+)) - k_5 n(\mathrm{Cl}^+) n_{\mathrm{H}} = 0
+\end{equation}
+
+ avec,
+\begin{equation}
+    \delta_{Cl} = 1.8\,10^{-7} = \frac{n(\mathrm{Cl}) + n(\mathrm{Cl}^+) + ...}{n(\mathrm{H}) + n(\mathrm{H}^+) + 2n(\mathrm{H}_2) + ...} \approx \frac{1}{n_{\mathrm{H}}} (n(\mathrm{Cl}) + n(\mathrm{Cl}^+) )
+\end{equation}
+
+Ce qui fait en posant $A = \frac{k_4}{k_5 n_{\mathrm{H}}}$:
 
 \begin{equation}
-\boxed{n(\mathrm{Cl}^+) = \frac{k_1 \delta_{Cl} n_{\mathrm{H}}}{k_1 + k_3 n_{\mathrm{H}}} = \frac{A}{1 + A} \delta_{cl} n_{\mathrm{H}}}
+\boxed{n(\mathrm{Cl}^+) = \frac{k_4 \delta_{Cl} n_{\mathrm{H}}}{k_4 + k_5 n_{\mathrm{H}}} = \frac{A}{1 + A} \delta_{cl} n_{\mathrm{H}}}
+\end{equation}
+
+De plus, en utilisant eq.\ref{eq:cl},
+
+\begin{equation}
+\hspace{-3em}
+\resizebox{1.1\hsize}{!}{
+    \boxed{n(\mathrm{H}^+) = -\frac{1}{2} \bigg( \frac{k_5 k_2}{k_4 k_3} n_{\mathrm{H}} n(\mathrm{Cl}^+) + n(\mathrm{C}^+)+ n(\mathrm{S}^+) \bigg) \pm \frac{1}{2} \sqrt{\bigg( \frac{k_5 k_2}{k_4 k_3} n_{\mathrm{H}} n(\mathrm{Cl}^+) + n(\mathrm{C}^+)+ n(\mathrm{S}^+) \bigg)^2 + 4\frac{k_1}{k_3}n_{\mathrm{H}} n(\mathrm{Cl}^+)}}
+    }
 \end{equation}
 
 
@@ -310,7 +324,7 @@ Pour construire un bilan thermique et déterminer la température d'équilibre d
     \item l'émissions Lyman $\mathrm{H}\alpha$ (\cite{tielens2005}).
 \end{itemize}{}
 
-Les processus thermiques impliquant la molécule $\mathrm{H}_2$ ont été négligé pour simplifier dans un premiert temps.
+Les processus thermiques impliquant la molécule $\mathrm{H}_2$ ont été négligé pour simplifier dans un premier temps.
 %car ils demandent de connaître la densité de $\mathrm{H}_2$ dans le bord atomique du nuage. 
 On note $\Gamma$ et $\Lambda$ les taux de chauffage et de refroidissement total.
 
@@ -437,7 +451,7 @@ Grâce aux expressions de chauffage et de refroidissement ainsi qu'au modèle se
 On trace sur la figure \ref{fig:Cl:modelPE:GC} la courbe de chauffage et de refroidissement d'un bord atomique de nuage résolu par le code PDR. On trace également les courbes obtenues par notre modèle et on remarque qu'elles retrouvent l'emballement de l'effet photo-électrique à partir de $1000$ K. Néanmoins, on constate que le calcul de Rollig (eq \ref{eq:Rollig:pe}) sous-estime d'un facteur 3 l'effet photo-électrique calculé par le code si bien que le modèle prédit une solution \og chaude \fg{} $4000$ K plus froide que celle obtenue par le code. \newline 
 % Par ailleurs la température maximale calculé par notre modèle étant proche de la température du nuage ne comportant pas de chlore, le modèle ne peut pas prédire qu 
 
-Il est prévisible que la formule de Rollig (eq.\ref{eq:Rollig:pe}) diffère de l'effet photoélectrique calculé par le code PDR. En effet, ce processus dépend des paramètres de grains choisis et le code PDR traite les grains de façon plus détaillé que l'expression analytique de Rollig. Cette formule retrouve pourtant l'emballement à hautes températures et a la même allure que le taux calculé par le code PDR. On constate sur la figure \label{fig:Cl:modelPE:GC3} que l'expression eq.\ref{eq:Rollig:pe}, multipliée par un facteur 3, retrouve celle du code et obtient une solution "chaude" proche ($+1500$ K) de celle du code. On gardera désormais cette correction. 
+Il est prévisible que la formule de Rollig (eq.\ref{eq:Rollig:pe}) diffère de l'effet photoélectrique calculé par le code PDR. En effet, ce processus dépend des paramètres de grains choisis et le code PDR traite les grains de façon plus détaillé que l'expression analytique de Rollig. Cette formule retrouve pourtant l'emballement à hautes températures et a la même allure que le taux calculé par le code. On constate sur la figure \label{fig:Cl:modelPE:GC3} que l'expression de Rollig, multipliée par un facteur 3, retrouve celle du code et obtient une solution "chaude" proche ($+1500$ K) de celle du code PDR. On gardera désormais cette correction. 
 
 
 \begin{figure}[!h]
@@ -582,7 +596,7 @@ On choisit un modèle ($n_\mathrm{H}=10^5 \, \mathrm{cm}^{-3}$, $\chi=10^{4.5}$)
     
     \caption{Diagramme d'intensité des traceurs modifiés par l'ajout du chlore.}
     \begin{minipage}{\textwidth}
-    Les traits en bleue et orange sont les modèles $n_\mathrm{H}=10^5 \, \mathrm{cm}^{-3}$ et $\chi=10^{4.5}$ avec et sans le chlore (respectivement). Ces spectres sont affichés en plus grande taille dans l'annexe.
+    Les traits en bleue et orange sont les modèles $n_\mathrm{H}=10^5 \, \mathrm{cm}^{-3}$ et $\chi=10^{4.5}$ avec et sans le chlore (respectivement). Ces figures sont affichés en plus grande taille dans l'annexe.
     \end{minipage}
     \label{fig:Cl:gridModelEmiss:yes}
 \end{figure}
@@ -591,9 +605,11 @@ On choisit un modèle ($n_\mathrm{H}=10^5 \, \mathrm{cm}^{-3}$, $\chi=10^{4.5}$)
 
 
 
-\subsubsection{Choix de la raie $[\mathrm{N}]\,5200 \mathrm{A}$}
+\subsubsection{Choix de la raie $[\mathrm{N}]\,5200 \AA$}
 
-On choisit la raie la plus intense du spectre d'émission de $\mathrm{N}$ qui est la transition $\mathrm{Eu}=2\mathrm{D}^\mathrm{0}_{5/2} \rightarrow \mathrm{El}=4\mathrm{S}^\mathrm{0}_{3/2}$ correspondant à la longueur d'onde $5200 \AA$. Cette raie est dans le domaine du visible et pourrait être observée depuis la Terre par MUSE. \newline 
+On choisit la raie la plus intense du spectre d'émission de $\mathrm{N}$ qui est la transition $\mathrm{Eu}=2\mathrm{D}^\mathrm{0}_{5/2} \rightarrow \mathrm{El}=4\mathrm{S}^\mathrm{0}_{3/2}$ correspondant à la longueur d'onde $5200 \AA$. Cette raie est dans le domaine du visible et pourrait être observée depuis la Terre par MUSE\footnote{
+Téléscope terrestre géré par l'ESA observant dans le domaine du visble. \\
+https://www.eso.org/sci/facilities/paranal/instruments/muse/overview.html}. \newline 
 
 La figure \ref{fig:Cl:gridModelEmiss:N} représente le rapport d'intensité de la raie $[\mathrm{N}]\,5200 \mathrm{A}$ des grilles de modèle contenant du chlore ou ne contenant pas de chlore. On constate que les régions dont les bords atomiques qui subissent l'emballement de l'effet photoélectrique (figure \ref{fig:Cl:grid:Tba}) ont des intensités de raies jusqu'à $10^6$ fois plus grande. Tenter d'observer cette raie permettrait à priori de déterminer les bords atomiques des PDR chauffés par le chlore. \newline 
 
@@ -603,7 +619,7 @@ Il est donc nécessaire de déterminer des traceurs qui ont des potentiels de io
 
 \begin{figure}[!h]
     \centering \includegraphics[trim = {0 0 0 1cm},clip,width=0.5\textwidth]{figure/Cl/gridModelEmiss/map_Cl155_n_noCl155_nI_N.pdf}
-    \caption{Rapport des intensités de grilles de modèles contenant, ou non, du chlore a refaire + schéma des front de ionisations + aller jusqu'à $10^0$}
+    \caption{Rapport d'intensité de la raie [N] $\mathrm{Eu}=2\mathrm{D}^\mathrm{0}_{5/2}$}
     \label{fig:Cl:gridModelEmiss:N}
 \end{figure}
 
