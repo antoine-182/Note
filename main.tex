@@ -1,4 +1,5 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper,twoside,openright]{article}
+% \documentclass[14pt,a4paper,twoside,openright]{report}
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
@@ -9,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage[top=2.5cm, bottom=4.5cm, left=1.5cm, right=1.5cm]{geometry}
+% \usepackage[top=0cm, bottom=0cm, left=2cm, right=2cm]{geometry}
 \usepackage{fancyhdr}
 \usepackage[bottom]{footmisc} % footnote below figures
 \usepackage{verbatim}
@@ -17,7 +19,7 @@
 \usepackage{caption} 
 \usepackage{subcaption}
 % reference figure
-\usepackage{hyperref}
+% \usepackage{hyperref}
 %cropping figures
 \usepackage{adjustbox}
 \usepackage{setspace} %spacing
@@ -26,6 +28,10 @@
 % \usepackage{siunitx}
 \usepackage{multirow} % pour des tableaux multicolumns
 % \usepackage{float} 
+
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+
 
 \usepackage[titletoc,page]{appendix}
 % \usepackage{chngcntr}
@@ -60,38 +66,161 @@
     showstringspaces=false
 }
 
+\def\enstaLangPRE{Projet de Fin de Master}
+\def\enstaLangSpecialite{Spécialité :}
+\def\enstaLangAnneeScolaire{Année Scolaire :}
+\def\enstaLangMentionConfidentialite{Mention de non-confidentialité}
+\def\enstaLangAuteur{Auteur :}
+\def\enstaLangTuteurENSTA{Tuteur ENSTA Paris :}
+\def\enstaLangPromo{Promotion :}
+\def\enstaLangTuteurOrganisme{Tuteur organisme d'accueil :}
+\def\enstaLangStageEffectueDu{Stage effectué du}
+\def\enstaLangStageEffectueAu{au}
+\def\enstaLangNomOrganisme{Nom de l'organisme d'accueil :}
+\def\enstaLangAdresse{Adresse :}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          VARIABLES          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\logo}[1]{\def\enstaLogoCorp{#1}}
+\newcommand{\specialite}[1]{\def\enstaSpecialite{#1}}
+\newcommand{\annees}[1]{\def\enstaAnneeScol{#1}}
+\newcommand{\titre}[1]{\def\enstaTitre{#1}}
+\newcommand{\soustitre}[1]{\def\enstaSousTitre{#1}}
+\newcommand{\illustration}[1]{\def\enstaIllustration{#1}}
+\newcommand{\confidentialite}[1]{\def\enstaConfidentialite{#1}}
+\newcommand{\auteur}[1]{\def\enstaAuteur{#1}}
+\newcommand{\promotion}[1]{\def\enstaPromotion{#1}}
+\newcommand{\tuteurENSTA}[1]{\def\enstaTuteurENSTA{#1}}
+\newcommand{\tuteurOrganisme}[1]{\def\enstaTuteurOrganisme{#1}}
+\newcommand{\dateDebut}[1]{\def\enstaDateDebut{#1}}
+\newcommand{\dateFin}[1]{\def\enstaDateFin{#1}}
+\newcommand{\organisme}[1]{\def\enstaOrganisme{#1}}
+\newcommand{\adresseOrganisme}[1]{\def\enstaAdresseOrganisme{#1}}
+
+\logo{figure/obs.jpg}
+\annees{2019}
+\titre{Etude des processus thermiques dans les régions de photodissociation (PDR)}
+\soustitre{}
+%\illustration{atlas_0.jpeg}
+\confidentialite{Ce document n'est pas confidentiel et seulement une copie peut être obtenue depuis la bibliothèque de l'ENSTA Paris.}
+\auteur{Antoine NASSER}
+\promotion{2019}
+\tuteurENSTA{Jérôme PEREZ}
+\tuteurOrganisme{Franck Le Petit \\ Emeric Bron}
+\dateDebut{18/03/2019}
+\dateFin{17/09/2019}
+\organisme{Observatoire de Paris}
+\adresseOrganisme{61 AVENUE DE L'OBSERVATOIRE\\ 75014  Paris \\France}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%        HEADER/FOOTER        %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % redefine a style, here it is plain
-\fancypagestyle{fancy}{ 
-\fancyhf{}
-\fancyfoot[RO, LE] {\thepage}
-\fancyhead[RO] {\leftmark}
-\fancyhead[LE] {\rightmark}
-}
-%\pagestyle{fancy}
-%\newcommand{\question}[2]{\vspace{2em} \textbf{Question #1)} #2 \vspace{1em}}
+% \fancypagestyle{fancy}{ 
+% \fancyhf{}
+% \fancyfoot[RO, LE] {\thepage}
+% \fancyhead[RO] {\leftmark}
+% \fancyhead[LE] {\rightmark}
+% }
 
-% thanks https://tex.stackexchange.com/questions/114321/extensible-vec-instead-of-overrightarrow 
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhf{}
+\fancyhead[CO]{\nouppercase{\rightmark}}
+\fancyhead[CE]{\enstaTitre}
+\fancyfoot[CO, CE]{\thepage}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%         FIRST  PAGE         %%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\couverture}{
+  \begin{titlepage}
+  \bfseries
+    \begin{center}
+    \vspace*{\stretch{2}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lr}
+      \includegraphics[height=5cm]{figure/ensta.png} & \includegraphics[height=5cm]{\enstaLogoCorp}
+      %\includegraphics[scale=0.4]{ensta.jpg} & \includegraphics[scale=0.4]{\enstaLogoCorp}
+    \end{tabular*} \\
+    \vspace*{\stretch{0.5}}
+    \huge \enstaLangPRE \\
+    \vspace*{0.3 cm}
+    \enstaLangAnneeScolaire ~\enstaAnneeScol \\
+    \vspace*{0.5 cm}
+	\begin{center}
+	\line(1,0){500}
+	\end{center}
+    \Huge \enstaTitre 
+	\begin{center}
+	\line(1,0){500}
+	\end{center}
+  %  \Large \enstaSousTitre \\
+    \vspace*{\stretch{0.5}}
+  %  \includegraphics[height=4cm]{\enstaIllustration} \\
+    \vspace*{1 cm}
+    {\color{red} 
+    \normalsize \enstaConfidentialite} \\
+    \vspace*{\stretch{0.5}}
+    \vspace{1cm}
+    \begin{minipage}{0.49\textwidth}
+      \begin{center}
+  \large \enstaLangAuteur \\
+  \enstaAuteur \\
+  \vspace*{0.8cm}
+  \normalsize \enstaLangTuteurENSTA\\
+  \enstaTuteurENSTA \\
+      \end{center}
+    \end{minipage}
+    \begin{minipage}{0.49\textwidth}
+      \begin{center}
+  \large \enstaLangPromo \\
+  \enstaPromotion \\
+  \vspace*{0.5cm}
+  \normalsize \enstaLangTuteurOrganisme \\
+  \enstaTuteurOrganisme \\
+      \end{center}
+    \end{minipage} \\
+    \vspace{1cm}
+    \vspace*{\stretch{1}}
+    \normalsize \enstaLangStageEffectueDu ~\enstaDateDebut ~\enstaLangStageEffectueAu ~\enstaDateFin \m\
+    \vspace*{\stretch{0.5}}
+    \normalsize
+    \begin{tabular}{l}
+      \begin{tabular}{l@{}l}
+      \enstaLangNomOrganisme & \begin{tabular}{l}\enstaOrganisme\end{tabular}
+      \end{tabular} \\
+      \begin{tabular}{l@{}l}
+      \enstaLangAdresse & \begin{tabular}[t]{l}\enstaAdresseOrganisme\end{tabular}
+      \end{tabular}
+    \end{tabular}
+    \vspace*{\stretch{2}}
+    \end{center}
+  \end{titlepage}
+  %\newgeometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%   CONFIDENTIALITY  NOTICE   %%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\pageConfidentialite}[1]{\partb{\enstaLangMentionConfidentialite}#1\vfill}
+
 
 \newcommand{\xvec}[1]{\overrightarrow{#1}}
 \newcommand{\zer}{\vspace{1em}}
 \newcommand{\uncinq}{\texttt{1.5.2\_rev\_1900}}
 \newcommand{\unsept}{\texttt{1.7.0\_stab\_1926}}
 
-\title{Note de Stage\\Observatoire de Meudon} 
-\author{Antoine Nasser}
-\date{Printemps Été (chaud) 2019}
+% \title{Note de Stage\\Observatoire de Meudon} 
+% \author{Antoine Nasser}
+% \date{Printemps Été (chaud) 2019}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%        Chapitre        %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % \renewcommand\partname{}
 % \renewcommand{\thepart}{\Roman{part}) }
-\renewcommand{\thesection}{\Roman{section}) }
+\renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\Roman{section}.\arabic{subsection} }
 \renewcommand{\thesubsubsection}{\Roman{section}.\arabic{subsection}.\arabic{subsubsection}}
 
@@ -104,17 +233,30 @@
 \begin{spacing}{0.98}
 
 
-\maketitle
-\begin{center}{\Large Etude des processus de chauffage et de refroidissement \\ dans les régions de photodissociation (PDR)}\end{center}
+% \maketitle
+% \begin{center}{\Large Etude des processus de chauffage et de refroidissement \\ dans les régions de photodissociation (PDR)}\end{center}
 
 
 \setcounter{secnumdepth}{4}
-\vfill
-\begin{figure*}[!hb]
-        \centering 
-        \includegraphics[trim = {0 0 0 0cm},clip,width=0.8\textwidth]{figure/LERMA2.jpg}
-\end{figure*}
-\vfill
+% \vfill
+% \begin{figure*}[!hb]
+%         \centering 
+%         \includegraphics[trim = {0 0 0 0cm},clip,width=0.8\textwidth]{figure/LERMA2.jpg}
+% \end{figure*}
+% \vfill
+
+\couverture
+
+\clearpage
+Ce document n'est pas confidentiel et seulement une copie peut être obtenue depuis la bibliothèque de l'ENSTA Paris.
+
+\clearpage 
+\section*{Remerciements}
+
+\newpage 
+
+\clearpage 
+\section*{Résumé}
 
 \newpage 
 
@@ -127,7 +269,7 @@
 
 \begin{figure}[!p]
     \centering
-    \includegraphics[trim = {0 0 0 0},clip, width=0.7\textwidth]{figure/omega.pdf}
+    \includegraphics[trim = {0 0 0 0},clip, width=0.6\textwidth]{figure/omega.pdf}
     \vspace{1em}
     \caption{M17 ou nébuleuse du Cygne.
     % http://hubblesite.org/image/1331/news_release/2003-13
@@ -142,7 +284,7 @@
 
 \begin{figure}[!p]
     \centering
-    \includegraphics[width = 0.7\textwidth]{figure/mystic.pdf}
+    \includegraphics[width = 0.6\textwidth]{figure/mystic.pdf}
     \caption{Nébuleuse de la Carène, \og Montagne mystique \fg{}. Image composite des émissions de l’oxygène (en bleu), hydrogène et azote (vert) et soufre (rouge). Crédits HST/NASA.}
     %https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA15985
     \vspace{1em}
@@ -156,7 +298,7 @@
 \section*{Introduction}
 
 
-Le contexte général de cette étude est le gaz et des poussières se trouvant entre les étoiles, il s'agit du milieu interstellaire (le MIS). Les poussières représentent à peine $1\%$ de la masse du milieu interstellaire. Les $99\%$ de gaz est constitué, en masse, à $\sim 74\%$ d'hydrogène, $\sim 25\%$ d'hélium et $<1\%$ d'éléments dit \og lourds \fg{} soit des éléments ayant un numéro atomique $Z$ supérieur à celui de l'hélium (carbone, oxygène, azote...).\newline 
+Le contexte général de cette étude est le gaz et des poussières se trouvant entre les étoiles, il s'agit du milieu interstellaire (le MIS). Les poussières représentent à peine $1\%$ de la masse du milieu interstellaire. Les $99\%$ de gaz est constitué, en masse, de $\sim 74\%$ d'hydrogène, $\sim 25\%$ d'hélium et $<1\%$ d'éléments dit \og lourds \fg{} soit des éléments ayant un numéro atomique $Z$ supérieur à celui de l'hélium (carbone, oxygène, azote...).\newline 
 
 % Actuellement, on sait que la masse de la majorité des galaxies est sous forme de matière noire et que les baryons représentent $10\%$ de leurs masses et sont responsables de leurs aspects visibles. Dans notre Voie Lactée, la masse baryonique est principalement sous forme d'étoiles et seulement $10\%$ est trouvé dans le milieu interstellaire qui est distribué principalement autour du plan galactique. Les poussières représentent à peine $1\%$ de la masse du milieu interstellaire. Les $99\%$ de gaz est constitué, en masse, à $\sim 74\%$ d'hydrogène, $\sim 15\%$ d'hélium et $<1\%$ d'éléments dit \og lourds \fg{} soit des éléments ayant un numéro atomique $Z$ supérieur à celui de l'hélium (carbone, oxygène, azote...).\newline 
 
@@ -178,16 +320,15 @@ Le gaz est principalement sous forme atomique ($\mathrm{H}$) et on nomme cette r
     \caption{Structure d'une région de photo-dissociation. Les photons UV émis par les étoiles viennent de la gauche. Image tirée de \cite{Goicoechea2016}.}
     \label{fig:intro:struct}
 \end{figure}
- \newline
 
 On a découvert l'existence des phénomènes de chauffage et de refroidissement dans le milieu interstellaire à partir des années 60. Et jusqu'au années 90, des formules analytiques permettant d'estimer ces processus ont été proposées. Elles se fondait sur notre connaissance des quantités physiques et des populations de grains que l'on avait à cette époque. Aujourd'hui notre compréhension des PDR est beaucoup plus fine notamment sur les poussières interstellaires grâce aux observations Planck\footnote{Planck est un satellite (ESA, en activé de 2009 à 2012) ayant pour mission de cartographier le fond diffus cosmologique qui est le rayonnement de l'Univers primordial. Il trouve son origine dans le rayonnement émise directement par les étoiles et celui des poussières. \\
-https://www.cosmos.esa.int/web/planck} \cite{Jones_2017}. Pourtant nos modèles utilisent encore ces prescriptions alors que l'interprétation des observations en dépend directement. L'objectif du stage est donc de revoir l'ensemble des processus thermiques qui se déroulent au sein des PDR en s'intéressant à des processus de chauffage qui peuvent dominer localement dans des zones du nuage et jouer un rôle clé dans la compréhension de certains traceurs. Nous allons présenter les principaux phénomènes. Tout d'abord, l'effet photoélectrique sur les grains est le processus de chauffage dominant dans les PDR. L'absorption d'un photon UV par un grain entraine l'éjection d'un électron de sa surface avec une énergie de l'ordre de l'électron volt. Ces électrons supra-thermiques (1 eV $\approx 50\,000$ K) entrent en collisions avec les particules de gaz ce qui thermalise les électrons et chauffe le gaz. Un second processus de chauffage majeur est la désexcitation collisionnelle du $\mathrm{H}_2$ : lorsque la molécule absorbe un photon, elle passe dans un état excité et peut se désexciter en entrant en collision avec les particules du gaz. Ainsi l'énergie du photon est convertie en agitation thermique ce qui chauffe le gaz. Cet effet peut être accentué par le pompage UV de la molécule $\mathrm{H}_2$ qui permet à plus de molécule de passer dans ses états excités. Cela sera abordé dans la seconde section. La chimie a également un impact sur la température du nuage. En effet, une réaction chimique est endothermique ou exothermique selon que l’enthalpie des produits est plus grande que celles des réactifs. Ainsi, une réaction exothermique redistribue son excédent d'énergie au gaz, ce qui le chauffe, et inversement une réaction endothermique prélève de l'énergie. Cependant, les PDR se refroidissent principalement par les émissions du gaz. Cela concerne la molécule $\mathrm{H}_2$ mais aussi les ions ($\mathrm{C}^+$, $\mathrm{S}^+$ ...), les atomes ($\mathrm{O}$, $\mathrm{N}$, $\mathrm{C}$ ...) et les autres molécules ($\mathrm{OH}^+$ ...) du nuage. Lorsque une espèce passe dans un état excitée par collisions, elle se désexcite par émission spontanée, en émettant un photon dans une direction aléatoire. L'énergie d'agitation du gaz est convertie en un photon qui est perdu. Il y enfin le couplage gaz-grains qui a tendance à refroidir le gaz : les grains généralement plus froid entrent en collisions avec les particules du gaz et se thermalisent. Il existe également d'autres phénomènes dont l'on ne parlera pas ici comme le chauffage par les rayons cosmiques. \newline 
+https://www.cosmos.esa.int/web/planck} \cite{Jones_2017}. Pourtant nos modèles utilisent encore ces prescriptions alors que l'interprétation des observations en dépend directement. L'objectif du stage est donc de revoir l'ensemble des processus thermiques qui se déroulent au sein des PDR en s'intéressant à des processus de chauffage qui peuvent dominer localement dans des zones du nuage et jouer un rôle clé dans la compréhension de certains traceurs. Nous allons présenter les principaux phénomènes. Tout d'abord, l'effet photoélectrique sur les grains est le processus de chauffage dominant dans les PDR. L'absorption d'un photon UV par un grain entraine l'éjection d'un électron de sa surface avec une énergie de l'ordre de l'électron volt. Ces électrons supra-thermiques (1 eV $\approx 12\,000$ K) entrent en collisions avec les particules de gaz ce qui thermalise les électrons et chauffe le gaz. Un second processus de chauffage majeur est la désexcitation collisionnelle du $\mathrm{H}_2$ : lorsque la molécule absorbe un photon, elle passe dans un état excité et peut se désexciter en entrant en collision avec les particules du gaz. Ainsi l'énergie du photon est convertie en agitation thermique ce qui chauffe le gaz. Cet effet peut être accentué par le pompage UV de la molécule $\mathrm{H}_2$ qui permet à plus de molécule de passer dans ses états excités. Cela sera abordé dans la seconde section. La chimie a également un impact sur la température du nuage. En effet, une réaction chimique est endothermique ou exothermique selon que l’enthalpie des produits est plus grande que celles des réactifs. Ainsi, une réaction exothermique redistribue son excédent d'énergie au gaz, ce qui le chauffe, et inversement une réaction endothermique prélève de l'énergie. Cependant, les PDR se refroidissent principalement par les émissions du gaz. Cela concerne la molécule $\mathrm{H}_2$ mais aussi les ions ($\mathrm{C}^+$, $\mathrm{S}^+$ ...), les atomes ($\mathrm{O}$, $\mathrm{N}$, $\mathrm{C}$ ...) et les autres molécules ($\mathrm{OH}^+$ ...) du nuage. Lorsque une espèce passe dans un état excitée par collisions, elle se désexcite par émission spontanée, en émettant un photon dans une direction aléatoire. L'énergie d'agitation du gaz est convertie en un photon qui est perdu. Il y enfin le couplage gaz-grains qui a tendance à refroidir le gaz : les grains généralement plus froid entrent en collisions avec les particules du gaz et se thermalisent. Il existe également d'autres phénomènes dont l'on ne parlera pas ici comme le chauffage par les rayons cosmiques. \newline 
 
-L'étude est menée à l'aide du code PDR de Meudon \cite{LePetit2006} qui est un modèle complet de PDR. C'est un modèle stationnaire qui est correct dans la limite où les photoréactions sont très rapides devant l'évolution dynamique du nuage et le champs de rayonnement reste constant. Le code PDR résout dans une géométrie simplifié 1D le transfert du rayonnement à travers le gaz, la chimie et le bilan thermique. Comme nous l'avons vu, ces trois éléments sont couplés et il faut les résoudre de manière cohérente. Le transfert de rayonnement est déterminé en résolvant l'équation de transfert par une méthode spectrale. La chimie fait intervenir des centaines d'espèces qui sont reliés par des milliers de réactions. Les densités solutions sont calculées par une méthode du point fixe (Newton-Raphson). Le bilan thermique est résolu par dichotomie qui est une méthode simple mais robuste. Le code découpe en cellule la PDR et calcule, en parcourant chaque cellule, le transfert radiatif, les densités des espèces du gaz et la température d'équilibre. Comme l'état d'une cellule affecte le transfert de rayonnement des cellules voisines, le code itère à travers la PDR jusqu'à ce qu'il converge vers une solution stable. Ainsi le code PDR obtient des profils de densités et de température en fonction de la profondeur du nuage. Il produit également des diagrammes d'intensités de raies qui sont comparées aux observations. Enfin, les paramètres que l'on introduit pour un modèle de PDR sont le rayonnement UV auquel il est soumis, d'intensité $\chi$ en unité d'Habing \footnote{Est parfois utilisé $G_0 = 1.71\chi$ en unité de Draine}, ainsi que sa densité $n_\mathrm{H}$ ou bien sa pression thermale $P$ selon que l'on considère un nuage à densité constante\footnote{On note la densité du nuage $n_\mathrm{H}$ qui est la densité des éléments hydrogène (sous toutes ses formes) et non pas la densité total du nuage. Ainsi selon que le nuage est sous forme moléculaire ou atomique, la densité $n_\mathrm{H}$ reste bien constante.
+L'étude est menée à l'aide du code PDR de Meudon \cite{LePetit2006} qui est un modèle complet de PDR. C'est un modèle stationnaire qui est correct dans la limite où les photoréactions sont très rapides devant l'évolution dynamique du nuage et le champs de rayonnement reste constant. Le code PDR résout dans une géométrie simplifié 1D le transfert du rayonnement à travers le gaz, la chimie et le bilan thermique. Comme nous l'avons vu, ces trois éléments sont couplés et il faut les résoudre de manière cohérente. Le transfert de rayonnement est déterminé en résolvant l'équation de transfert par une méthode spectrale. La chimie fait intervenir des centaines d'espèces qui sont reliés par des milliers de réactions. Les densités solutions sont calculées par une méthode du point fixe (Newton-Raphson). Le bilan thermique est résolu par dichotomie qui est une méthode simple mais robuste. Le code découpe en cellule la PDR et calcule, en parcourant chaque cellule, le transfert radiatif, les densités des espèces du gaz et la température d'équilibre. Comme l'état d'une cellule affecte le transfert de rayonnement des cellules voisines, le code itère à travers la PDR jusqu'à ce qu'il converge vers une solution stable. Ainsi le code PDR obtient des profils de densités et de température en fonction de la profondeur du nuage. Il produit également des diagrammes d'intensités de raies qui sont comparées aux observations. Enfin, les paramètres que l'on introduit pour un modèle de PDR sont l'intensité $\chi$ du rayonnement en unité d'Habing \footnote{Est parfois utilisé $G_0 = 1.71\chi$ en unité de Draine}, ainsi que sa densité $n_\mathrm{H}$ ou bien sa pression thermale $P$ selon que l'on considère un nuage à densité constante\footnote{On note la densité du nuage $n_\mathrm{H}$ qui est la densité des éléments hydrogène (sous toutes ses formes) et non pas la densité total du nuage. Ainsi selon que le nuage est sous forme moléculaire ou atomique, la densité $n_\mathrm{H}$ reste bien constante.
 \begin{equation*}
 n_\mathrm{H} =  n(\mathrm{H}^+) + n(\mathrm{H}) + 2n(\mathrm{H}_2) +  ... \neq n_\mathrm{tot}
 \end{equation*}
-} ou à pression constante. Si des raies obtenues par caluls correspondent aux observations, alors on considère que les modèles dont ils sont issues décrivent bien la PDR.  \newline 
+} ou à pression constante. Si des raies obtenues par calculs correspondent aux observations, alors on considère que les modèles dont ils sont issues décrivent bien la PDR.  \newline 
 
 Au cours du stage, j'ai travaillé avec le code PDR. J'ai découvert que l'ajout de chlore dans le réseau chimique pouvait provoquer une instabilité thermique dans les bords atomique de nuage. Je me suis ensuite intéressé au chauffage par pompage UV de la molécule $\mathrm{H}_2$. J'ai d'abord testé l'impact sur les raies d'un nouveau calcul des taux de réactions impliquant le $\mathrm{H}_2$. Puis J'ai analysé dans quelles circonstances le chauffage par les réactions chimiques pouvait dominer. Ce processus est très souvent négligé dans les modèles de PDR. 
 
@@ -204,7 +345,11 @@ Au cours du stage, j'ai travaillé avec le code PDR. J'ai découvert que l'ajout
 \clearpage
 \input{H2}
 
+\clearpage
 \section*{Conclusion}
+
+
+
 
 \clearpage
 \bibliographystyle{apalike}

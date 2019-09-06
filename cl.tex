@@ -143,7 +143,7 @@ Les espèces qui contribuent à la production d'électrons en bord de nuage sont
 \end{equation}
 
 
-On peut supposer qu'en entrée de nuage atomique le carbone et le soufre sont totalement ionisés ce qui fournit une fraction d'électrons minimale\footnote{Dans le modèle à $n_{\mathrm{H}} = 10^4\ cm^{-3}$ et $\chi = 10^4$, le code obtient de manière indépendante de la température $n(\mathr{C}^+) = 1.32\,\mathrm{cm}^{-3}$ et $n(\mathr{S}^+) = 1.86\,10^{-1}\,\mathrm{cm}^{-3}$ ce qui donne une fraction électronique $\frac{1}n_\mathrm{H} (n(\mathr{C}^+)+n(\mathr{S}^+) ) = 1.5\,10^{-4} \approx 10^{-4}$ } de $10^{-4}$. Aussi ne reste il qu'à déterminer une expression de la densité de protons $\mathrm{H}^+$ en fonction de la température.
+On peut supposer qu'en entrée de nuage atomique le carbone et le soufre sont totalement ionisés ce qui fournit une fraction d'électrons minimale\footnote{Dans le modèle à $n_{\mathrm{H}} = 10^4\ cm^{-3}$ et $\chi = 10^4$, le code obtient de manière indépendante de la température $n(\mathrm{C}^+) = 1.32\,\mathrm{cm}^{-3}$ et $n(\mathrm{S}^+) = 1.86\,10^{-1}\,\mathrm{cm}^{-3}$ ce qui donne une fraction électronique $\frac{1}n_\mathrm{H} (n(\mathrm{C}^+)+n(\mathrm{S}^+) ) = 1.5\,10^{-4} \approx 10^{-4}$ } de $10^{-4}$. Aussi ne reste il qu'à déterminer une expression de la densité de protons $\mathrm{H}^+$ en fonction de la température.
 % Le modèle analytique doit retrouver l'augmentation de la densité d'électrons (jusqu'à $2\ 10^{-3}$) pour des températures supérieures à 1000 K. \newline 
 
 \subsubsection{Ion hydrogène}
@@ -159,7 +159,7 @@ Les réactions les plus efficaces qui forment et détruisent les ions $\mathrm{H
     \end{array}
 \end{equation}
 
-Les réactions avec l'oxygène sont négligées car la formation et destruction de $\mathrm{H}^+$ par l'oxygène se compensent totalement en première approximation. De plus la prise en compte de la recombinaison de l'ion $\mathrm{H}^+$ sur les grains ($\mathrm{H}^+  + \mathrm{grains}  \rightarrow \mathrm{H}$) dans les calculs va les alourdir, on la néglige dans un premier temps. Il reste le transfert de charge entre le chlore et l'hydrogène ($\mathrm{Cl}^+  + \mathrm{H}    \rightleftharpoons &\mathrm{Cl}   +  \mathrm{H}^+$) ainsi que la recombinaison électronique de l'hydrogène ($\mathrm{H}^+  + \mathrm{e}^-  \rightarrow\mathrm{H}$). On associe à chaque réaction un taux de réaction $k_1$,$k_2$, $k_3$ en $\mathrm{cm}^{-3}\,\mathrm{s}^{-1}$ et qui dépendent de la température.  
+Les réactions avec l'oxygène sont négligées car la formation et destruction de $\mathrm{H}^+$ par l'oxygène se compensent totalement en première approximation. De plus la prise en compte de la recombinaison de l'ion $\mathrm{H}^+$ sur les grains ($\mathrm{H}^+  + \mathrm{grains}  \rightarrow \mathrm{H}$) dans les calculs va les alourdir, on la néglige dans un premier temps. Il reste le transfert de charge entre le chlore et l'hydrogène ($\mathrm{Cl}^+  + \mathrm{H}    \rightleftharpoons \mathrm{Cl}   +  \mathrm{H}^+$) ainsi que la recombinaison électronique de l'hydrogène ($\mathrm{H}^+  + \mathrm{e}^-  \rightarrow\mathrm{H}$). On associe à chaque réaction un taux de réaction $k_1$,$k_2$, $k_3$ en $\mathrm{cm}^{-3}\,\mathrm{s}^{-1}$ et qui dépendent de la température.  
 \begin{equation}
     \begin{array}{lllllllr}
         \mathrm{Cl}^+ & + &\mathrm{H}   & \rightarrow &\mathrm{Cl}  & + & \mathrm{H}^+ & (k_1) \\
@@ -183,7 +183,6 @@ On obtient alors une solution qui dépend de $n(\mathrm{Cl}^+)$ et $n(\mathrm{Cl
 
 \begin{equation}
 n(\mathrm{H}^+) = -\frac{1}{2} \bigg( \frac{k_2}{k_3} n(\mathrm{Cl}) + n(\mathrm{C}^+)+ n(\mathrm{S}^+) \bigg) \pm \frac{1}{2} \sqrt{\bigg( \frac{k_2}{k_3} n(\mathrm{Cl}) + n(\mathrm{C}^+)+ n(\mathrm{S}^+) \bigg)^2 + 4\frac{k_1}{k_3}n_{\mathrm{H}} n(\mathrm{Cl}^+)}
-
 \end{equation}
 
 % \subsubsection{Rôle de l'oxygène}
@@ -216,7 +215,7 @@ De la même manière, les réactions importantes faisant intervenir le chlore so
 \end{equation}
 
 
-La recombinaison électronique de $\mathrm{Cl}^+$ ($\mathrm{Cl}^+ + \mathrm{e}^-\rightarrow & \mathrm{Cl} + h\nu $) reste négligeable devant le transfert de charge avec $\mathrm{H}$  ($\mathrm{Cl}^+ + \mathrm{H} \rightarrow & \mathrm{Cl}+ \mathrm{H}^+ $) pour des températures supérieure à $100$K et la destruction par formation du $\mathrm{HCl}^+$ devient dominante dans la gamme de température $100-1000$K. Négliger ces réactions donne une approximation correcte de la densité d'ion chlore pour les régimes de températures $T\geq 1000$ K et garde l'emballement de l'effet photoélectrique. On considère ainsi les réactions ci-dessous avec les taux de réactions $k_4$ en $\mathrm{s}^{-1}$ et $k_5$ en $\mathrm{cm}^{-3}\,\mathrm{s}^{-1}$.
+La recombinaison électronique de $\mathrm{Cl}^+$ ($\mathrm{Cl}^+ + \mathrm{e}^-\rightarrow  \mathrm{Cl} + h\nu $) reste négligeable devant le transfert de charge avec $\mathrm{H}$  ($\mathrm{Cl}^+ + \mathrm{H} \rightarrow \mathrm{Cl}+ \mathrm{H}^+ $) pour des températures supérieure à $100$K et la destruction par formation du $\mathrm{HCl}^+$ devient dominante dans la gamme de température $100-1000$K. Négliger ces réactions donne une approximation correcte de la densité d'ion chlore pour les régimes de températures $T\geq 1000$ K et garde l'emballement de l'effet photoélectrique. On considère ainsi les réactions ci-dessous avec les taux de réactions $k_4$ en $\mathrm{s}^{-1}$ et $k_5$ en $\mathrm{cm}^{-3}\,\mathrm{s}^{-1}$.
 
 \begin{equation}
     \begin{array}{lccccclr}
@@ -339,7 +338,7 @@ On note $\Gamma$ et $\Lambda$ les taux de chauffage et de refroidissement total.
 
 \subsubsection{Chauffage net par effet photoélectrique sur les grains}
 
-Quand un photon qui a suffisamment d'énergie est absorbé par un grain, un électron peut être excité et être éjecté de la surface du grain. Ce photoélectron a une énergie de l'ordre de l'eV ($1\,\mathrm{eV}\approx 50\,000$K) et vient chauffer le gaz par thermalisation à un taux $\Gamma_{\mathrm{pe}}$. Il y a également le phénomène inverse : la recombinaison des électrons et des ions (principalement $\mathrm{H}^+$ et $\mathrm{C}^+$) sur les grains fait perdre de l'énergie au gaz à un taux $\Lambda_{\mathrm{rec}}$ \cite{Lequeux}. Ces phénomènes dépendent principalement de l'intensité du champs de rayonnement $\chi$ et de la charge de grain, c'est à dire le bilan de charge des grains dans le nuage, car il est par exemple plus difficile de prélever des photoélectrons et plus efficace de recombiner sur des grains positivement chargés. Le taux de chauffage net des grains s'écrit $\Gamma^{\mathrm{net}}_{\mathrm{pe}} = \Gamma_{\mathrm{pe}} - \Lambda_{\mathrm{rec}}$. On se contente d'utiliser les formules de \cite{BakesTielens1994} :
+Quand un photon qui a suffisamment d'énergie est absorbé par un grain, un électron peut être excité et être éjecté de la surface du grain. Ce photoélectron a une énergie de l'ordre de l'eV ($1\,\mathrm{eV}\approx 12\,000$K) et vient chauffer le gaz par thermalisation à un taux $\Gamma_{\mathrm{pe}}$. Il y a également le phénomène inverse : la recombinaison des électrons et des ions (principalement $\mathrm{H}^+$ et $\mathrm{C}^+$) sur les grains fait perdre de l'énergie au gaz à un taux $\Lambda_{\mathrm{rec}}$ \cite{Lequeux}. Ces phénomènes dépendent principalement de l'intensité du champs de rayonnement $\chi$ et de la charge de grain, c'est à dire le bilan de charge des grains dans le nuage, car il est par exemple plus difficile de prélever des photoélectrons et plus efficace de recombiner sur des grains positivement chargés. Le taux de chauffage net des grains s'écrit $\Gamma^{\mathrm{net}}_{\mathrm{pe}} = \Gamma_{\mathrm{pe}} - \Lambda_{\mathrm{rec}}$. On se contente d'utiliser les formules de \cite{BakesTielens1994} :
 
 \begin{equation}
     \Gamma_{\mathrm{pe}} = 10^{-24}\,G_0\,n_\mathrm{H}\, \frac{2\times 10^{-2}}{1 + 2\times 10^{-4}\,(G_0 \sqrt{T}/n_e)} \qquad \operatorname{erg} \mathrm{cm}^{-3} \mathrm{s}^{-1}
@@ -626,7 +625,7 @@ Il est donc nécessaire de déterminer des traceurs qui ont des potentiels de io
 
 \subsection*{Conclusion}
 
-Bien que le chlore se trouve en faible abondance de le gaz interstellaire, on a démontré qu'il peut provoquer une augmentation de la température de plus de $1000$ K dans les bords atomiques des nuages. Ce chauffage est provoqué par l'existence d'une bistabilité thermique pour les PDR fortement illuminées. C'est un phénomène nouveau difficile à observer car l'on manque de traceurs atomiques qui ne sont pas masqué par la région photoionisée. Enfin, le passage de la solution froide à la solution chaude provoque une dilatation du gaz. Il serait alors intéressant d'étudier l'impact du chlore dans un code dynamique comme le code Hydra \cite{Bron2018}.
+Bien que le chlore se trouve en faible abondance dans le gaz interstellaire, on a démontré qu'il peut provoquer une augmentation de la température de plus de $1000$ K dans les bords atomiques des nuages. Ce chauffage est provoqué par l'existence d'une bistabilité thermique pour les PDR fortement illuminées. C'est un phénomène nouveau difficile à observer car l'on manque de traceurs atomiques qui ne sont pas masqué par la région photoionisée. Enfin, le passage de la solution froide à la solution chaude provoque une dilatation du gaz. Il serait alors intéressant d'étudier l'impact du chlore dans un code dynamique comme le code Hydra \cite{Bron2018}.
 
 
 

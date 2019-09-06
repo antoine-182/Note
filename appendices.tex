@@ -1,5 +1,9 @@
 \begin{appendices}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 \section{Impact du chlore} 
 \label{appendix:chlore}
 
@@ -109,5 +113,83 @@
 \end{figure}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Impact de la prescription de Glover}
+
+% On a rassemblé dans cette section les figures servant à l'analyse mais qui sont trop volumineuse dans le rapport.
+
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth} % "0.49" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_janev/mapTba.pdf}
+        \caption{Prescription de Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/grid_glover/mapTba.pdf}
+        \caption{Prescription de Glover}
+    \end{subfigure}
+    \caption{Comparaison des température en bord atomique de nuage pour des modèles utilisant la prescription de Janev et de Glover}
+    \label{fig:H2:JanevGlover:Tba}
+\end{figure}
+
+\begin{figure}[!p]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth} % "0.49" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/grid_janev/mapGmax.pdf}
+        \caption{Prescription de Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/grid_glover/mapGmax.pdf}
+        \caption{Prescription de Glover}
+    \end{subfigure}
+    \caption{Processus de chauffage dominant en bord de région atomique}
+    \begin{minipage}{\textwidth}
+    Le chauffage par effet photoélectrique sur les grains est désigné ici sous l'abréviation "pe". "H2" désigne le chauffage par pompage UV de la molécule $\mathrm{H}_2$ et "H2 form" la formation de la molécule sur les grains.
+    \end{minipage}
+    \label{fig:H2:JanevGlover:Gmax}
+    \hspace{1em}
+    
+    \begin{subfigure}[t]{0.49\textwidth} % "0.49" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/grid_janev/mapLmax.pdf}
+        \caption{Prescription de Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/grid_glover/mapLmax.pdf}
+        \caption{Prescription de Glover}
+    \end{subfigure}
+    \caption{Processus de refroidissement dominant en bord de région atomique}
+    \begin{minipage}{\textwidth}
+    Les noms "O", "H2O", "CO" et "C+" désignent des processus de refroidissement par émission des espèces $\mathrm{O}$, $\mathrm{H}_2\mathrm{O}$, $\mathrm{CO}$ et $\mathrm{C}^+$ respectivement. "gaz/gr" réfère à la thermalisation du gaz avec les grains du nuage généralement plus froid ($\mathrm{T}\sim20$ K) et "chemic" au bilan thermique des réactions chimiques qui est ici endothermique.
+    \end{minipage}
+    \label{fig:H2:JanevGlover:Lmax}
+\end{figure}
+
+
+\begin{figure}[!p]  
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth} % "0.49" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/grid_janev/HH2_AV.pdf}
+        \caption{Prescription de Janev}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/grid_glover/HH2_AV.pdf}
+        \caption{Prescription de Glover}
+    \end{subfigure}
+    \caption{Comparaison des $\mathrm{A}_\mathrm{v}$ de la transition $\mathrm{H}/\mathrm{H}_2$ des modèles utilisant la prescription de Janev et de Glover}
+    \label{fig:H2:JanevGlover:AVHH2}
+\end{figure}
+ 
+ \begin{figure}[!p]
+    \centering
+    \includegraphics[trim = {0 0 0 1cm },clip,width=0.8\textwidth]{figure/H2/bosse_dcte_janevVSglover/I_comp_CO.pdf}
+    \caption{Raies d'émissions du $\mathrm{CO}$ pour un modèle à densité constante ($n_\mathrm{H} = 10^{5.5}$ et $\chi = 10^4$) utilisant la prescription de Glover ou bien celle de Janev. Les transitions écrites sur l'axe des abscisses signifient les transitions des niveaux rotationnels de la molécule $\mathrm{CO}$.}
+    \label{fig:H2:bosse:ICO}
+\end{figure}
 
 \end{appendices}
