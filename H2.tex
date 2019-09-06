@@ -1,15 +1,14 @@
 % \section{Effet du pompage UV de la molécule $\mathrm{H}_2$}
 \section{Impact du $\mathrm{H}_2$ sur la température du gaz}
 
-Le chauffage par $\mathrm{H}_2$ a un rôle important dans les bords atomiques des PDR. Le $\mathrm{H}_2$ est une espèce abondante dans le gaz capable d'absorber des photons UV. Elle peut convertir l'énergie UV en énergie thermique et chauffer le gaz grâce à la desexcitation collisionnelle. Ce processus est d'autant plus efficace dans les régions denses ou les taux de collisions sont plus importants. La molécule a aussi un rôle indirecte sur la chimie du nuage ce qui peut impacter les raies. Ces phénomènes sont améliorées par le pompage UV de la molécule qui excite de manière très efficace la molécule. Son fonctionnement
- est décrit dans la figure \ref{fig:H2pump}. \newline 
+Le chauffage par $\mathrm{H}_2$ a un rôle important dans les bords atomiques des PDR. Le $\mathrm{H}_2$ est une espèce abondante dans le gaz capable d'absorber des photons UV. Elle peut convertir l'énergie UV en énergie thermique et chauffer le gaz grâce à la desexcitation collisionnelle. Ce processus est d'autant plus efficace dans les régions denses ou les taux de collisions sont plus importants. La molécule a aussi un rôle indirecte sur la chimie du nuage ce qui peut impacter les raies. Ces processus sont améliorés par le pompage UV de la molécule qui excite de manière très efficace la molécule. Le principe est décrit dans la figure \ref{fig:H2pump}. \newline 
 
 
 \begin{figure}[!h]
     \centering \includegraphics[trim = {0 0 0 0},clip,width=0.6\textwidth]{figure/h2.pdf}
     \caption{Fonctionnement du pompage UV de $\mathrm{H}_2$}
     \begin{minipage}{\textwidth}
-L'absorption d'un photon UV passe la molécule dans ses états électroniques excités B-C (Transitions de Lyman ou Werner, $ 11<h\nu<13.6\mathrm{eV}$) puis, par émission spontanée, se désexcite dans le continuum vibrationnel dans $10$-$15\%$ des cas, ou bien, dans $85$-$90\%$ des cas, dans un niveau fondamental ro-vibrationellement excité ($\mathrm{J}\geq0$, $\mathrm{v}>0$). La molécule pourra alors se désexciter soit par émission spontanée soit par collisions avec $\mathrm{H}$, $\mathrm{He}$ ou des électrons. 
+L'absorption d'un photon UV passe la molécule dans ses états électroniques excités B-C (transitions de Lyman ou Werner, $ 11<h\nu<13.6\mathrm{eV}$) puis, par émission spontanée, se désexcite dans le continuum vibrationnel dans $10$-$15\%$ des cas, ou bien, dans $85$-$90\%$ des cas, dans un niveau fondamental ro-vibrationellement excité ($\mathrm{J}\geq0$, $\mathrm{v}>0$). La molécule pourra alors se désexciter soit par émission spontanée soit par collisions avec $\mathrm{H}$, $\mathrm{He}$ ou des électrons. 
     \end{minipage}
     \label{fig:H2pump}
 \end{figure}
@@ -20,7 +19,6 @@ L'absorption d'un photon UV passe la molécule dans ses états électroniques ex
 
 Certaines réactions chimiques peuvent avoir des barrières d'activation (ou énergies d'activation) qui correspondent à l'énergie qui doit être apporté aux réactifs pour initier une réaction (figure \ref{fig:H2:Ea}). 
 
-
 \begin{figure}[!h]
     \centering
     \includegraphics[trim = {0 0 0 0cm },clip,width=0.8\textwidth]{figure/type46/Ea.pdf}
@@ -29,16 +27,16 @@ Certaines réactions chimiques peuvent avoir des barrières d'activation (ou én
 \end{figure}
 
 
-Pour passer cette barrière il faut que le gaz soit très chaud ou alors il faut prélever dans l'énergie interne des réactifs. De nombreuses réactions permettant la formation de traceurs importants ont une barrière d'activation comme $\mathrm{C}^+ + \mathrm{H}_2 \rightarrow \mathrm{CH}^+ + \mathrm{H}$ ($4537$ K),  $\mathrm{O} + \mathrm{H}_2 \rightarrow \mathrm{OH} + \mathrm{H}$  ($3241$ K) ou bien $\mathrm{N} + \mathrm{H}_2 \rightarrow \mathrm{NH} + \mathrm{H}$ ($16\,607$ K). C'est un phénomène déjà bien connu pour la formation du $\mathrm{CH}^+$ par $\mathrm{H}_2$ \cite{Herraez, Zanchet}. Grâce au pompage UV, la molécule $\mathrm{H}_2$ peut facilement initier les réactions auxquelles elle participe. Il faut alors connaître les taux de réactions états par états des réactifs. Ils sont déjà connus pour $\mathrm{H}_2$ avec $\mathrm{C}^+$ et $\mathrm{H}_2$ et $\mathrm{S}^+$. Pour les autres espèces, il faut calculer un nouveau taux de réaction qui prend en compte l'énergie $E_i$ que peut fournir chaque niveaux $i$ de $\mathrm{H}_2$. On obtient un nouveau taux de réaction $k'$ qui est de la forme :
+Pour passer cette barrière il faut que le gaz soit très chaud ou alors il faut prélever de l'énergie interne des réactifs. De nombreuses réactions permettant la formation de traceurs importants ont une barrière d'activation comme $\mathrm{C}^+ + \mathrm{H}_2 \rightarrow \mathrm{CH}^+ + \mathrm{H}$ ($4537$ K),  $\mathrm{O} + \mathrm{H}_2 \rightarrow \mathrm{OH} + \mathrm{H}$  ($3241$ K) ou bien $\mathrm{N} + \mathrm{H}_2 \rightarrow \mathrm{NH} + \mathrm{H}$ ($16\,607$ K). C'est un phénomène déjà bien connu pour la formation du $\mathrm{CH}^+$ par $\mathrm{H}_2$ \cite{Herraez, Zanchet}. Grâce au pompage UV, la molécule $\mathrm{H}_2$ peut facilement initier les réactions auxquelles elle participe. Il faut alors connaître les taux de réactions états par états des réactifs. Ils sont déjà connus pour $\mathrm{H}_2$ avec $\mathrm{C}^+$ et $\mathrm{H}_2$ et $\mathrm{S}^+$. Pour les autres espèces, il faut calculer un nouveau taux de réaction qui prend en compte l'énergie interne $E_i$ que peut fournir chaque niveaux $i$ de $\mathrm{H}_2$. On obtient un nouveau taux de réaction $k'$ qui est de la forme :
 
 \begin{equation}
     k(T) = A e^{- E_a / k_BT} \quad \rightarrow \quad  k(T)' =  \frac{1}{n_{tot}} \sum_i A_i n_i e^{- (E_a - E_i) / k_BT}
 \end{equation}
 
-Ces nouveaux calculs des taux de réactions peuvent potentiellement changer les profils de température des nuages par l'exothermicité ou l'endothermocité des réactions chimiques. S'il n'en est rien, les intensités des raies de traceurs importants comme le $\mathrm{CO}$ (figure \ref{fig:type46:CO}), $\mathrm{H}_2$ (figure \ref{fig:type46:H2}) et $\mathrm{H}_2\mathrm{O}$ (figure \ref{fig:type46:H2O}) sont impactées. Une analyse des réseaux chimiques ont souligné l'importance d'une voie de formation souvent négligée de formation de $\mathrm{CO}$. Les observations Heschel ont montré que la formation \mathrm{CO} était principalement initiée par celle du $\mathrm{CH}^+$ via $\mathrm{C}^+ + \mathrm{H}_2 \rightarrow \mathrm{CH}^+ + \mathrm{H}$. Or, on a une nouvelle voie de formation principale qui initie celle du $\mathrm{CO}$, il s'agit de $\mathrm{O} + \mathrm{H}_2 \rightarrow \mathrm{OH} + \mathrm{H}$ (le schéma de la figure \ref{fig:type46:form:CO} décrit le réseau chimique de formation du $\mathrm{CO}$). \newline 
+Ces nouveaux calculs des taux de réactions peuvent potentiellement changer les profils de température des nuages par l'exothermicité ou l'endothermicité des réactions chimiques. Ce n'est pas le cas. Néanmoins, les intensités des raies de traceurs importants comme le $\mathrm{CO}$ (figure \ref{fig:type46:CO}), $\mathrm{H}_2$ (figure \ref{fig:type46:H2}) et $\mathrm{H}_2\mathrm{O}$ (figure \ref{fig:type46:H2O}) sont impactées. Une analyse des réseaux chimiques ont souligné l'importance d'une voie de formation du $\mathrm{CO}$ qui est souvent négligée. Les observations Heschel ont montré que la formation \mathrm{CO} était principalement initiée par celle du $\mathrm{CH}^+$ via $\mathrm{C}^+ + \mathrm{H}_2 \rightarrow \mathrm{CH}^+ + \mathrm{H}$. Or, on a une nouvelle voie de formation principale qui initie celle du $\mathrm{CO}$, il s'agit de $\mathrm{O} + \mathrm{H}_2 \rightarrow \mathrm{OH} + \mathrm{H}$ (le schéma de la figure \ref{fig:type46:form:CO} décrit le réseau chimique de formation du $\mathrm{CO}$). \newline 
 
 
-D'autres espèces sont impacté par le nouveau calcul des taux de réactions comme $\mathrm{N}$, $\mathrm{HCN}$ ou bien $\mathrm{H}_2\mathrm{O}$ mais l'on n'en discutera pas. Cette étude permet de mettre à jour la chimie des nuages. Dans les développements futurs, le code PDR intégrera ces nouveaux calculs. 
+D'autres espèces sont impactées par le nouveau calcul des taux de réactions comme $\mathrm{N}$, $\mathrm{HCN}$ ou bien $\mathrm{H}_2\mathrm{O}$ mais l'on n'en discutera pas. Cette étude a permis de mettre à jour la chimie des nuages. Dans les développements futurs, le code PDR intégrera ces nouveaux calculs des taux de formations pour les réactions ayant une barrière d'activation non nulle. 
 
 
 \begin{figure}[!h]
@@ -194,17 +192,17 @@ Sur la figure \ref{fig:H2:JanevGlover:Tba}, la température en bord de nuage ato
     \label{fig:H2:JanevGlover:diffTba}
 \end{figure}
 
-Cette différence est due à l'amélioration du chauffage par la molécule $\mathrm{H}_2$. La prescription de Glover diminue les taux de destruction ce qui produit plus de $\mathrm{H}_2$ dans le bord atomique. Le chauffage étant d'autant plus efficace que la densité de $\mathrm{H}_2$ est grande, les bords atomiques de l'ensemble des PDR chauffent. Le chauffage par $\mathrm{H}_2$ devient particulièrement efficace dans les régions denses et fortement illuminées. \newline
+Cette différence est due à l'amélioration du chauffage par la molécule $\mathrm{H}_2$. La prescription de Glover diminue les taux de destruction ce qui produit davantage de $\mathrm{H}_2$ dans le bord atomique. Le chauffage étant d'autant plus efficace que la densité de $\mathrm{H}_2$ est grande, les bords atomiques de l'ensemble des PDR chauffent. Par ailleurs, le chauffage par $\mathrm{H}_2$ devient particulièrement efficace dans les régions denses et fortement illuminées. \newline
 
-On constate sur la figure \ref{fig:H2:JanevGlover:Gmax} que le chauffage par $\mathrm{H}_2$ reste dominant dans les bords atomique des PDR denses quelque soit la prescription que l'on utilise. En revanche, les processus de refroidissements (figure \ref{fig:H2:JanevGlover:Lmax}) varient pour les PDR denses et faiblement illuminées ($n_\mathrm{H} \geq 10^{4.5} \, \mathrm{cm}^{-3}$ et $\chi \leq 10^3$). Les réactions dissociations collisionnelles sont des réactions efficaces. Le changement de prescription diminues les taux de réactions et donc les taux de refroidissement par ces réactions. 
+On constate sur la figure \ref{fig:H2:JanevGlover:Gmax} que le chauffage par $\mathrm{H}_2$ reste dominant dans les bords atomique des PDR denses quelque soit la prescription que l'on utilise. En revanche, les processus de refroidissement (figure \ref{fig:H2:JanevGlover:Lmax}) varient pour les PDR denses et faiblement illuminées ($n_\mathrm{H} \geq 10^{4.5} \, \mathrm{cm}^{-3}$ et $\chi \leq 10^3$). Les réactions de dissociations collisionnelles sont des réactions endothermiques efficaces. Le changement de prescription diminue les taux de réaction et donc les taux de refroidissement par ces réactions. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Grilles de modèles - Transition $\mathrm{H}/\mathrm{H}_2$}
 
-La transition $\mathrm{H}/\mathrm{H}_2$ marque la frontière entre le milieu atomique et moléculaire du nuage. Elle survient une fois que le $\mathrm{H}_2$, jusque là détruit dans la zone atomique par les photons UV, parvienne à se former en suffisamment grande quantité pour que l'hydrogène soit majoritairement sous forme moléculaire. Nous avons définit le critère tel qu'il y ait autant d'élément hydrogène sous forme atomique que moléculaire soit $n(\mathrm{H}) = 2 n(\mathrm{H}_2)$. La température et l'$\mathrm{A}_\mathrm{v}$ auxquelles s'effectuent la transition $\mathrm{H}/\mathrm{H}_2$ sont déterminants puisque les observables moléculaires se forment et sont excités dans cette région du nuage qui est encore chaude. \newline
+La transition $\mathrm{H}/\mathrm{H}_2$ marque la frontière entre le milieu atomique et moléculaire du nuage. Elle survient une fois que le $\mathrm{H}_2$, jusque là détruit dans la zone atomique par les photons UV, parvienne à se former en suffisamment grande quantité pour que l'hydrogène soit majoritairement sous forme moléculaire. Nous avons définit le critère tel qu'il y ait autant d'élément hydrogène sous forme atomique que moléculaire soit $n(\mathrm{H}) = 2 n(\mathrm{H}_2)$. La température et l'$\mathrm{A}_\mathrm{v}$ auxquelles s'effectuent la transition $\mathrm{H}/\mathrm{H}_2$ sont déterminants puisque les observables moléculaires se forment et sont excitées dans cette région du nuage qui est encore chaude. \newline
 
-Les figures \ref{fig:H2:JanevGlover:THH2} et \ref{fig:H2:JanevGlover:AVHH2} montrent les températures et les $\mathrm{A}_\mathrm{v}$ des transitions de chaques modèles. Alors que la position de la transition dans le nuage reste sensiblement identique (figure \ref{fig:H2:JanevGlover:AVHH2}) en passant de la prescription de Janev à celle de Glover, la température parvient à dépasser un plateau à $600$ K et atteint les $1000$ K (figure \ref{fig:H2:JanevGlover:THH2}). Ce résultat peut avoir un impact important sur les diagrammes d'intensités des traceurs. 
+Les figures \ref{fig:H2:JanevGlover:THH2} et \ref{fig:H2:JanevGlover:AVHH2} montrent les températures et les $\mathrm{A}_\mathrm{v}$ des transitions de chaque modèles. Alors que la position de la transition dans le nuage reste sensiblement identique (figure \ref{fig:H2:JanevGlover:AVHH2}) en passant de la prescription de Janev à celle de Glover, la température parvient à dépasser un plateau à $600$ K et atteint les $1000$ K (figure \ref{fig:H2:JanevGlover:THH2}). Ce résultat peut avoir un impact important sur les diagrammes d'intensités des traceurs. 
 
 % \begin{figure}[!h]
 %     \centering \includegraphics[trim = {0 0 0 1cm },clip,width=0.6\textwidth]{figure/H2/diffgrid_gloverjanev/HH2_T_H2_n_1p7_nobossion_noCl155_n.pdf}
@@ -223,16 +221,16 @@ Les figures \ref{fig:H2:JanevGlover:THH2} et \ref{fig:H2:JanevGlover:AVHH2} mont
         \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/grid_glover/HH2_T.pdf}
         \caption{Prescription de Glover}
     \end{subfigure}
-    \caption{Comparaison des température à la transition $\mathrm{H}/\mathrm{H}_2$ des modèles utilisant la prescription de Janev et de Glover}
+    \caption{Comparaison de la température à la transition $\mathrm{H}/\mathrm{H}_2$ des modèles utilisant la prescription de Janev et de Glover}
     \label{fig:H2:JanevGlover:THH2}
 \end{figure}
 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Etude d'un modèle particulier}
+\subsubsection{Étude d'un modèle particulier}
 
-On cherche à comprendre dans cette section d'où vient l'augmentation de la température à la transition $\mathrm{H}/\mathrm{H}_2$. On a choisit un modèle à $n_\mathrm{H} = 10^{5.5} \,\mathrm{cm}^{-3}$ et $\chi = 10^4$ qui subit une augmentation de $+300$ K à la frontière. Le profil de température (figure \ref{fig:H2:bosse:plotH}) montre immédiatement une augmentation locale de la température commençant à un $\mathrm{A}_\mathrm{v} \approx 0.1 \,\mathrm{mag}$ et finissant à $\mathrm{A}_\mathrm{v} \approx 0.4 \,\mathrm{mag}$ accompagnée d'une augmentation de la densité de $\mathrm{H}_2$. L'augmentation locale de température est également très proche de la transition $\mathrm{C}^+/\mathrm{C}/\mathrm{CO}$ formant du $\mathrm{CO}$ chaud. \newline 
+On cherche à comprendre dans cette section d'où vient l'augmentation de la température à la transition $\mathrm{H}/\mathrm{H}_2$. On a choisit un modèle à $n_\mathrm{H} = 10^{5.5} \,\mathrm{cm}^{-3}$ et $\chi = 10^4$ qui subit une augmentation de $+300$ K à la frontière. Le profil de température (figure \ref{fig:H2:bosse:plotH}) montre une augmentation locale de la température commençant à un $\mathrm{A}_\mathrm{v} \approx 0.1 \,\mathrm{mag}$ et finissant à $\mathrm{A}_\mathrm{v} \approx 0.4 \,\mathrm{mag}$ accompagnée d'une augmentation de la densité de $\mathrm{H}_2$. L'augmentation locale de température est également très proche de la transition $\mathrm{C}^+/\mathrm{C}/\mathrm{CO}$ permettant de former du $\mathrm{CO}$ chaud. \newline 
 
 \begin{figure}[!h]
     \centering
@@ -246,13 +244,13 @@ On cherche à comprendre dans cette section d'où vient l'augmentation de la tem
         \caption{}
     \label{fig:H2:bosse:plotC}
     \end{subfigure}
-    \caption{Profils de densités de $\mathrm{H}$ et $\mathrm{H}_2$ (a) et $\mathrm{C}^+$, $\mathrm{C}$ et $\mathrm{CO}$ (b) d'un modèle à densité constante ($n_\mathrm{H} = 10^{5.5}\,\mathrm{cm}^{-3}$ et $\chi = 10^4$). Le trait plein correspond au calcul utilisant la prescription de Glover et les trait pointillés celle de Janev.}
+    \caption{Profils de densités de $\mathrm{H}$ et $\mathrm{H}_2$ (a) et $\mathrm{C}^+$, $\mathrm{C}$ et $\mathrm{CO}$ (b) d'un modèle à densité constante ($n_\mathrm{H} = 10^{5.5}\,\mathrm{cm}^{-3}$ et $\chi = 10^4$). Le trait plein correspond au calcul utilisant la prescription de Glover et les trait pointillés celle de Janev. La température est représentée en rouge.}
     
 \end{figure}
 
-La figure \ref{fig:H2:bosse:heat} trace les taux de chauffages en fonction de l'extinction. On constate, qu'avec la prescription de Glover, les réactions chimiques chauffent le gaz de manière aussi intense que l'effet photoélectrique ce qui est peu commun dans les PDR. Afin de comprendre l'origine de cette augmentation locale de température, on a tracé à $\mathrm{A}_\mathrm{v} \approx 0.2 \,\mathrm{mag}$, les courbes de chauffages et de refroidissements en fonction de la température (figure \ref{fig:H2:bosse:chem}). L'équilibre thermique du gaz est déterminée par l'intersection de la courbe de chauffage et de refroidissement total. A première vue, les allures des courbes sont très différentes. En passant de la prescription de Janev à celle de Glover, on voit qu'un nouveau processus de chauffage intervient entre $100$ K et $1000$ K. Il s'agit des réactions chimiques qui se mettent à chauffer le gaz de manière plus efficace. \newline
+La figure \ref{fig:H2:bosse:heat} trace les taux de chauffages en fonction de l'extinction. On constate, qu'avec la prescription de Glover, les réactions chimiques chauffent le gaz de manière aussi intense que l'effet photoélectrique ce qui est peu commun dans les PDR. Afin de comprendre l'origine de cette augmentation locale de température, on a tracé à $\mathrm{A}_\mathrm{v} \approx 0.2 \,\mathrm{mag}$, les courbes de chauffage et de refroidissement en fonction de la température (figure \ref{fig:H2:bosse:chem}). L'équilibre thermique du gaz est déterminée par l'intersection de la courbe de chauffage et de refroidissement total. A première vue, les allures des courbes sont très différentes. En passant de la prescription de Janev à celle de Glover, on voit qu'un nouveau processus de chauffage intervient entre $100$ K et $1000$ K. Il s'agit des réactions chimiques qui se mettent à chauffer le gaz de manière plus efficace. \newline
 
-Une analyse préliminaire a montré que le caractère exothermique ou endothermique des réactions chimiques était globalement gouverné par la compétition entre la recombinaison électronique du $\mathrm{CH}_3^+$ (qui est exothermique et qui peut se faire sous quatre formes) et la dissociation collisionnelle du $\mathrm{H}_2$ (qui est endothermique). Les réactions et leurs enthalphies de réactions ont été écrits ci dessous. Le passage de la prescription de Janev à celle de Glover a pour effet de tuer la destruction du $\mathrm{H}_2$ qui rend le bilan des réactions chimiques exothermique. Il permet également de former plus facilement du $\mathrm{H}_2$ qui devient alors un agent refroidissant efficace. On le visualise sur la figure \ref{fig:H2:bosse:heat}. \newline
+Une analyse préliminaire a montré que le caractère exothermique ou endothermique des réactions chimiques était globalement gouverné par la compétition entre la recombinaison électronique du $\mathrm{CH}_3^+$ (qui est exothermique et qui peut se faire sous quatre formes) et la dissociation collisionnelle du $\mathrm{H}_2$ (qui est endothermique). Les réactions et leurs enthalphies de réactions ont été écrites ci dessous. Le passage de la prescription de Janev à celle de Glover a pour effet d'affailblir la destruction du $\mathrm{H}_2$ ce qui rend le bilan des réactions chimiques exothermique. Il permet également de former plus facilement du $\mathrm{H}_2$ qui devient alors un agent refroidissant efficace. On le visualise sur la figure \ref{fig:H2:bosse:heat}. \newline
 
 
 \begin{equation}
@@ -287,7 +285,7 @@ Une analyse préliminaire a montré que le caractère exothermique ou endothermi
         \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/bosse_dcte_janevVSglover/glover/heat.pdf}
         \caption{Prescription de Glover}
     \end{subfigure}
-    \caption{Profils des taux de chauffages d'un modèle à densité constante ($n_\mathrm{H} = 10^{5.5}$ et $\chi = 10^4$) utilisant la prescription de Janev ou de Glover. La température (axe de droite) est représentée en tiret rouge. Le taux de chauffage total est en pointillé noir.}
+    \caption{Profils des taux de chauffages d'un modèle à densité constante ($n_\mathrm{H} = 10^{5.5}$ et $\chi = 10^4$) utilisant la prescription de Janev ou de Glover. La température est représentée en tiret rouge. Le taux de chauffage total est en pointillé noir.}
     \label{fig:H2:bosse:heat}
 \end{figure}
 
@@ -329,12 +327,12 @@ Une analyse préliminaire a montré que le caractère exothermique ou endothermi
     \label{fig:H2:bosse:chem}
 \end{figure}
 
-L'augmentation de température est provoquée par le changement d'allure de la courbe de refroidissement total ce qui déplace le point d'équilibre vers des températures plus chaudes. Les conséquences sont importante. Plus de $\mathrm{CO}$ chaud parvient à se former après la transition $\mathrm{H}/\mathrm{H}_2$ donnant des raies (figure \ref{fig:H2:bosse:ICO}) plus intenses. Les raies $ 8 \leq \mathrm{J}\leq 15$ doublent leur intensités tandis que les raies $\mathrm{J}\geq 15$ augmente d'un facteur 10 ce qui est majeur. Elle permet notamment de retrouver des les diagrammes d'intensité du $\mathrm{CO}$ observée (\cite{COJoblin}). La figure \ref{fig:H2:bosse:IgridCO} trace les diagrammes d'intensités du $\mathrm{CO}$ pour une grille de modèle. Comme l'augmentation locale agit après la transition $\mathrm{H}/\mathrm{H}_2$ et que le $\mathrm{CO}$ est un traceur moléculaire, la figure \ref{fig:H2:bosse:IgridCO} montre l'impact global de l'augmentation de la température à la transition. Elle concerne les mêmes régions PDR denses et illuminées. 
+L'augmentation de température est provoquée par le changement d'allure de la courbe de refroidissement total ce qui déplace le point d'équilibre vers des températures plus chaudes. Les conséquences sont importantes. Plus de $\mathrm{CO}$ chaud parvient à se former après la transition $\mathrm{H}/\mathrm{H}_2$ donnant des raies (figure \ref{fig:H2:bosse:ICO}) plus intenses. Les raies $ 8 \leq \mathrm{J}\leq 15$ doublent leur intensités tandis que les raies $\mathrm{J}\geq 15$ augmente d'un facteur 10 ce qui est majeur. Elle permet notamment de retrouver des les diagrammes d'intensité du $\mathrm{CO}$ observée (\cite{COJoblin}). La figure \ref{fig:H2:bosse:IgridCO} trace les diagrammes d'intensités du $\mathrm{CO}$ pour une grille de modèle. Comme l'augmentation locale agit après la transition $\mathrm{H}/\mathrm{H}_2$ et que le $\mathrm{CO}$ est un traceur moléculaire, la figure \ref{fig:H2:bosse:IgridCO} montre l'impact global de l'augmentation de la température à la transition. Elle concerne les mêmes régions PDR que la figure \ref{fig:H2:JanevGlover:THH2}. 
 
 \begin{figure}[!p]
     \centering
     \includegraphics[trim = {0 0 0 3cm },clip,width=1\textwidth]{figure/H2/bosse_dcte_janevVSglover/PlotComp_Janev_Glover_IntCO.pdf}
-    \caption{Diagramme d'intensités $\mathrm{CO}$ pour une grille de modèles à densité constante. Les lignes en rouge sont les modèles utilisant la prescription de Janev tandis que celles en bleues utilisent la prescription de Glover. Les $20$ premières transitions sont représentées.}
+    \caption{Diagramme d'intensité des raies du $\mathrm{CO}$ pour une grille de modèles à densité constante. Les lignes en rouge sont les modèles utilisant la prescription de Janev tandis que celles en bleues utilisent la prescription de Glover. Les $20$ premières transitions sont représentées.}
     \label{fig:H2:bosse:IgridCO}
 \end{figure}
 
@@ -342,9 +340,9 @@ L'augmentation de température est provoquée par le changement d'allure de la c
 
 \subsection{Nouveaux taux de collisions de $\mathrm{H}_2$}
 
-On a vu dans les sections précédentes qu'une nouvelle chimie du $\mathrm{H}_2$ pouvait avoir un impact fort sur les profils de densités et de températures. Nous cherchons maintenant à affiner la physique qui décrit le phénomène de chauffage par $\mathrm{H}_2$. Afin de calculer le taux de chauffage par desexcitation collisionnelle, le code PDR effectue le bilan des transitions collisionnelles des niveaux de $\mathrm{H}_2$. Il dépend directement des taux de collision $k_{ij}$ qui donnent la probabilité d'une transitions de l'état $i$ à l'état $j$ par collisions avec une espèce du gaz. On connaissait ces $k_{ij}$ seulement pour les états peu énergétiques du $\mathrm{H}_2$ ($J\leq15$ de l'état fondamentale). De récents calculs de chimie semi-classique ont permis d'estimer avec précision les taux de collisions jusqu'à des niveaux très énergétiques \cite{Bossion}. \newline 
+On a vu dans les sections précédentes qu'une nouvelle chimie du $\mathrm{H}_2$ pouvait avoir un impact fort sur les profils de densité et de température du gaz. Nous cherchons maintenant à affiner la physique qui décrit le phénomène de chauffage par $\mathrm{H}_2$. Afin de calculer le taux de chauffage par desexcitation collisionnelle, le code PDR effectue le bilan des transitions collisionnelles des niveaux de $\mathrm{H}_2$. Il dépend directement des taux de collision $k_{ij}$ qui donnent la probabilité d'une transition de l'état $i$ à l'état $j$ par collision avec une espèce du gaz. On connaissait ces $k_{ij}$ seulement pour les états peu énergétiques du $\mathrm{H}_2$ ($J\leq15$ de l'état fondamentale). De récents calculs de chimie semi-classique ont permis d'estimer avec précision les taux de collisions jusqu'à des niveaux très énergétiques \cite{Bossion}. \newline 
 
-L'analyse des changements qu'entraîne le calcul du taux de chauffage avec les nouveaux taux de collisions est incomplète. Néanmoins, une étude rapide a montré que l'utilisation des nouveaux taux de collisions intensifiait le chauffage par $\mathrm{H}_2$. En effet la figure \ref{fig:H2:Bossion:Tba} montre la différence des température au bord atomique des PDR entre des modèles utilisant les nouveaux de collisions ou non. Il y a un chauffage nette des bords atomiques des nuages de $+100$ K. Par ailleurs, la différence marquée vers $n_\mathrm{H} \sim 10^4\,\mathrm{cm}^{-3}$ suggère l'existence d'une instabilité thermique due au chauffage par $\mathrm{H}_2$ mais celle-ci est déjà connue. En revanche la comparaison (figure \ref{fig:H2:Bossion:Tmax}) des températures maximales du gaz montre une différence importante pour les régions fortement illuminées. Le profil de température sur la figure \ref{fig:H2:Bossion:profilT} montre un pic raide ($+800$ K) accompagné d'une diminution de la densité de $\mathrm{H}_2$ peu avant la transition $\mathrm{H}/\mathrm{H}_2$ ($\mathrm{A}_\mathrm{v} \approx 0.7 \,\mathrm{mag}$). L'allure des taux de chauffage en fonction de la température au niveau du pic (figure \ref{fig:H2:Bossion:zer}) traduit l'existence d'une nouvelle instabilité dont l'origine nous est encore inconnue. \newline 
+L'analyse des changements qu'entraîne le calcul du taux de chauffage avec les nouveaux taux de collisions est incomplète. Néanmoins, une étude rapide a montré que l'utilisation des nouveaux taux de collisions intensifiait le chauffage par $\mathrm{H}_2$. En effet la figure \ref{fig:H2:Bossion:Tba} montre la différence de température au bord atomique des PDR entre des modèles utilisant les nouveaux de collisions ou non. Il y a un chauffage nette des bords atomiques des nuages de $+100$ K. Par ailleurs, la différence marquée vers $n_\mathrm{H} \sim 10^4\,\mathrm{cm}^{-3}$ suggère l'existence d'une instabilité thermique due au chauffage par $\mathrm{H}_2$ mais celle-ci est déjà connue. En revanche la comparaison (figure \ref{fig:H2:Bossion:Tmax}) de la température maximale du gaz montre une différence importante pour les régions fortement illuminées. Le profil de température sur la figure \ref{fig:H2:Bossion:profilT} montre un pic raide ($+800$ K) accompagné d'une diminution de la densité de $\mathrm{H}_2$ peu avant la transition $\mathrm{H}/\mathrm{H}_2$ ($\mathrm{A}_\mathrm{v} \approx 0.7 \,\mathrm{mag}$). L'allure des taux de chauffage en fonction de la température au niveau du pic (figure \ref{fig:H2:Bossion:zer}) traduit l'existence d'une nouvelle instabilité dont l'origine nous est encore inconnue. \newline 
 
 \begin{figure}[!h]
     \centering
@@ -375,7 +373,7 @@ L'analyse des changements qu'entraîne le calcul du taux de chauffage avec les n
         \caption{Taux de chauffage total}
          \label{fig:H2:Bossion:zer}
     \end{subfigure}
-    \caption{Profil de densité de $\mathrm{H}$ et $\mathrm{H}_2$ et température d'un modèle à densité constante ($n_\mathrm{H} = 10^{5.5}\,\mathrm{cm}^{-3}$ et $\chi = 10^4$).}
+    \caption{Profils de densité de $\mathrm{H}$ et $\mathrm{H}_2$ et température d'un modèle à densité constante ($n_\mathrm{H} = 10^{5.5}\,\mathrm{cm}^{-3}$ et $\chi = 10^4$).}
 \end{figure}
 
 
