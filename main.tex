@@ -12,7 +12,7 @@
 \usepackage[top=2.5cm, bottom=4.5cm, left=1.5cm, right=1.5cm]{geometry}
 % \usepackage[top=0cm, bottom=0cm, left=2cm, right=2cm]{geometry}
 \usepackage{fancyhdr}
-\usepackage[bottom]{footmisc} % footnote below figures
+\usepackage[perpage, bottom]{footmisc} % footnote below figures
 \usepackage{verbatim}
 \usepackage{enumitem} % pimp les itemizes
 %Pour mettre deux figures côtes à côtes
@@ -29,8 +29,11 @@
 \usepackage{multirow} % pour des tableaux multicolumns
 % \usepackage{float} 
 
+
+
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
+\counterwithin{equation}{section}
 
 
 \usepackage[titletoc,page]{appendix}
@@ -73,7 +76,7 @@
 \def\enstaLangAuteur{Auteur :}
 \def\enstaLangTuteurENSTA{Tuteur ENSTA Paris :}
 \def\enstaLangPromo{Promotion :}
-\def\enstaLangTuteurOrganisme{Tuteur organisme d'accueil :}
+\def\enstaLangTuteurOrganisme{Tuteurs organisme d'accueil :}
 \def\enstaLangStageEffectueDu{Stage effectué du}
 \def\enstaLangStageEffectueAu{au}
 \def\enstaLangNomOrganisme{Nom de l'organisme d'accueil :}
@@ -102,7 +105,9 @@
 \titre{Etude des processus thermiques dans les régions de photodissociation (PDR)}
 \soustitre{}
 %\illustration{atlas_0.jpeg}
-\confidentialite{Ce document n'est pas confidentiel et seulement une copie peut être obtenue depuis la bibliothèque de l'ENSTA Paris.}
+\confidentialite{Ce document est non confidentiel. Il peut donc
+être communiqué à l’extérieur sous format papier mais également diffusé sous
+format électronique}
 \auteur{Antoine NASSER}
 \promotion{2019}
 \tuteurENSTA{Jérôme PEREZ}
@@ -131,6 +136,20 @@
 \fancyhead[CO]{\nouppercase{\rightmark}}
 \fancyhead[CE]{\enstaTitre}
 \fancyfoot[CO, CE]{\thepage}
+
+% redefine a style, here it is plain
+\fancypagestyle{nofancy}{ 
+\fancyhf{}
+\fancyhead[CO,CE]{}
+\fancyfoot[CO, CE]{\thepage}
+}
+
+% appendix
+\fancypagestyle{appendix}{ 
+\fancyhf{}
+\fancyhead[CO,CE]{\nouppercase{\rightmark}}
+\fancyfoot[CO, CE]{\thepage}
+}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%         FIRST  PAGE         %%
@@ -203,7 +222,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%   CONFIDENTIALITY  NOTICE   %%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\pageConfidentialite}[1]{\partb{\enstaLangMentionConfidentialite}#1\vfill}
+\newcommand{\pageConfidentialite}[1]{\partb{\enstaLangMentionConfidentialite}#1}
 
 
 \newcommand{\xvec}[1]{\overrightarrow{#1}}
@@ -237,7 +256,7 @@
 % \begin{center}{\Large Etude des processus de chauffage et de refroidissement \\ dans les régions de photodissociation (PDR)}\end{center}
 
 
-\setcounter{secnumdepth}{4}
+% \setcounter{secnumdepth}{4}
 % \vfill
 % \begin{figure*}[!hb]
 %         \centering 
@@ -248,23 +267,51 @@
 \couverture
 
 \clearpage
-Ce document n'est pas confidentiel et seulement une copie peut être obtenue depuis la bibliothèque de l'ENSTA Paris.
+\thispagestyle{nofancy}
+Ce document est non confidentiel. Il peut donc
+être communiqué à l’extérieur sous format papier mais également diffusé sous
+format électronique
 
 \clearpage 
+\thispagestyle{nofancy}
 \section*{Remerciements}
 
+Je tiens à remercier tous ceux qui ont contribué, d’une manière ou d’une autre, à la réussite de ce projet. \newline 
+
+Tout d’abord, je remercie Franck Le Petit et Emeric Bron, du LERMA, pour leur patience et leur soutien sans faille. J’ai eu énormément de plaisir à travailler avec eux. Ils m’ont beaucoup appris aussi bien en physique que sur le plan humain. \newline
+
+Merci à Jacques le Bourlot, du LERMA, avec qui j’ai discuté pour la première fois du sujet et qui m’a accepté avec Franck Le Petit. Les discussions que l’on a eu ont toujours été enrichissantes et agréables. \newline
+
+Je remercie Laurent Verstraete, de l’IAS, auprès de qui j’ai beaucoup appris sur les poussières interstellaires.\newline
+
+Je remercie mon enseignant référent de l’ENSTA, Jérome Perez qui a accepté d’évaluer mes travaux avec beaucoup de gentillesse. \newline
+
+Je remercie par ailleurs toute l’équipe PDR de Meudon pour son accueil chaleureux.\newline
+
+Je remercie également mes co-stagiaires, Raphael Meshaka et Flavien Barbier, avec qui j’ai partagé plus qu'un bureau.  \newline
+
+Je pense enfin à ma famille qui me soutient et m’encourage dans tout ce que j’entreprends. 
+
+
 \newpage 
 
 \clearpage 
+\thispagestyle{nofancy}
 \section*{Résumé}
 
-\newpage 
+A l'aide du code PDR de Meudon, nous avons revisité les processus de chauffages qui se déroulent au sein des PDR. L'ajout du chlore dans le réseau chimique à révélé l'existence d'une bistabilité thermique dans les bords atomiques des PDR denses et fortement illuminées. Néanmoins, nous n'avons pas de traceurs atomiques permettant de déceler son existence. La mise à jour du réseau chimique du code PDR a ouvert des nouvelle voies de formations du traceur $\mathrm{CO}$ qui est amorcée par la réaction  $\mathrm{O} + \mathrm{H}_2 \rightarrow \mathrm{OH} + \mathrm{H}$. L'utilisation de nouvelles prescriptions pour calculer les taux de destruction collisionnelle du $\mathrm{H}_2$ ont montré que les réactions chimiques pouvaient chauffer les PDR denses à l'entrée des nuages moléculaires ce qui a un impact fort sur le diagramme d'intensité des raies du $\mathrm{CO}$. Enfin le nouveau calcul des taux des transitions par collisions du $\mathrm{H}_2$ ont révélé l'existence d'une nouvelle instabilité thermique en fin de zone atomique pour les PDR fortement illuminée. Son origine est inconnue.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage 
+\setcounter{secnumdepth}{4}
+\thispagestyle{nofancy}
 \tableofcontents
 
 \setcounter{figure}{0}    
 
 \newpage
+
 
 
 \begin{figure}[!p]
@@ -294,8 +341,11 @@ Ce document n'est pas confidentiel et seulement une copie peut être obtenue dep
     \label{fig:intro:mystic}
 \end{figure}
  
-\newpage 
-\section*{Introduction}
+ 
+
+\newpage
+\setcounter{secnumdepth}{-1}
+\part{Introduction}
 
 
 Le contexte général de cette étude est le gaz et des poussières se trouvant entre les étoiles, il s'agit du milieu interstellaire (le MIS). Les poussières représentent à peine $1\%$ de la masse du milieu interstellaire. Les $99\%$ de gaz est constitué, en masse, de $\sim 74\%$ d'hydrogène, $\sim 25\%$ d'hélium et $<1\%$ d'éléments dit \og lourds \fg{} soit des éléments ayant un numéro atomique $Z$ supérieur à celui de l'hélium (carbone, oxygène, azote...).\newline 
@@ -312,7 +362,7 @@ Ces jeunes étoiles interagissent avec les nuages moléculaires dans des interfa
 L'\textit{Atacama Large Millimeter/submilimmeter Array} (ALMA) est un réseau de télescope (plus d'une soixantaine) installé sur le plateau Chajnantor au Chilie. \\
  https://www.eso.org/public/france/teles-instr/alma/} ont sondé la structure de ces régions et révolutionné notre compréhension des mécanismes d'interactions \cite{Goicoechea2016, COJoblin}.
 Proche de l'étoile, le champ UV photionise entièrement le gaz. Les photons ayant une longueur d'onde inférieure à la limite de Lyman ($\lambda \leq 912 \AA$ soit $h\nu \geq 13.6$ eV) ionisent l'hydrogène et les espèces ayant un potentiel de ionisation (PI) supérieur à celui de l'hydrogène, c'est la \og région $\mathrm{HII}$ \fg{} \footnote{Ou \og région $\mathrm{H}^+$ \fg{}. $\mathrm{HII}$ fait référence à $\mathrm{H}^+$, le II signifie qu'il a été ionisé une fois.}. Une PDR commence à partir de la zone où les photons émis par les étoiles ne peuvent plus photoioniser les atomes d'hydrogène (photons dans l'UV lointain, $6<h\nu<13.6$ eV) mais seulement dissocier des molécules ($\mathrm{H}_2 + h\nu \rightarrow \mathrm{H}+\mathrm{H}$) ou ioniser des espèces ayant un PI inférieur à $13.6$ eV comme le carbone. A mesure que l'on s'enfonce dans le nuage et que l'on s'éloigne de l'étoile, les photons UV sont progressivement absorbés par les poussières (ou grains) et le gaz comme $\mathrm{H}_2$ ou $\mathrm{C}$.
-Le gaz est principalement sous forme atomique ($\mathrm{H}$) et on nomme cette région la zone atomique. Il vient une profondeur dans le nuage où le flux de photon UV capable de dissocier les molécules $\mathrm{H}_2$ est totalement absorbé permettant au gaz de devenir moléculaire ($\mathrm{H}_2$). La présence de $\mathrm{H}_2$ amorce une chimie chaude qui initie la formation et l'excitation de molécules comme $\mathrm{CO}$ dont on observe les raies d'émissions \cite{COJoblin}. On utilise les émissions de molécules comme des traceurs des processus physico-chimiques qui se déroule dans la PDR. La figure \ref{fig:intro:struct} schématise la structure d'une PDR. Ainsi, le flux UV des jeunes étoiles assurent la formation des espèces moléculaires au sein du nuage et l'excitation des raies observées. Pour interpréter les raies d'émissions, les astronomes utilisent des modèles PDR qui calculent le transfert radiatif à travers le nuage, la chimie et le bilan thermique. Les modèles permettent de comprendre la composition chimique des nuages et leurs températures qui sont déterminées à partir des processus de chauffage et de refroidissement. \newline 
+Le gaz est principalement sous forme atomique ($\mathrm{H}$) et on nomme cette région la zone atomique que l'on appelle aussi \og région \mathrm{HI} \fg{}. Il vient une profondeur dans le nuage où le flux de photon UV capable de dissocier les molécules $\mathrm{H}_2$ est totalement absorbé permettant au gaz de devenir moléculaire ($\mathrm{H}_2$). La présence de $\mathrm{H}_2$ amorce une chimie chaude qui initie la formation et l'excitation de molécules comme $\mathrm{CO}$ dont on observe les raies d'émissions \cite{COJoblin}. On utilise les émissions de molécules comme des traceurs des processus physico-chimiques qui se déroule dans la PDR. La figure \ref{fig:intro:struct} schématise la structure d'une PDR. Ainsi, le flux UV des jeunes étoiles assurent la formation des espèces moléculaires au sein du nuage et l'excitation des raies observées. Pour interpréter les raies d'émissions, les astronomes utilisent des modèles PDR qui calculent le transfert radiatif à travers le nuage, la chimie et le bilan thermique. Les modèles permettent de comprendre la composition chimique des nuages et leurs températures qui sont déterminées à partir des processus de chauffage et de refroidissement. \newline 
 
 \begin{figure}[!h]
     \centering
@@ -336,26 +386,30 @@ Au cours du stage, j'ai travaillé avec le code PDR. J'ai découvert que l'ajout
 
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+\setcounter{secnumdepth}{4}
 \clearpage
 \input{cl}
 \clearpage
 \input{H2}
 
+\setcounter{secnumdepth}{-1}
 \clearpage
-\section*{Conclusion}
+\part{Conclusion}
 
+Les observations ne cessent de faire des découvertes surprenantes qui remettent en question notre conception des PDR. Herschel a par exemple observé du $\mathrm{CO}$ excité dans des régions plus chaudes que celles calculées dans nos modèles ce qui nous pousse à revoir les processus thermiques qui interviennent au sein des PDR. La découverte de la bistabilité induite par le chlore en bord de région atomique est un phénomène nouveau. Bien que nous n'ayons pas de traceurs atomiques pouvant déceler l'existence d'une solution chaude, les changements de volumes et de températures du à l'instabilité peuvent avoir des conséquences dynamiques intéressantes qu'il faudra étudier (code Hydra \cite{Bron2018}). De plus, la mise en lumière d'une nouvelle voie de formation principale du $\mathrm{CO}$ par la molécule $\mathrm{OH}$ montre sur les diagrammes d'intensités des raies l'importance d'avoir un réseau chimique à jour en terme de physique. Par ailleurs, l'utilisation des nouveaux taux de destruction du $\mathrm{H}_2$ prouve que le chauffage par les réactions chimiques qui est généralement négligés dans les modèles de PDR est déterminant pour prédire des diagrammes d'intensités du $\mathrm{CO}$ en accord avec les observations. \newline 
 
-
+Par manque de temps, nous n'avons pas pu mesurer entièrement l'impact du calcul des nouveaux taux de collisions de $\mathrm{H}_2$. On a néanmoins décelé une nouvelle instabilité à la fin de la zone atomique du nuage qu'il faudra approfondir. La plupart des résultats obtenus feront l'objet d'une publication. Ces travaux ont montré que l'étude des processus thermiques au sein du nuage ouvrait de nombreuses de pistes pour la compréhension des PDR. Il serait également intéressant de revisiter le chauffage par les rayons cosmiques ou le refroidissement par le couplage gaz-grains que l'on estime trop simplement. 
 
 \clearpage
 \bibliographystyle{apalike}
 \bibliography{bib}
 
 \clearpage
+\setcounter{secnumdepth}{4}
 \input{appendices}
 
 
