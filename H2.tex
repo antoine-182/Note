@@ -342,7 +342,9 @@ L'augmentation de température est provoquée par le changement d'allure de la c
 
 On a vu dans les sections précédentes qu'une nouvelle chimie du $\mathrm{H}_2$ pouvait avoir un impact fort sur les profils de densité et de température du gaz. Nous cherchons maintenant à affiner la physique qui décrit le phénomène de chauffage par $\mathrm{H}_2$. Afin de calculer le taux de chauffage par desexcitation collisionnelle, le code PDR effectue le bilan des transitions collisionnelles des niveaux de $\mathrm{H}_2$. Il dépend directement des taux de collision $k_{ij}$ qui donnent la probabilité d'une transition de l'état $i$ à l'état $j$ par collision avec une espèce du gaz. On connaissait ces $k_{ij}$ seulement pour les états peu énergétiques du $\mathrm{H}_2$ ($J\leq15$ de l'état fondamentale). De récents calculs de chimie semi-classique ont permis d'estimer avec précision les taux de collisions jusqu'à des niveaux très énergétiques \cite{Bossion}. \newline 
 
-L'analyse des changements qu'entraîne le calcul du taux de chauffage avec les nouveaux taux de collisions est incomplète. Néanmoins, une étude rapide a montré que l'utilisation des nouveaux taux de collisions intensifiait le chauffage par $\mathrm{H}_2$. En effet la figure \ref{fig:H2:Bossion:Tba} montre la différence de température au bord atomique des PDR entre des modèles utilisant les nouveaux de collisions ou non. Il y a un chauffage nette des bords atomiques des nuages de $+100$ K. Par ailleurs, la différence marquée vers $n_\mathrm{H} \sim 10^4\,\mathrm{cm}^{-3}$ suggère l'existence d'une instabilité thermique due au chauffage par $\mathrm{H}_2$ mais celle-ci est déjà connue. En revanche la comparaison (figure \ref{fig:H2:Bossion:Tmax}) de la température maximale du gaz montre une différence importante pour les régions fortement illuminées. Le profil de température sur la figure \ref{fig:H2:Bossion:profilT} montre un pic raide ($+800$ K) accompagné d'une diminution de la densité de $\mathrm{H}_2$ peu avant la transition $\mathrm{H}/\mathrm{H}_2$ ($\mathrm{A}_\mathrm{v} \approx 0.7 \,\mathrm{mag}$). L'allure des taux de chauffage en fonction de la température au niveau du pic (figure \ref{fig:H2:Bossion:zer}) traduit l'existence d'une nouvelle instabilité dont l'origine nous est encore inconnue. \newline 
+
+Une étude rapide a montré que l'utilisation des nouveaux taux de collisions montrait que $H_2$ chauffait globalement les bords atomiques de $+100$K (figure \ref{fig:H2:Bossion:Tba}). On sait que $\mathrm{H}_2$ peut provoquer une instabilité thermique, dans différentes zones du nuage, mais pour des conditions physiques que que l'on ne connait pas. Le code PDR obtient des températures en bords atomique de nuage plus chaude pour les PDR denses et peu illuminées, avec les nouveaux taux de collisions ce qui suggère l'existence d'une instabilité thermique. En effet, le code PDR ne pouvant déterminer qu'une température d'équilibre, des PDR qui était anciennement à la température d'équilibre froide deviennent chaude provoquant un $\Delta T$ important. \newline 
+En revanche, la comparaison des températures maximales atteintes par les PDR peuvent montrer de nouvelles régions de l'espace des paramètres impactées par l'utilisation des nouveaux taux de collisions (figure \ref{fig:H2:Bossion:Tmax}). Les bords atomiques des PDR étant les zones les plus proche de la source de photons, elles sont généralement les plus chaudes à travers le nuage. La carte \ref{fig:H2:Bossion:Tmax} doit, à priori, englober la carte de température du bord atomique des PDR. Pourtant, ce n'est pas le cas dans certaines conditions physiques de PDR. 
 
 \begin{figure}[!h]
     \centering
@@ -360,23 +362,162 @@ L'analyse des changements qu'entraîne le calcul du taux de chauffage avec les n
     \caption{Carte de température comparant l'impact des nouveaux taux de collisions de $\mathrm{H}_2$ sur des modèles à densités constantes.}
 \end{figure}
 
+
+\subsubsection{Etude des courbes de chauffage et de refroidissement}
+
+
+En traçant les profils de densités d'un modèle ($n_\mathrm{H} = 10^{3.5}\,\mathrm{cm}^{-3},\chi = 10^{4.5}$) on constate une augmentation brutale de la température à la fin de la zone atomique vers $A_\mathrm{v}=0.7\,\mathrm{mag}$ (figure \ref{fig:H2:Bossion:profilT}) accompagné d'une diminution de la densité de $\mathrm{H}_2$. Les courbes de chauffage et de refroidissement (figure \ref{fig:H2:Bossion:zer}) à cet endroit du nuage montre qu'il existe une bistabilité thermique provoquée par un emballement de l'effet photoélectrique à partir de $T\geq800$K et du refroidissement par $\mathrm{H}_2$. Elle existait déjà sans les nouveaux taux de collisions et diminue même l'emballement de l'effet photoélectrique. Les figures \ref{fig:H2:Glover:cooling} et \ref{fig:H2:Bossion:cooling} montrent séparément les courbes de chauffage et de refroidissement pour les deux modèles utilisant ou non les nouveaux taux. De plus, elles pointent une ambiguïté dans les fichiers \textit{.res} sur le calcul des totaux notamment sur les termes de refroidissement. En effet, la somme des colonnes de refroidissement dépasse celle du total donnée par le code. Comme j'ai préféré me fier aux processus plutôt qu'au total, les courbes de total on était recalculée à partir des autres colonnes. Cela amène à la situation où l'on ne parvient pas toujours à retrouver la température prédite par le code avec celle donnée par l'intersection des courbes de chauffage et de refroidissement (figure \ref{fig:H2:Bossion:cooling}). Je n'ai pas eu le temps de chercher les raisons de cette différence. Deux autres points remarquables : à basse température ($T\geq 100$K) le refroidissement total devient négatif à cause des termes de refroidissement par les raies de $\mathrm{C}^+$ et de $\mathrm{O}$ mais aussi par le couplage gaz-grains qui devient chauffant ; la colonne \textit{refrec} qui est le refroidissement par recombinaison électroniques des ions est comptabilisé comme un terme négatif alors que les autres colonnes de refroidissement sont positives. \newline
+
+
 \begin{figure}[!h]
     \centering
     \begin{subfigure}[t]{0.49\textwidth} % "0.49" donne ici la largeur de l'image
-        \centering \includegraphics[trim = {0 0 0 0 },clip,width=1\textwidth]{figure/H2/pic/profilT.pdf}
+        \centering \includegraphics[trim = {0 0 0 0cm },clip,width=1\textwidth]{figure/H2/pic/profilT.pdf}
         \caption{Profils de densité et température}
         \label{fig:H2:Bossion:profilT}
     \end{subfigure}
     ~ 
     \begin{subfigure}[t]{0.49\textwidth}
         \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/pic/GCcomp_h_6p9em01.pdf}
-        \caption{Taux de chauffage total}
+        \caption{Courbes de chauffages à $A_\mathrm{v}=0.7\,\mathrm{mag}$}
          \label{fig:H2:Bossion:zer}
     \end{subfigure}
-    \caption{Profils de densité de $\mathrm{H}$ et $\mathrm{H}_2$ et température d'un modèle à densité constante ($n_\mathrm{H} = 10^{5.5}\,\mathrm{cm}^{-3}$ et $\chi = 10^4$).}
+    \caption{Modèle à densité constante ($n_\mathrm{H} = 10^{3.5}\,\mathrm{cm}^{-3}$ et $\chi = 10^4$).}
+    \begin{minipage}{\textwidth}
+    Sur (b), les courbes de chauffage total sont représentées en trait plein rouge et orange. Les traits noirs sont les courbes de refroidissement total qui est principalement assuré par les émissions de $\mathrm{C}^+$ et de $\mathrm{O}$, le couplage gaz-grains et le refroidissement par les émissions ro-vibrationnelle du $\mathrm{H}_2$ particulièrement actif entre $T\sim10^3-10^4$K.
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth} % "0.49" donne ici la largeur de l'image
+        \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/pic/glover_cooling.png}
+        \caption{Sans les nouveaux taux}
+        \label{fig:H2:Glover:cooling}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering \includegraphics[trim = {0 0 0 1cm },clip,width=1\textwidth]{figure/H2/pic/bossion_cooling.png}
+        \caption{Avec les nouveaux taux}
+         \label{fig:H2:Bossion:cooling}
+    \end{subfigure}
+    \caption{Courbes de chauffage et de refroidissement à $A_\mathrm{v}=0.7\,\mathrm{mag}$}
+    \begin{minipage}{\textwidth}
+    Les traits verticaux représentent la température d'équilibre trouvé par le code PDR. Les marqueurs (cercle plein et croix vertical) sont calculées comme les intersections des courbes de chauffage et de refroidissement. La température d'équilibre choisie par le code est indiqué par le cercle plein tandis que les autres solutions trouvées sont indiquée par une croix vertical.
+    \end{minipage}
 \end{figure}
 
 
+\subsection{Amplification de l'effet photoélectrique par le carbone}
+
+J'ai analysé la chimie du nuage à $A_\mathrm{v} = 0.7\,\mathrm{mag}$ et compris que l'amplification de l'effet photoélectrique fonctionnait selon un mécanisme similaire à celui induit par le chlore. Ici l'atome de chlore est remplacé par l'atome de carbone et la recombinaison des ions chlore par transfert de charge par la formation par $\mathrm{H}_2$ suivie de la dissociation radiative de la molécule $\mathrm{CH}^+$. Un schéma, certes peu ragoûtant mais somme toute explicatif, résume le mécanisme de chauffage (figure \ref{fig:H2:meca:C}). Le carbone ayant un potentiel de ionisation de $11.3\,\mathrm{eV}$ il peut être photoionisé. La présence d'une grande quantité de $\mathrm{H}_2$ excité à cette position du nuage permet la formation du $\mathrm{CH}^+$ qui se dissocie radiativement formant un ion $\mathrm{H}^+$ et un atome $\mathrm{C}$ qui peut de nouveau être photoioniser. Comme pour le chlore, ce mécanisme permet de former efficacement une grande quantité d'électrons qui emballe l'effet photoélectrique sur les grains. J'ai identifié les réactions principales en jeu et construit un modèle permettant de retrouver l'augmentation de la fraction électronique à haute température.
+
+\begin{figure}[!h]
+    \centering \includegraphics[trim = {0 0 0 1cm},clip,width=0.6\textwidth]{figure/H2/pic/scheme_pic.png}
+    \caption{Mécanisme de l'instabilité induit par le carbone}
+    \label{fig:H2:meca:C}
+\end{figure}
+
+
+\subsubsection{ion hydrogène}
+
+Les réactions efficaces qui concernent les ions hydrogènes dans cette région du nuage sont : 
+
+\begin{equation}\label{eq:sysH}
+    \begin{array}{lllllllr}
+        \mathrm{D}^+ & + &\mathrm{H}   & \rightleftharpoons &\mathrm{D}  & + & \mathrm{H}^+ &   \\
+        \mathrm{O}^+ & + &\mathrm{H}   & \rightleftharpoons &\mathrm{O}  & + & \mathrm{H}^+ &   \\
+        \mathrm{H}^+  & + & \mathrm{e}^-  & \rightarrow &\mathrm{H}   &   &  &  \\
+        \mathrm{H}^+  & + & \mathrm{grains}  & \rightarrow &\mathrm{H}   &   &  &  \\
+        \mathrm{CH}^+ & + & h\nu   & \rightarrow &\mathrm{C}  & + & \mathrm{H}^+ &  \\
+    \end{array}
+\end{equation}
+
+On ne prend pas en compte les réactions impliquant $\mathrm{D}$ et $\mathrm{O}$ car elles forment autant de $\mathrm{H}^+$ qu'elles détruisent. On néglige dans un premier temps la recombinaison de $\mathrm{H}^+$ sur les grains qui ne modifie que très peu le profil de densité de l'ion en fonction de la température. Il reste :
+
+\begin{equation}
+    \begin{array}{lllllllr}
+        \mathrm{CH}^+ & + & h\nu   & \rightarrow &\mathrm{C}  & + & \mathrm{H}^+ & (\mathcal{P}_{ch}) \\
+        \mathrm{Cl}  & + & \mathrm{H}^+  & \rightarrow & \mathrm{Cl}^+ & + &\mathrm{H}  & (\mathcal{B}_h) \\
+    \end{array}
+\end{equation}
+avec $\mathcal{P}_{ch}$ en $\mathrm{s}^{-1}$ et $\mathcal{B}_h$ en $\mathrm{cm}^{-3}\mathrm{s}^{-1}$ les coefficients de réactions.
+
+Le bilan de formation donne : 
+
+\begin{equation}
+    \frac{d}{dt}n(\mathrm{H}^+) = \mathcal{P}_{ch}n(\mathrm{CH}^+) - \mathcal{B}_{h}n(\mathrm{H}^+)n(e^-)
+\end{equation}
+
+ce qui donne en considérant que $n(e^-)\approx n(\mathrm{H}^+)$ : 
+
+\begin{equation}
+\boxed{
+    n(\mathrm{H}^+) = \sqrt{\frac{\mathcal{P}_{ch}}{\mathcal{B}_h}n(\mathrm{CH}^+)}
+    }
+\end{equation}
+
+\subsubsection{molécule $\mathrm{CH}^+$}
+
+De même les réactions impliquant la molécule $\mathrm{CH}^+$ sont :
+
+\begin{equation}\label{eq:sysH}
+    \begin{array}{lllllllr}
+        \mathrm{C}^+ & + &\mathrm{H}_2   & \rightleftharpoons &\mathrm{CH}^+  & + & \mathrm{H} &   \\
+        \mathrm{CH}^+  & + & \mathrm{e}^-  & \rightarrow &\mathrm{H}   & +  & \mathrm{C} &  \\
+        \mathrm{CH}^+  & + & h\nu  & \rightarrow &\mathrm{C}^+   & +  & \mathrm{H} &  \\
+    \end{array}
+\end{equation}
+
+On négligera seulement la recombinaison dissociation. On pose deux nouveaux coefficients de réactions $k_1$ et $k_2$ en $\mathrm{cm}^{-3}\mathrm{s}^{-1}$.
+
+\begin{equation}
+    \begin{array}{lllllllr}
+    \mathrm{C}^+ & + & \mathrm{H}_2   & \rightarrow &\mathrm{CH}^+  & + & \mathrm{H} & (k_1) \\
+    \mathrm{CH}^+ & + & \mathrm{H}   & \rightarrow &\mathrm{C}^+  & + & \mathrm{H}_2 & (k_2) \\
+        \mathrm{CH}^+ & + & h\nu   & \rightarrow &\mathrm{C}  & + & \mathrm{H}^+ & (\mathcal{P}_{ch}) \\
+    \end{array}
+\end{equation}
+
+Le bilan de formation du $\mathrm{CH}^+$ donne 
+
+\begin{equation}
+    \frac{d}{dt}n(\mathrm{CH}^+) = k_1 n(\mathrm{C}^+)n(\mathrm{H}_2) - k_2n(\mathrm{CH}^+)n(\mathrm{H}) -\mathcal{P}_{ch}n(\mathrm{CH}^+) 
+\end{equation}
+
+Même à $A_\mathrm{V} = 0.7 \,\mathrm{mag}$, l'hydrogène reste principalement atomique (voir figure \ref{fig:H2:Bossion:profilT}) et on a $n_\mathrm{H}\approx n(\mathrm{H})$. Il est également correct de poser $n(\mathrm{C}^+)\approx \delta_C n_\mathrm{H}$ dans la mesure où le carbone est principalement atomique. On obtient alors :
+
+\begin{equation}
+\boxed{
+    n(\mathrm{CH}^+) = \frac{k_1\delta_Cn_\mathrm{H}}{\mathcal{P}_{ch} + k_2n_\mathrm{H}} n(\mathrm{H}_2)
+    }
+\end{equation}
+
+Il faudrait maintenant chercher à estimer la densité de $\mathrm{H}_2$ en fonction de la température à cette position du nuage. 
+
+\subsubsection{molécule $\mathrm{H}_2$}
+
+Les réactions les plus efficaces sont  
+
+\begin{equation}\label{eq:sysH}
+    \begin{array}{lllllllr}
+        \mathrm{H}    & + &\mathrm{H}::   & \rightarrow &\mathrm{H}_2  & & &   \\
+        \mathrm{H}_2  & + & h\nu  & \rightarrow &\mathrm{H}   & +  & \mathrm{H} &  \\
+        \mathrm{H}_2  & + & \mathrm{C}^+  & \rightarrow &\mathrm{H}   & +  & \mathrm{CH}^+ &  \\
+    \end{array}
+\end{equation}
+
+Il est néanmoins difficile d'estimer le taux de formation de $\mathrm{H}_2$ sur les grains. En prenant les formules proposées dans \cite{Rollig2005} que j'ai fitté avec les taux de réactions données par le code, je n'ai pas pu obtenir des taux de formation et de destruction du $\mathrm{H}_2$ satisfaisant. J'ai donc choisi de ne pas chercher à estimer par la densité du $\mathrm{H}_2$ et ai pris celle donnée par le \textit{.res} pour le besoin de la démonstration.
+
+\subsubsection{thermique}
+
+Nous sommes maintenant en mesure d'estimer la densité d'électrons en fonction de la température. Le modèle que nous avons construit retrouve l'emballement de l'effet photoélectrique à partir de $T\geq 800$K ce qui prouve que nous avons compris le mécanisme de chauffage. On a calculé le refroidissement par les émissions de $\mathrm{H}_2$ (pointillé bleue) à partir d'une expression analytique (\cite{Rollig2005}, équation C.1) qui ne prend pas en compte que les états vibrationnelles. Or les émissions depuis les états rotationnels sont très efficaces pour refroidir le gaz c'est pourquoi on ne parvient pas à retrouver le refroidissement calculé par le code. 
+
+\begin{figure}[!h]
+    \centering \includegraphics[trim = {0 0 0 0cm},clip,width=0.6\textwidth]{figure/H2/pic/model.png}
+    \caption{Comparaison du modèle chimique avec le code PDR}
+    \label{fig:H2:meca:chim}
+\end{figure}
 
 
 % \subsubsection{Raies du $\mathrm{CO}$ et $\mathrm{H}_2$ - Janev/Glover}

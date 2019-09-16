@@ -39,6 +39,33 @@ Le chlore est une espèce souvent négligée dans les réseaux d'astrochimie en 
     \label{tab:gaz}
 \end{table}{}
 
+% \begin{table}[!h]
+%     \centering
+%     \begin{tabular}{|l|c|c|}
+%     \hline
+%      X & $n(\mathrm{X})/n(\mathrm{H})$ & $\mathrm{PI}\ (\mathrm{eV})$   \\
+%      \hline
+%      H    &  $1$          &     13.6   \\
+%      He   &  $0.1$        &    24.6      \\
+%      O    &  $3.2\,10^{-4}$ &    13.6    \\
+%      C    &  $1.3\,10^{-4}$ &    11.3    \\
+%      Ne   &  $6.9\,10^{-5}$ &    21.6    \\
+%      N    &  $4.5\,10^{-5}$ &    14.5    \\
+%      S    &  $1.9\,10^{-5}$ &    10.4    \\
+%      Ar   &  $3.3\,10^{-6}$ &    15.8    \\
+%      Si   &  $8.2\,10^{-7}$ &    8.2    \\
+%      \color{red}Cl  &  \color{red}$1.8\,10^{-7}$ &    \color{red}13    \\
+%      F    &  $1.8\,10^{-8}$ &    17.4    \\
+%      Fe   &  $1.5\,10^{-8}$ &    7.9    \\
+%      \hline
+%     \end{tabular}
+%     \caption{Abondances élémentaires dans le gaz}
+%     \begin{minipage}{\textwidth}
+%     Abondances élémentaires des principaux éléments dans le gaz interstellaire (nombre d'atomes par rapport à H) et potentiel d'ionisation des espèces. Pour rappel, le potentiel d'ionisation de l'hydrogène étant de 13.6 eV, toutes les espèces ayant un PI plus grand sont neutres dans le gaz interstellaire neutre. 
+%     \end{minipage}
+%     \label{tab:gaz}
+% \end{table}{}
+
 % \begin{figure}[!htbp]
 %     \centering
 %     \begin{subfigure}[t]{0.49\textwidth} % "0.49" donne ici la largeur de l'image
@@ -333,6 +360,12 @@ On note $\Gamma$ et $\Lambda$ les taux de chauffage et de refroidissement total.
     \end{split}
 \end{equation}
 
+\begin{equation}
+    \begin{split}
+        \Gamma = \Gamma_{pe}^{\mathrm{net}} + \Gamma_{\mathrm{H}_2} 
+        \Lambda &=   \Lambda_{\mathrm{CII}\ 158 \mu \mathrm{m}} + \Lambda_{\mathrm{OI}\ 63 \mu \mathrm{m}} + \Lambda_{\mathrm{OI}\ 146 \mu \mathrm{m}}  \\ &+ \Lambda_{\mathrm{g}-\mathrm{g}} + \Lambda_{\mathrm{H}_\alpha}
+    \end{split}
+\end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Chauffage net par effet photoélectrique sur les grains}
@@ -349,12 +382,13 @@ Quand un photon qui a suffisamment d'énergie est absorbé par un grain, un éle
     \label{eq:Rollig:rece}
 \end{equation}
 
-avec $G_0 = 1.71\chi$.
-% (\cite{Wolfire_2003} Eq 20, \cite{BakesTielens1994}) propose une autre formule prenant en compte les PAH qui est de la forme 
+avec $G_0 = 1.71\chi$. \newline
+
+% Néanmoins, la formule précédente ne prend pas en compte les PAH qui sont efficace pour chauffer le gaz. Nous avons comparé une autre expressions de $ \Gamma_{\mathrm{pe}}$ (\cite{Wolfire_2003} Eq 20, \cite{BakesTielens1994}) qui est de la forme
 % \begin{equation}
 %     \Gamma_{\mathrm{pe}}^{\mathrm{Wolf}} = 10^{-24}\,G_0\,n_\mathrm{H}\, \bbig[ \frac{4.9\times 10^{-2}}{1 + 4\times 10^{-3}\, \frac{G_0 \sqrt{T}}{n_e \phi_\mathrm{PAH}}} + \frac{3.7\times 10^{-2} (T/10^4)^{0.7}}{1 + 2\times 10^{-4}\, \frac{G_0 \sqrt{T}}{n_e \phi_\mathrm{PAH}}} \bbig]\qquad  \operatorname{erg} \mathrm{cm}^{-3} \mathrm{s}^{-1}
 % \end{equation}
-% avec $\phi_\mathrm{PAH}$ une efficacité de collision compris entre 0 et 1. L'effet photoélectrique est d'autant plus efficace sur les petits grains \cite{DraineBook}. Le choix de $r_\mathrm{min}$ (la taille minimale des grains dans la description MRN) est décisif. Si l'on trace ces formules sur la \autoref{fig:Cl:pePAH} pour différent $\phi_\mathrm{PAH}$ et $r_\mathrm{min}$ on voit que la formule de \cite{Rollig2005} sous-estime le taux calculé par le code PDR de Meudon. Avec $r_\mathrm{min} = 1\,10^7\,\mathrm{nm}$, la prescription de Rollig est 3 fois plus petit que le chauffage calculé par Meudon. Si l'on augmente la taille de grain minimale, on voit que cette écart diminue ce qui est cohérent car on enlève des petits grains. La prescription de \cite{Wolfire_2003} laisse plus de liberté à travers le $\phi_\mathrm{PAH}$ (à mieux dire).
+% avec $\phi_\mathrm{PAH}$ un paramètre représentant l'efficacité des collisions ($0<\phi_\mathrm{PAH}<1$). Sur la figure \ref{fig:Cl:pePAH} sont comparés les deux expressions de $ \Gamma_{\mathrm{pe}}$ avec le calcul du code PDR ne prenant pas en compte les PAH. du code:  paramètres du code PDR $r_\mathrm{min} = 10^7\,\mathrm{nm}$. 
 % \begin{figure}[!h]
 %     \centering
 %     \begin{subfigure}[t]{0.49\textwidth} % "0.49" donne ici la largeur de l'image
@@ -369,29 +403,13 @@ avec $G_0 = 1.71\chi$.
 %     \caption{Comparaison des formules de l'effet photoélectrique de \cite{Rollig2005} et \cite{Wolfire_2003} avec le code PDR pour différents $r_\mathrm{min}$}
 %     \label{fig:Cl:pePAH}
 % \end{figure}
-%
+
 % Il existe également celle ci \cite{WolfireHollenbachMcKeeTielensBakes_1995} Eq. 9 que l'on n'utilise pas.
 
 % \begin{equation}
 %     \Lambda_{\mathrm{rec}}^{\mathrm{Wolfire}} = 4.65\,10^{-30} T^{0.94} \, (\frac{G_0 \sqrt{T}}{n_e})^{\frac{0.74}{T^{0.068}}} \, n_e \, n_\mathrm{H} \qquad \operatorname{erg} \mathrm{cm}^{-3} \mathrm{s}^{-1}
 % \end{equation}
 
-
-% \cite{Rollig2005} (Eq (10) ou (C.3)) qui provient de \cite{BakesTielens1994}, sans PAH, on utilise : 
-
-% \begin{equation}
-%     \Gamma_{\mathrm{pe}} = 10^{-24}\,G_0\,n_\mathrm{H}\, \frac{2\times 10^{-2}}{1 + 2\times 10^{-4}\,G_0 \sqrt{T}/n_e} \qquad \operatorname{erg} \mathrm{cm}^{-3} \mathrm{s}^{-1}
-%     \label{eq:Rollig:pe}
-% \end{equation}
-
-% Avec $G_0 = 1.71\chi \times 0.5$ car il considère une illumination provenant que d'un coté. 
-
-% Dans le modèle de chlore, on prend celle de \cite{Rollig2005} Eq.4  qui provient elle même de \cite{BakesTielens1994}.
-
-% \begin{equation}
-%     \Lambda_{\mathrm{rec}} = 3.49\,10^{-30} T^{0.944} \, (\frac{G_0 \sqrt{T}}{n_e})^{\frac{0.735}{T^{0.068}}} \, n_e \, n_\mathrm{H} \qquad \operatorname{erg} \mathrm{cm}^{-3} \mathrm{s}^{-1}
-%     \label{eq:Rollig:rece}
-% \end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Refroidissement par les raies d'émissions du gaz}
@@ -468,6 +486,9 @@ Il est prévisible que la formule de Rollig (eq.\ref{eq:Rollig:pe}) diffère de 
     \caption{Courbes de chauffage et refroidissement au bord atomique d'un modèle à densité constante ($n_\mathrm{H} = 10^{4.5} \,\mathrm{cm}^{-3}$ et $\chi = 10^4$). Le trait en pointillé rouge et vert représente l'effet photoélectrique pour le modèle comportant ou non du chlore.  Le trait plein est le chauffage total. L'écart entre le trait plein et pointillé est dû au chauffage par $\mathrm{H}_2$ qui est mineur ici. Les courbes de refroidissements sont en bleues et quasi-identiques selon qu'il y ait du chlore ou non. La courbe en trait noir est le terme de chauffage du modèle, c'est à dire l'effet photoélectrique sur les grains, calculé par la formule de Rollig. La courbe de refroidissement du modèle est en trait fin noir.}
     
 \end{figure}
+
+
+
 
 \subsection{Prédiction de la température au bord de nuage}
  
