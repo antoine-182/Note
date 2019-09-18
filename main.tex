@@ -394,6 +394,99 @@ Au cours du stage, j'ai travaillé avec le code PDR. J'ai découvert que l'ajout
 \clearpage
 \input{H2}
 
+
+\clearpage
+\section{Explication du code python}
+J'ai écris pendant mon stage des scripts python pour manipuler le code PDR ainsi que pour traiter les données de sorties. De manière générale, tout est rangé dans le dossier \texttt{./Result\_test} d'où je travaillais. Certaines fonctions faisaient appels à des parties du code PDR comme l'extracteur ou les fichiers des raies des traceurs. J'utilisais pour ma part cette version du code :\texttt{./PDR155stag\_SVN} qui était rangée au même niveau que \texttt{./Result\_test}. J'expose ici l'arborescence de mes fichiers. 
+
+\subsection{Result\_Test/}
+
+\textit{repository des .in : pdrin} 
+
+\textit{repository des scripts : analysePDR} \newline 
+
+
+C'est le dossier contenant les \textit{.txt} des modèles ainsi que les scripts d'analyse. \newline 
+
+Les dossiers commençant par \texttt{OrbarJ18\_BestMod\_*}, \texttt{PDR155\_*} et \texttt{Neufire\_*} (contraction astucieuse de Neufeld \& Wolfire) sont des modèles PDR résolus par le code. Ces dossiers comportent un dossier \texttt{brupt/} qui renferment des fichiers HDF5, \textit{.bin}, \textit{.stats} voire des \textit{.res} ; un dossier \texttt{data/} qui contient les extractions des HDF5 (via l'extraceteur) ; et un dossier \texttt{figure/} qui contient les graphiques construits à partir des données de ces modèles (certains comparent plusieurs modèles à la fois et sont forcément rangés dans l'un des dossiers des modèles). \newline 
+
+En construisant mes graphiques, j'essayais de former des fonctions génériques qui permettent de lire les fichiers, classer les tableaux et afficher des plots. Elles sont regroupées dans \texttt{plot\_hdf5.py}, \texttt{plot\_res.py} et \texttt{plotI.py}. Certaines fonctions sont devenues obsolètes. \newline
+
+Le dossier \texttt{traceurs/} renferme un script qui compare les raies des traceurs qui sont rangées dans les fichiers \textit{.stats}. Ce script compare les \textit{.stats} de deux modèles puis écrit un tableau qui classe les rapports d'intensités des raies. En prenant le $\log_{10}$ du rapport des intensité, on obtient un score. Les rapports de raies les plus positifs et les plus négatifs sont les plus différentes entre les deux modèles . On peut ainsi comparer deux modèles PDR mais aussi que deux couples deux à deux. \newline 
+
+Les scripts \texttt{soutenance.py} et \texttt{ED127.py} contiennent des fonctions que j'ai spécialement adaptée pour construire les graphes de l'oral de l'ED127 et de ma soutenance de master. \newline
+
+Je vais maintenant présenter les scripts d'analyse qui sont simplement des appels à mes fonctions qui sont rangés dans \texttt{plot\_hdf5.py}, \texttt{plot\_res.py} et \texttt{plotI.py}. Historiquement, je travaillais au début du stage avec les modèles PDR du type \texttt{OrbarJ18\_BestMod\_*}, \texttt{PDR155\_*} et \texttt{Neufire\_*}. Je faisais appel à mes fonctions depuis un terminal et presque aucune trace était gardée. Puis lorsque j'ai commencé à utiliser les grilles de modèles, j'ai créé des "scripts d'analyse" qui rassemble les appels. Les modèles que j'utilisais étaient des modèles PDR de la grille et ils étaient rangés dans un des dossiers de \texttt{.Result\_test/GridSingle/}.
+
+De plus, pour faire appel à mes modèles dans mes scripts j'utilise des objets qui renferme les noms complets de mes objets. Ils sont regroupés \texttt{config.py}. Ainsi, \textit{compareCl} est un groupe de modèles PDR utilisé pour étudier l'impact du chlore. Il comporte des attributs faisant référence aux noms ("Cl155\_n\_d5p0r4p5") ainsi qu'à son fichier \textit{.res}. Je garde toujours la structure \texttt{/brupt}, \texttt{/data} et \texttt{/figure} pour un modèle. Voici une description des scripts d'analyse :
+\begin{itemize}
+    \item \texttt{analysis46} compare l'impact du nouveau calcul des taux de réaction qui prend en compte l'énergie interne de $\mathrm{H}_2$, sur les raies des traceurs. On s'intéresse surtout au CO. Il ne faut pas oublier le png qui rassemble tous les réseaux de formations des molécules que j'ai pu étudier (\texttt{type46.png}).
+    \item \texttt{analysisBosseChem} étudie l'augmentation locale de température au niveau de la transition $\mathrm{H}/\mathrm{H}_2$ au passage de la prescription de Janev à celle de Glover. Les diagrammes d'intensités de $\mathrm{H}_2$ et de $\mathrm{CO}$ et les courbes de chauffage et de refroidissement au niveau de la bosse sont tracés. Les profils de densités $\mathrm{H}$, $\mathrm{H}_2$ ainsi que $\mathrm{C}^+$, $\mathrm{C}$ et $\mathrm{CO}$ sont créés. Certains graphes ont été reproduit pour un modèle isobare type barre d'Orion. J'en ai également profité pour voir l'impact de Glover sur le chauffage au bord du nuage.
+    \item \texttt{analysisCl} trace les diagrammes d'intensités de raies de nombreux traceurs (moléculaires ou atomiques) ainsi que des courbes de chauffage et de refroidissement pour quelques modèles de la grille. Je compare également les courbes de chauffage et de refroidissement avec celles du modèle analytique du chlore (\texttt{modelCl}).
+    \item \texttt{modelCl} copie simple du modèle analytique du chlore que j'utilise pour les graphes de \texttt{analysisCl}. 
+    \item \texttt{analysisGradT} : début de recherche de l'instabilité par $\mathrm{H}_2$ dans les bords atomiques des régions peu illuminées. 
+    \item \texttt{analysispicT} étudie l'emballement de l'effet photoélectrique à la fin de la zone atomique pour des PDR fortement illuminées. Je compare dans un premier temps les courbes de chauffage et de refroidissement en la zone du nuage. Puis j'observe les profils de densités en fonction de la températures pour les deux mêmes modèles. 
+    \item \texttt{modelC} est un premier modèle chimique expliquant l'emballement de l'effet photoéléctrique de \texttt{analysispicT}.
+    \item \texttt{analysisSaddle} construit simplement un graphique pour essayer de comprendre pourquoi y a t-il un point selle sur les cartes de température des bords atomique des nuages.
+    \item \texttt{analysisRes} décortique le \textit{.res}. Il reste assez brouillon. Il a surtout servi à construire la fonction \texttt{sort\_res} de \texttt{plot\_res.py} qui refait les totaux des colonnes du \textit{.res}.
+\end{itemize}
+
+Ne prenez pas en compte les fichiers \textit{.xxx.py}. 
+
+\subsection{Grille de modèles}
+
+\textit{repository sur gitlab : grilles} \newline
+
+J'ai construit des grilles de modèles PDR que j'ai fait résoudre par différentes versions du code. Leurs noms signifient :
+\begin{itemize}
+    \item \texttt{noCl155\_n} : modèles à densité constante résolus par la version \uncinq du code PDR (+ prescription de Janev). 
+    \item \texttt{noCl155\_P} : modèles à pression constante résolus par la version \uncinq du code PDR (+ prescription de Janev). Pas réellement utilisé.
+    \item \texttt{Cl155\_n} : modèles à densité constante résolus par la version \uncinq du code PDR (+ prescription de Janev).  Ces modèles contiennent du chlore dans leurs réseaux chimiques.
+    \item \texttt{Cl155\_P} : modèles à pression constante résolus par la version \uncinq du code PDR (+ prescription de Janev). Pas réellement utilisé. Ces modèles contiennent du chlore dans leurs réseaux chimiques.
+    \item \texttt{H2\_n\_1p7\_nobossion} modèles à densités constantes résolus par la version \unsept du code PDR (+ prescription de Glover).
+    \item \texttt{H2\_P\_1p7\_nobossion} modèles à pression constantes résolus par la version \unsept du code PDR (+ prescription de Glover). Pas réellement utilisé.
+    \item \texttt{H2\_n\_1p7\_bossion} modèles à densités constantes résolus par la version \unsept du code PDR (+ prescription de Glover). Ces modèles utilisent les nouveaux taux de collisions du $\mathrm{H}_2$ calculé par Bossion.
+    \item \texttt{H2\_P\_1p7\_bossion} modèles à pression constantes résolus par la version \unsept du code PDR (+ prescription de Glover). Pas réellement utilisé. Ces modèles utilisent les nouveaux taux de collisions du $\mathrm{H}_2$ calculé par Bossion.
+\end{itemize}
+
+Une grille comporte quatre dossiers ainsi qu'une méta. Elles sont rangés dans ma session sur tycho chez \texttt{/data/Grid}. Il y a 
+\begin{itemize}
+    \item le dossier du code qui est utilisé ;
+    \item \texttt{/grid\_nodes} qui contient tous les \textit{.in} des modèles ;
+    \item \texttt{/data} qui contient les \textit{.txt} qui sont extraits des HDF5 résultant des calculs ;
+    \item et \texttt{/processed} contient les fichiers \textit{.txt} donnant sous forme d'un tableau rangé par ligne des grandeurs comme la température au bord ou l'intensité d'une raie. 
+\end{itemize}
+
+Pour créer les cartes à partir de ces fichiers, je fais appel à mes scripts rangé dans \texttt{Result\_test/Grid/}. Les dossiers de mes grilles contiennent un dossier pour ranger les figures (\texttt{/figure}) et un dossier pour ranger les données (\texttt{/processed}).
+\begin{itemize}
+    \item \texttt{plotT.py} construit à partir des tableaux, les cartes de températures, de chauffage maximal etc... 
+    \item \texttt{plotI.py} construit les cartes d'intensités des raies. 
+    \item \texttt{run.py} rassemble les appels des fonctions. 
+\end{itemize}
+
+\subsection{Modèle analytique du chlore}
+
+\textit{repository sur gitlab : modelCl} \newline
+
+Ce modèle est construit indépendamment du reste (\texttt{.Result\_test/ModelCl}). Il ne fait pas appel aux fonctions regroupées dans \texttt{plot\_hdf5.py}, \texttt{plot\_res.py} et \texttt{plotI.py} bien que quelles unes y soient copiées. Le coeur du modèle est écrit dans \texttt{chth.py} qui contient les calculs des coefficients de réactions, des densités et du bilan thermique. A côté, \texttt{testchem.py} est juste un bac à sable qui sert à comparer les taux de réactions utilisés dans le modèle avec ceux du code PDR. \newline
+
+Les scripts \texttt{exploration\_T.py} et \texttt{exporation\_e.py} contiennent les fonctions qui construisent les maps de densités d'électrons et de températures et testent la robustesse du modèle. \texttt{config.py} est gère plusieurs paramètres du modèles comme la prise en compte des PAH, de la recombinaison du $\mathrm{H}^+$ sur les grains ou certains processus thermiques. D'autres fonctions y sont rangées pour manipuler les fichiers de données rangés dans \texttt{/data/}. Ils étaient là pour comparer le modèle analytique au code PDR. \newline
+
+Le fichier \texttt{run.py} contient tous les appels des fonctions de calculs qui sont rangées dans \texttt{exploration\_T.py} et \texttt{exporation\_e.py}. On trouve en fin de script des appels à des fonctions permettant de ploter des diagrammes d'états (P,n) ou (T,P) mais cela n'a finalement pas été exploité.\newline
+
+Enfin, l'ensemble des références utilisées par le modèle analytique sont rangées dans \texttt{/bib/}.
+
+\subsection{Modèle du chauffage par $\mathrm{H}_2$}
+
+\textit{repository sur gitlab : modelH2} \newline
+
+
+C'est un début d'étude menée sur le chauffage par pompage UV par la molécule $\mathrm{H}_2$. Il est rangé strictement de la même manière que le modèle analytique du chlore. \newline 
+
+On y compare le code PDR à des formules tirées de \cite{Rollig2005} et \cite{BialySternberg_2019}. Les expressions analytiques représentaient mal le chauffage lorsque l'on quitte la zone atomique du nuage. On avait commencé à étudier l'impact du calcul du transfert de rayonnement sur les profils de chauffage. Un fichier readme rassemble les formules que l'on a utilisées.
+
+
+
 \setcounter{secnumdepth}{-1}
 \clearpage
 \part{Conclusion}
